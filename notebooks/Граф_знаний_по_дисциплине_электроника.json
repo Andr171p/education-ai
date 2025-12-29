@@ -1,0 +1,5083 @@
+[
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "bipolartransistors",
+        "name": "Биполярные транзисторы",
+        "description": "Курс посвящён изучению биполярных транзисторов, их структуры, принципов работы и схем включения."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "transistorStructure",
+        "name": "Структура биполярного транзистора",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "transistorPrinciple",
+        "name": "Принцип действия транзистора",
+        "order": 2
+      },
+      {
+        "label": "РазделКурса",
+        "id": "transistorSchemes",
+        "name": "Схемы включения транзисторов",
+        "order": 3
+      },
+      {
+        "label": "Тема",
+        "id": "bipolarTransistorTopic",
+        "name": "Биполярный транзистор",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "currentsInTransistor",
+        "name": "Токи в транзисторе",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "transistorTypes",
+        "name": "Типы транзисторов",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Термин",
+        "id": "emitter",
+        "name": "Эмиттер",
+        "definition": "Часть транзистора, которая эмитирует или выбрасывает носители заряда."
+      },
+      {
+        "label": "Термин",
+        "id": "collector",
+        "name": "Коллектор",
+        "definition": "Часть транзистора, которая собирает носители заряда."
+      },
+      {
+        "label": "Термин",
+        "id": "base",
+        "name": "База",
+        "definition": "Основание транзистора, через которое проходит небольшой ток и которое управляет работой транзистора."
+      },
+      {
+        "label": "Термин",
+        "id": "pnTransition",
+        "name": "p-n переход",
+        "definition": "Граница между двумя областями полупроводника с разными типами проводимости."
+      },
+      {
+        "label": "Формула",
+        "id": "collectorConditionFormula",
+        "name": "Условие для коллекторного перехода",
+        "expression": "Ek > Ik * Rk"
+      },
+      {
+        "label": "Формула",
+        "id": "currentsEquation",
+        "name": "Уравнение токов в транзисторе",
+        "expression": "Ie = Ib + Ik"
+      },
+      {
+        "label": "Принцип",
+        "id": "transistorOperationPrinciple",
+        "name": "Принцип действия биполярного транзистора",
+        "description": "Основан на инжекции неосновных носителей заряда из эмиттера в базу и их диффузии к коллекторному переходу."
+      },
+      {
+        "label": "Компонент",
+        "id": "npnTransistor",
+        "name": "NPN транзистор",
+        "type": "биполярный транзистор"
+      },
+      {
+        "label": "Компонент",
+        "id": "pnpTransistor",
+        "name": "PNP транзистор",
+        "type": "биполярный транзистор"
+      }
+    ],
+    "relationships": [
+      "bipolartransistors|ВКЛЮЧАЕТ_РАЗДЕЛ|transistorStructure",
+      "bipolartransistors|ВКЛЮЧАЕТ_РАЗДЕЛ|transistorPrinciple",
+      "bipolartransistors|ВКЛЮЧАЕТ_РАЗДЕЛ|transistorSchemes",
+      "transistorStructure|РАССМАТРИВАЕТ_ТЕМУ|bipolarTransistorTopic",
+      "transistorPrinciple|РАССМАТРИВАЕТ_ТЕМУ|currentsInTransistor",
+      "transistorPrinciple|РАССМАТРИВАЕТ_ТЕМУ|transistorOperationPrinciple",
+      "transistorSchemes|РАССМАТРИВАЕТ_ТЕМУ|transistorTypes",
+      "bipolarTransistorTopic|СОДЕРЖИТ_ТЕРМИН|emitter",
+      "bipolarTransistorTopic|СОДЕРЖИТ_ТЕРМИН|collector",
+      "bipolarTransistorTopic|СОДЕРЖИТ_ТЕРМИН|base",
+      "bipolarTransistorTopic|СОДЕРЖИТ_ТЕРМИН|pnTransition",
+      "currentsInTransistor|ИСПОЛЬЗУЕТ_ФОРМУЛУ|collectorConditionFormula",
+      "currentsInTransistor|ИСПОЛЬЗУЕТ_ФОРМУЛУ|currentsEquation",
+      "currentsInTransistor|ОСНОВАНА_НА_ПРИНЦИПЕ|transistorOperationPrinciple",
+      "transistorOperationPrinciple|ОПИСЫВАЕТ_КОМПОНЕНТ|npnTransistor",
+      "transistorOperationPrinciple|ОПИСЫВАЕТ_КОМПОНЕНТ|pnpTransistor",
+      "emitter|СВЯЗАН_С|collector",
+      "emitter|СВЯЗАН_С|base",
+      "collector|СВЯЗАН_С|base",
+      "pnTransition|СВЯЗАН_С|emitter",
+      "pnTransition|СВЯЗАН_С|collector"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "bipolartransistors",
+        "name": "Биполярные транзисторы",
+        "description": "Курс посвящён изучению биполярных транзисторов, их характеристик, схем включения и режимов работы."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "transistorInclusionSchemes",
+        "name": "Схемы включения транзисторов",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "transistorOperatingModes",
+        "name": "Режимы работы биполярных транзисторов",
+        "order": 2
+      },
+      {
+        "label": "Тема",
+        "id": "commonBaseScheme",
+        "name": "Схема с общей базой (ОБ)",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "commonEmitterScheme",
+        "name": "Схема с общим эмиттером (ОЭ)",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "commonCollectorScheme",
+        "name": "Схема с общим коллектором (ОК)",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "activeMode",
+        "name": "Активный режим работы транзистора",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Термин",
+        "id": "inputResistance",
+        "name": "Входное сопротивление",
+        "definition": "Сопротивление транзистора со стороны входного сигнала."
+      },
+      {
+        "label": "Термин",
+        "id": "currentGain",
+        "name": "Коэффициент передачи по току",
+        "definition": "Отношение выходного тока к входному."
+      },
+      {
+        "label": "Термин",
+        "id": "voltageGain",
+        "name": "Коэффициент передачи по напряжению",
+        "definition": "Отношение выходного напряжения к входному."
+      },
+      {
+        "label": "Формула",
+        "id": "inputResistanceOB",
+        "name": "Формула входного сопротивления для схемы с ОБ",
+        "expression": "R_вхОБ = U_эб / I_э"
+      },
+      {
+        "label": "Формула",
+        "id": "currentGainOB",
+        "name": "Формула коэффициента передачи по току для схемы с ОБ",
+        "expression": "K_i = I_к / I_э = α ≤ 1"
+      },
+      {
+        "label": "Формула",
+        "id": "voltageGainOB",
+        "name": "Формула коэффициента передачи по напряжению для схемы с ОБ",
+        "expression": "K_u = U_кб / U_эб"
+      },
+      {
+        "label": "Формула",
+        "id": "inputResistanceOE",
+        "name": "Формула входного сопротивления для схемы с ОЭ",
+        "expression": "R_вхОЭ = U_бэ / I_б"
+      },
+      {
+        "label": "Формула",
+        "id": "currentGainOE",
+        "name": "Формула коэффициента передачи по току для схемы с ОЭ",
+        "expression": "K_i = I_к / I_б = β ≥ 100"
+      },
+      {
+        "label": "Формула",
+        "id": "voltageGainOE",
+        "name": "Формула коэффициента передачи по напряжению для схемы с ОЭ",
+        "expression": "K_u = U_кэ / U_бэ"
+      },
+      {
+        "label": "Формула",
+        "id": "inputResistanceOK",
+        "name": "Формула входного сопротивления для схемы с ОК",
+        "expression": "R_вхОК = U_бк / I_б"
+      },
+      {
+        "label": "Формула",
+        "id": "currentGainOK",
+        "name": "Формула коэффициента передачи по току для схемы с ОК",
+        "expression": "K_i = I_э / I_б = γ ≈ 100"
+      },
+      {
+        "label": "Формула",
+        "id": "voltageGainOK",
+        "name": "Формула коэффициента передачи по напряжению для схемы с ОК",
+        "expression": "K_u = U_эк / U_бк ≤ 1"
+      },
+      {
+        "label": "Компонент",
+        "id": "bipolarTransistor",
+        "name": "Биполярный транзистор",
+        "type": "транзистор"
+      }
+    ],
+    "relationships": [
+      "bipolartransistors|ВКЛЮЧАЕТ_РАЗДЕЛ|transistorInclusionSchemes",
+      "bipolartransistors|ВКЛЮЧАЕТ_РАЗДЕЛ|transistorOperatingModes",
+      "transistorInclusionSchemes|РАССМАТРИВАЕТ_ТЕМУ|commonBaseScheme",
+      "transistorInclusionSchemes|РАССМАТРИВАЕТ_ТЕМУ|commonEmitterScheme",
+      "transistorInclusionSchemes|РАССМАТРИВАЕТ_ТЕМУ|commonCollectorScheme",
+      "transistorOperatingModes|РАССМАТРИВАЕТ_ТЕМУ|activeMode",
+      "commonBaseScheme|СОДЕРЖИТ_ТЕРМИН|inputResistance",
+      "commonBaseScheme|СОДЕРЖИТ_ТЕРМИН|currentGain",
+      "commonBaseScheme|СОДЕРЖИТ_ТЕРМИН|voltageGain",
+      "commonBaseScheme|ИСПОЛЬЗУЕТ_ФОРМУЛУ|inputResistanceOB",
+      "commonBaseScheme|ИСПОЛЬЗУЕТ_ФОРМУЛУ|currentGainOB",
+      "commonBaseScheme|ИСПОЛЬЗУЕТ_ФОРМУЛУ|voltageGainOB",
+      "commonEmitterScheme|СОДЕРЖИТ_ТЕРМИН|inputResistance",
+      "commonEmitterScheme|СОДЕРЖИТ_ТЕРМИН|currentGain",
+      "commonEmitterScheme|СОДЕРЖИТ_ТЕРМИН|voltageGain",
+      "commonEmitterScheme|ИСПОЛЬЗУЕТ_ФОРМУЛУ|inputResistanceOE",
+      "commonEmitterScheme|ИСПОЛЬЗУЕТ_ФОРМУЛУ|currentGainOE",
+      "commonEmitterScheme|ИСПОЛЬЗУЕТ_ФОРМУЛУ|voltageGainOE",
+      "commonCollectorScheme|СОДЕРЖИТ_ТЕРМИН|inputResistance",
+      "commonCollectorScheme|СОДЕРЖИТ_ТЕРМИН|currentGain",
+      "commonCollectorScheme|СОДЕРЖИТ_ТЕРМИН|voltageGain",
+      "commonCollectorScheme|ИСПОЛЬЗУЕТ_ФОРМУЛУ|inputResistanceOK",
+      "commonCollectorScheme|ИСПОЛЬЗУЕТ_ФОРМУЛУ|currentGainOK",
+      "commonCollectorScheme|ИСПОЛЬЗУЕТ_ФОРМУЛУ|voltageGainOK",
+      "activeMode|ОСНОВАНА_НА_ПРИНЦИПЕ|усилительныеСвойстваТранзистора",
+      "inputResistance|СВЯЗАН_С|currentGain",
+      "inputResistance|СВЯЗАН_С|voltageGain",
+      "currentGain|СВЯЗАН_С|voltageGain",
+      "bipolarTransistor|ИСПОЛЬЗУЕТСЯ_В|commonBaseScheme",
+      "bipolarTransistor|ИСПОЛЬЗУЕТСЯ_В|commonEmitterScheme",
+      "bipolarTransistor|ИСПОЛЬЗУЕТСЯ_В|commonCollectorScheme"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "bipolartransistors",
+        "name": "Биполярные транзисторы",
+        "description": "Курс посвящён изучению работы биполярных транзисторов, их режимов и характеристик."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "transistorModes",
+        "name": "Режимы работы биполярного транзистора",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "transistorCharacteristics",
+        "name": "Характеристики биполярных транзисторов",
+        "order": 2
+      },
+      {
+        "label": "Тема",
+        "id": "inversMode",
+        "name": "Инверсный режим",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "saturationMode",
+        "name": "Режим насыщения",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "cutoffMode",
+        "name": "Режим отсечки",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "dynamicMode",
+        "name": "Динамический режим",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "staticMode",
+        "name": "Статический режим",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "outputCharacteristics",
+        "name": "Выходные характеристики",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "inputCharacteristics",
+        "name": "Входные характеристики",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "forwardBias",
+        "name": "Прямое смещение",
+        "definition": "Состояние p-n перехода, при котором ток через него значителен."
+      },
+      {
+        "label": "Термин",
+        "id": "reverseBias",
+        "name": "Обратное смещение",
+        "definition": "Состояние p-n перехода, при котором ток через него мал."
+      },
+      {
+        "label": "Термин",
+        "id": "collector",
+        "name": "Коллектор",
+        "definition": "Один из электродов биполярного транзистора."
+      },
+      {
+        "label": "Термин",
+        "id": "emitter",
+        "name": "Эмиттер",
+        "definition": "Один из электродов биполярного транзистора, который инжектирует носители заряда в базу."
+      },
+      {
+        "label": "Формула",
+        "id": "outputCharacteristic1",
+        "name": "Формула выходной характеристики",
+        "expression": "Iвх = f(Uвх), при Uвых = const"
+      },
+      {
+        "label": "Формула",
+        "id": "outputCharacteristic2",
+        "name": "Формула выходной характеристики",
+        "expression": "Iвых = f(Uвых), при Iвх = const"
+      },
+      {
+        "label": "Формула",
+        "id": "inputCharacteristic",
+        "name": "Формула входной характеристики",
+        "expression": "Iэ = f(Uэб), при Uкб = const"
+      },
+      {
+        "label": "Компонент",
+        "id": "bipolarTransistor",
+        "name": "Биполярный транзистор",
+        "type": "транзистор"
+      }
+    ],
+    "relationships": [
+      "bipolartransistors|ВКЛЮЧАЕТ_РАЗДЕЛ|transistorModes",
+      "bipolartransistors|ВКЛЮЧАЕТ_РАЗДЕЛ|transistorCharacteristics",
+      "transistorModes|РАССМАТРИВАЕТ_ТЕМУ|inversMode",
+      "transistorModes|РАССМАТРИВАЕТ_ТЕМУ|saturationMode",
+      "transistorModes|РАССМАТРИВАЕТ_ТЕМУ|cutoffMode",
+      "transistorModes|РАССМАТРИВАЕТ_ТЕМУ|dynamicMode",
+      "transistorModes|РАССМАТРИВАЕТ_ТЕМУ|staticMode",
+      "transistorCharacteristics|РАССМАТРИВАЕТ_ТЕМУ|outputCharacteristics",
+      "transistorCharacteristics|РАССМАТРИВАЕТ_ТЕМУ|inputCharacteristics",
+      "inversMode|СОДЕРЖИТ_ТЕРМИН|forwardBias",
+      "inversMode|СОДЕРЖИТ_ТЕРМИН|reverseBias",
+      "saturationMode|СОДЕРЖИТ_ТЕРМИН|forwardBias",
+      "cutoffMode|СОДЕРЖИТ_ТЕРМИН|reverseBias",
+      "dynamicMode|ИСПОЛЬЗУЕТ_ФОРМУЛУ|outputCharacteristic1",
+      "dynamicMode|ИСПОЛЬЗУЕТ_ФОРМУЛУ|outputCharacteristic2",
+      "inputCharacteristics|ИСПОЛЬЗУЕТ_ФОРМУЛУ|inputCharacteristic",
+      "outputCharacteristics|СОДЕРЖИТ_ТЕРМИН|collector",
+      "inputCharacteristics|СОДЕРЖИТ_ТЕРМИН|emitter",
+      "bipolarTransistor|ИСПОЛЬЗУЕТСЯ_В|inversMode",
+      "bipolarTransistor|ИСПОЛЬЗУЕТСЯ_В|saturationMode",
+      "bipolarTransistor|ИСПОЛЬЗУЕТСЯ_В|cutoffMode",
+      "bipolarTransistor|ИСПОЛЬЗУЕТСЯ_В|dynamicMode",
+      "bipolarTransistor|ИСПОЛЬЗУЕТСЯ_В|staticMode"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "bipolartransistors",
+        "name": "Биполярные транзисторы",
+        "description": "Курс посвящён изучению принципов работы биполярных транзисторов, их характеристик и схем включения."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "outputCharacteristics",
+        "name": "Выходная характеристика транзистора",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "inputCharacteristics",
+        "name": "Входная характеристика транзистора",
+        "order": 2
+      },
+      {
+        "label": "Тема",
+        "id": "currentCollector",
+        "name": "Ток коллектора",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "modulationBaseWidth",
+        "name": "Модуляция ширины базы",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "collectorCurrent",
+        "name": "Ток коллектора (Iк)",
+        "definition": "Ток, протекающий через коллектор биполярного транзистора."
+      },
+      {
+        "label": "Термин",
+        "id": "emitterCurrent",
+        "name": "Ток эмиттера (Iэ)",
+        "definition": "Ток, протекающий через эмиттер биполярного транзистора."
+      },
+      {
+        "label": "Термин",
+        "id": "baseCurrent",
+        "name": "Ток базы (Iб)",
+        "definition": "Ток, протекающий через базу биполярного транзистора."
+      },
+      {
+        "label": "Термин",
+        "id": "reverseCollectorCurrent",
+        "name": "Обратный ток коллекторного перехода (Iк0)",
+        "definition": "Ток, протекающий через коллекторный переход при закрытом транзисторе."
+      },
+      {
+        "label": "Формула",
+        "id": "collectorCurrentFormulaOb",
+        "name": "Формула тока коллектора для схемы с общей базой",
+        "expression": "Iк = α·Iэ + Iк0"
+      },
+      {
+        "label": "Формула",
+        "id": "collectorCurrentFormulaOe",
+        "name": "Формула тока коллектора для схемы с общим эмиттером",
+        "expression": "Iк = β·Iб + Iк0"
+      },
+      {
+        "label": "Принцип",
+        "id": "baseWidthModulation",
+        "name": "Модуляция ширины базы",
+        "description": "Изменение активной области базы из-за расширения запирающего слоя при увеличении напряжения Uкэ."
+      },
+      {
+        "label": "Компонент",
+        "id": "bipolarTransistor",
+        "name": "Биполярный транзистор",
+        "type": "транзистор"
+      },
+      {
+        "label": "Метод",
+        "id": "characteristicAnalysis",
+        "name": "Анализ характеристик",
+        "application": "Изучение работы биполярных транзисторов через анализ ВАХ"
+      }
+    ],
+    "relationships": [
+      "bipolartransistors|ВКЛЮЧАЕТ_РАЗДЕЛ|outputCharacteristics",
+      "bipolartransistors|ВКЛЮЧАЕТ_РАЗДЕЛ|inputCharacteristics",
+      "outputCharacteristics|РАССМАТРИВАЕТ_ТЕМУ|currentCollector",
+      "inputCharacteristics|РАССМАТРИВАЕТ_ТЕМУ|modulationBaseWidth",
+      "currentCollector|СОДЕРЖИТ_ТЕРМИН|collectorCurrent",
+      "currentCollector|СОДЕРЖИТ_ТЕРМИН|emitterCurrent",
+      "currentCollector|СОДЕРЖИТ_ТЕРМИН|reverseCollectorCurrent",
+      "modulationBaseWidth|ОСНОВАНА_НА_ПРИНЦИПЕ|baseWidthModulation",
+      "currentCollector|ИСПОЛЬЗУЕТ_ФОРМУЛУ|collectorCurrentFormulaOb",
+      "currentCollector|ИСПОЛЬЗУЕТ_ФОРМУЛУ|collectorCurrentFormulaOe",
+      "baseWidthModulation|ОПИСЫВАЕТ_КОМПОНЕНТ|bipolarTransistor",
+      "currentCollector|ПРИМЕНЯЕТ_МЕТОД|characteristicAnalysis",
+      "modulationBaseWidth|ПРИМЕНЯЕТ_МЕТОД|characteristicAnalysis",
+      "collectorCurrent|СВЯЗАН_С|emitterCurrent",
+      "collectorCurrent|СВЯЗАН_С|reverseCollectorCurrent"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "bipolartransistors",
+        "name": "Биполярные транзисторы",
+        "description": "Курс посвящён изучению биполярных транзисторов, их параметров, эквивалентных схем замещения и методов расчёта электронных схем с транзисторами."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "equivalentSchemes",
+        "name": "Эквивалентные, физические схемы замещения или Т-образные схемы замещения транзисторов",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "transistorParameters",
+        "name": "Параметры транзисторов",
+        "order": 2
+      },
+      {
+        "label": "Тема",
+        "id": "transistorEquivalentSchemes",
+        "name": "Эквивалентные схемы замещения транзисторов",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "hParameters",
+        "name": "h-параметры транзисторов",
+        "complexity": "продвинутый"
+      },
+      {
+        "label": "Термин",
+        "id": "resistanceOpenEmitterTransition",
+        "name": "Сопротивление открытого эмиттерного перехода",
+        "definition": "Сопротивление, которое возникает в эмиттерном переходе транзистора при его открытии."
+      },
+      {
+        "label": "Термин",
+        "id": "volumeResistanceBase",
+        "name": "Объёмное сопротивление в области базы",
+        "definition": "Сопротивление, обусловленное свойствами материала базы транзистора."
+      },
+      {
+        "label": "Термин",
+        "id": "reverseResistanceClosedCollectorTransition",
+        "name": "Обратное сопротивление закрытого коллекторного перехода",
+        "definition": "Сопротивление коллекторного перехода транзистора в закрытом состоянии."
+      },
+      {
+        "label": "Термин",
+        "id": "barrierCapacityClosedCollectorTransition",
+        "name": "Барьерная ёмкость закрытого коллекторного перехода",
+        "definition": "Ёмкость, возникающая в коллекторном переходе транзистора при его закрытии."
+      },
+      {
+        "label": "Термин",
+        "id": "currentTransferCoefficient",
+        "name": "Коэффициент передачи по току",
+        "definition": "Коэффициент, характеризующий способность транзистора передавать ток от базы к коллектору."
+      },
+      {
+        "label": "Формула",
+        "id": "currentRelationFormula",
+        "name": "Соотношение токов в транзисторе",
+        "expression": "Iк = β·Iб + Iк0"
+      },
+      {
+        "label": "Формула",
+        "id": "fourPortEquation1",
+        "name": "Уравнение четырёхполюсника (1)",
+        "expression": "U1 = h11 · I1 + h12 · U2"
+      },
+      {
+        "label": "Формула",
+        "id": "fourPortEquation2",
+        "name": "Уравнение четырёхполюсника (2)",
+        "expression": "I2 = h21 · I1 + h22 · U2"
+      },
+      {
+        "label": "Принцип",
+        "id": "linearModelPrinciple",
+        "name": "Принцип линейной модели транзистора",
+        "description": "Для упрощения расчётов транзистор представляется в виде линейной модели, хотя на самом деле является нелинейным элементом."
+      },
+      {
+        "label": "Компонент",
+        "id": "bipolarTransistor",
+        "name": "Биполярный транзистор",
+        "type": "транзистор"
+      },
+      {
+        "label": "Метод",
+        "id": "equivalentSchemesMethod",
+        "name": "Метод эквивалентных схем",
+        "application": "Расчёт электронных схем с транзисторами"
+      }
+    ],
+    "relationships": [
+      "bipolartransistors|ВКЛЮЧАЕТ_РАЗДЕЛ|equivalentSchemes",
+      "bipolartransistors|ВКЛЮЧАЕТ_РАЗДЕЛ|transistorParameters",
+      "equivalentSchemes|РАССМАТРИВАЕТ_ТЕМУ|transistorEquivalentSchemes",
+      "transistorParameters|РАССМАТРИВАЕТ_ТЕМУ|hParameters",
+      "transistorEquivalentSchemes|СОДЕРЖИТ_ТЕРМИН|resistanceOpenEmitterTransition",
+      "transistorEquivalentSchemes|СОДЕРЖИТ_ТЕРМИН|volumeResistanceBase",
+      "transistorEquivalentSchemes|СОДЕРЖИТ_ТЕРМИН|reverseResistanceClosedCollectorTransition",
+      "transistorEquivalentSchemes|СОДЕРЖИТ_ТЕРМИН|barrierCapacityClosedCollectorTransition",
+      "transistorEquivalentSchemes|СОДЕРЖИТ_ТЕРМИН|currentTransferCoefficient",
+      "transistorEquivalentSchemes|ИСПОЛЬЗУЕТ_ФОРМУЛУ|currentRelationFormula",
+      "transistorEquivalentSchemes|ОСНОВАНА_НА_ПРИНЦИПЕ|linearModelPrinciple",
+      "linearModelPrinciple|ОПИСЫВАЕТ_КОМПОНЕНТ|bipolarTransistor",
+      "hParameters|ИСПОЛЬЗУЕТ_ФОРМУЛУ|fourPortEquation1",
+      "hParameters|ИСПОЛЬЗУЕТ_ФОРМУЛУ|fourPortEquation2",
+      "transistorEquivalentSchemes|ПРИМЕНЯЕТ_МЕТОД|equivalentSchemesMethod",
+      "currentTransferCoefficient|СВЯЗАН_С|resistanceOpenEmitterTransition",
+      "currentTransferCoefficient|СВЯЗАН_С|reverseResistanceClosedCollectorTransition"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "bipolartransistors",
+        "name": "Биполярные транзисторы",
+        "description": "Курс посвящён изучению биполярных транзисторов, их характеристик и параметров."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "hParametersSection",
+        "name": "h-параметры биполярных транзисторов",
+        "order": 1
+      },
+      {
+        "label": "Тема",
+        "id": "shortCircuitTopic",
+        "name": "Короткое замыкание на выходе",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "idleModeTopic",
+        "name": "Холостой ход на выходе",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "h21Parameter",
+        "name": "h21 (коэффициент передачи по току)",
+        "definition": "Коэффициент передачи тока биполярного транзистора."
+      },
+      {
+        "label": "Термин",
+        "id": "h11Parameter",
+        "name": "h11 (входное сопротивление)",
+        "definition": "Входное сопротивление биполярного транзистора."
+      },
+      {
+        "label": "Термин",
+        "id": "feedbackCoefficient",
+        "name": "Коэффициент обратной связи по напряжению",
+        "definition": "Параметр, характеризующий обратную связь в транзисторе по напряжению."
+      },
+      {
+        "label": "Формула",
+        "id": "shortCircuitFormula",
+        "name": "Формула для короткого замыкания на выходе",
+        "expression": "U2 = 0, I1 = h11 * U1, I2 = h21 * I1"
+      },
+      {
+        "label": "Формула",
+        "id": "idleModeFormula",
+        "name": "Формула для холостого хода на выходе",
+        "expression": "I1 = 0, U2 = h12 * U1, I2 = h22 * U2"
+      },
+      {
+        "label": "Принцип",
+        "id": "hParametersPrinciple",
+        "name": "Принцип h-параметров",
+        "description": "Метод описания характеристик транзистора с помощью h-параметров."
+      },
+      {
+        "label": "Компонент",
+        "id": "bipolarTransistor",
+        "name": "Биполярный транзистор",
+        "type": "транзистор"
+      }
+    ],
+    "relationships": [
+      "bipolartransistors|ВКЛЮЧАЕТ_РАЗДЕЛ|hParametersSection",
+      "hParametersSection|РАССМАТРИВАЕТ_ТЕМУ|shortCircuitTopic",
+      "hParametersSection|РАССМАТРИВАЕТ_ТЕМУ|idleModeTopic",
+      "shortCircuitTopic|ИСПОЛЬЗУЕТ_ФОРМУЛУ|shortCircuitFormula",
+      "idleModeTopic|ИСПОЛЬЗУЕТ_ФОРМУЛУ|idleModeFormula",
+      "shortCircuitTopic|СОДЕРЖИТ_ТЕРМИН|h21Parameter",
+      "shortCircuitTopic|СОДЕРЖИТ_ТЕРМИН|h11Parameter",
+      "idleModeTopic|СОДЕРЖИТ_ТЕРМИН|feedbackCoefficient",
+      "hParametersPrinciple|ОПИСЫВАЕТ_КОМПОНЕНТ|bipolarTransistor",
+      "h21Parameter|СВЯЗАН_С|h11Parameter",
+      "shortCircuitFormula|ЯВЛЯЕТСЯ_ЧАСТЬЮ|hParametersPrinciple",
+      "idleModeFormula|ЯВЛЯЕТСЯ_ЧАСТЬЮ|hParametersPrinciple"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "vypriamiteliisourcipitaniya",
+        "name": "Выпрямители и источники питания",
+        "description": "Курс посвящён изучению принципов работы и конструкции выпрямителей и источников питания."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "funkcionalnayaShemaIstochnikaPitaniya",
+        "name": "Функциональная схема источника питания",
+        "order": 1
+      },
+      {
+        "label": "Тема",
+        "id": "odnopoluperiodnayaSkhemaVypriamitelya",
+        "name": "Однополупериодная схема выпрямителя напряжения без фильтра",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "dvuhpoluperiodnyVypriamitel",
+        "name": "Двухполупериодный выпрямитель с использованием трансформатора со средней точкой",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "transformator",
+        "name": "Трансформатор",
+        "definition": "Устройство для получения нужных значений тока и напряжения."
+      },
+      {
+        "label": "Термин",
+        "id": "vypriamitel",
+        "name": "Выпрямитель (вентиль)",
+        "definition": "Блок, в котором происходит преобразование разнополярного напряжения в напряжение одной полярности."
+      },
+      {
+        "label": "Термин",
+        "id": "filtrRC",
+        "name": "Фильтр (RC)",
+        "definition": "Устройство, которое пропускает на выход источника питания только постоянную составляющую, а переменную задерживает."
+      },
+      {
+        "label": "Термин",
+        "id": "stabilizator",
+        "name": "Стабилизатор",
+        "definition": "Устройство, обеспечивающее строго известное значение выходного напряжения."
+      },
+      {
+        "label": "Термин",
+        "id": "nagruzka",
+        "name": "Нагрузка",
+        "definition": "Элемент, который всегда находится на выходе источника питания."
+      },
+      {
+        "label": "Термин",
+        "id": "diode",
+        "name": "Диод",
+        "definition": "Электронный компонент, который пропускает ток в одном направлении и блокирует в обратном."
+      },
+      {
+        "label": "Компонент",
+        "id": "npnTranzistor",
+        "name": "NPN-транзистор",
+        "type": "транзистор"
+      },
+      {
+        "label": "Компонент",
+        "id": "pnpTranzistor",
+        "name": "PNP-транзистор",
+        "type": "транзистор"
+      },
+      {
+        "label": "Компонент",
+        "id": "rezistor",
+        "name": "Резистор",
+        "type": "резистор"
+      },
+      {
+        "label": "Компонент",
+        "id": "kondensator",
+        "name": "Конденсатор",
+        "type": "конденсатор"
+      }
+    ],
+    "relationships": [
+      "vypriamiteliisourcipitaniya|ВКЛЮЧАЕТ_РАЗДЕЛ|funkcionalnayaShemaIstochnikaPitaniya",
+      "funkcionalnayaShemaIstochnikaPitaniya|РАССМАТРИВАЕТ_ТЕМУ|odnopoluperiodnayaSkhemaVypriamitelya",
+      "funkcionalnayaShemaIstochnikaPitaniya|РАССМАТРИВАЕТ_ТЕМУ|dvuhpoluperiodnyVypriamitel",
+      "odnopoluperiodnayaSkhemaVypriamitelya|СОДЕРЖИТ_ТЕРМИН|transformator",
+      "odnopoluperiodnayaSkhemaVypriamitelya|СОДЕРЖИТ_ТЕРМИН|vypriamitel",
+      "odnopoluperiodnayaSkhemaVypriamitelya|СОДЕРЖИТ_ТЕРМИН|diode",
+      "dvuhpoluperiodnyVypriamitel|СОДЕРЖИТ_ТЕРМИН|transformator",
+      "dvuhpoluperiodnyVypriamitel|СОДЕРЖИТ_ТЕРМИН|vypriamitel",
+      "transformator|ОПРЕДЕЛЯЕТ|npnTranzistor",
+      "transformator|ОПРЕДЕЛЯЕТ|pnpTranzistor",
+      "vypriamitel|СВЯЗАН_С|diode",
+      "filtrRC|СВЯЗАН_С|rezistor",
+      "filtrRC|СВЯЗАН_С|kondensator",
+      "odnopoluperiodnayaSkhemaVypriamitelya|ТРЕБУЕТ_ЗНАНИЯ|dvuhpoluperiodnyVypriamitel"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "vypryamiteliisourcipitaniya",
+        "name": "Выпрямители и источники питания",
+        "description": "Курс посвящён изучению принципов работы выпрямителей и источников питания, их схем и характеристик."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "prostayaSkhemaVypryamitelya",
+        "name": "Простая схема выпрямителя",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "mostovayaSkhemaVypryamitelya",
+        "name": "Мостовая схема выпрямителя",
+        "order": 2
+      },
+      {
+        "label": "РазделКурса",
+        "id": "filtryVistochnikahPitaniya",
+        "name": "Фильтры в источниках питания",
+        "order": 3
+      },
+      {
+        "label": "Тема",
+        "id": "rabotaDiodovVpoluperiody",
+        "name": "Работа диодов в полупериоды",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "preimushchestvaMostovoySkhemy",
+        "name": "Преимущества мостовой схемы",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "tipyFiltrov",
+        "name": "Типы фильтров",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Термин",
+        "id": "poluperiod",
+        "name": "Полупериод",
+        "definition": "Половина периода переменного напряжения или тока."
+      },
+      {
+        "label": "Термин",
+        "id": "diody",
+        "name": "Диоды",
+        "definition": "Электронные компоненты, пропускающие ток в одном направлении."
+      },
+      {
+        "label": "Термин",
+        "id": "napryazhenieNaladke",
+        "name": "Напряжение на нагрузке",
+        "definition": "Напряжение, которое подаётся на устройство или элемент, потребляющий электроэнергию."
+      },
+      {
+        "label": "Термин",
+        "id": "obratnoeNapryazhenie",
+        "name": "Обратное напряжение",
+        "definition": "Максимальное напряжение, которое может быть приложено к диоду в обратном направлении."
+      },
+      {
+        "label": "Термин",
+        "id": "reaktivnayaEmkost",
+        "name": "Реактивная ёмкость",
+        "definition": "Свойство элемента накапливать энергию в электрическом поле и отдавать её обратно в цепь."
+      },
+      {
+        "label": "Термин",
+        "id": "induktivnost",
+        "name": "Индуктивность",
+        "definition": "Свойство элемента накапливать энергию в магнитном поле и сопротивляться изменениям тока."
+      },
+      {
+        "label": "Компонент",
+        "id": "диод",
+        "name": "Диод",
+        "type": "полупроводниковый прибор"
+      },
+      {
+        "label": "Компонент",
+        "id": "transformator",
+        "name": "Трансформатор",
+        "type": "устройство для изменения уровня напряжения"
+      },
+      {
+        "label": "Компонент",
+        "id": "kondensator",
+        "name": "Конденсатор",
+        "type": "накопитель электрической энергии"
+      },
+      {
+        "label": "Компонент",
+        "id": "koil",
+        "name": "Катушка индуктивности",
+        "type": "элемент для накопления энергии в магнитном поле"
+      }
+    ],
+    "relationships": [
+      "vypryamiteliisourcipitaniya|ВКЛЮЧАЕТ_РАЗДЕЛ|prostayaSkhemaVypryamitelya",
+      "vypryamiteliisourcipitaniya|ВКЛЮЧАЕТ_РАЗДЕЛ|mostovayaSkhemaVypryamitelya",
+      "vypryamiteliisourcipitaniya|ВКЛЮЧАЕТ_РАЗДЕЛ|filtryVistochnikahPitaniya",
+      "prostayaSkhemaVypryamitelya|РАССМАТРИВАЕТ_ТЕМУ|rabotaDiodovVpoluperiody",
+      "mostovayaSkhemaVypryamitelya|РАССМАТРИВАЕТ_ТЕМУ|preimushchestvaMostovoySkhemy",
+      "filtryVistochnikahPitaniya|РАССМАТРИВАЕТ_ТЕМУ|tipyFiltrov",
+      "rabotaDiodovVpoluperiody|СОДЕРЖИТ_ТЕРМИН|poluperiod",
+      "rabotaDiodovVpoluperiody|СОДЕРЖИТ_ТЕРМИН|diody",
+      "rabotaDiodovVpoluperiody|СОДЕРЖИТ_ТЕРМИН|napryazhenieNaladke",
+      "preimushchestvaMostovoySkhemy|СОДЕРЖИТ_ТЕРМИН|obratnoeNapryazhenie",
+      "tipyFiltrov|СОДЕРЖИТ_ТЕРМИН|reaktivnayaEmkost",
+      "tipyFiltrov|СОДЕРЖИТ_ТЕРМИН|induktivnost",
+      "diody|ОПРЕДЕЛЯЕТ|диод",
+      "transformator|ОПРЕДЕЛЯЕТ|transformator",
+      "kondensator|ОПРЕДЕЛЯЕТ|kondensator",
+      "koil|ОПРЕДЕЛЯЕТ|koil",
+      "poluperiod|СВЯЗАН_С|napryazhenieNaladke",
+      "diody|СВЯЗАН_С|obratnoeNapryazhenie"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "vypryamiteliisourcipitaniya",
+        "name": "Выпрямители и источники питания",
+        "description": "Курс посвящён изучению выпрямителей и источников питания, включая схемы сглаживающих фильтров и выбор элементов для выпрямителей."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "sglazhivayuschieFiltry",
+        "name": "Сглаживающие фильтры",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "vyborElementovDlyaVypryamitelya",
+        "name": "Выбор диодов и конденсаторов для выпрямителя",
+        "order": 2
+      },
+      {
+        "label": "Тема",
+        "id": "emkostnoyFiltr",
+        "name": "Емкостной фильтр",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "induktivnyyFiltr",
+        "name": "Индуктивный фильтр",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "gObraznyyFiltr",
+        "name": "Г-образный фильтр",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "pObraznyyFiltr",
+        "name": "П-образный фильтр",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "vyborDiodov",
+        "name": "Выбор диодов для выпрямителя",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "vyborKondensatorov",
+        "name": "Выбор конденсаторов для фильтра",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "reaktivnyeElementy",
+        "name": "Реактивные элементы",
+        "definition": "Элементы электрической цепи, которые способны накапливать и отдавать электрическую энергию, например, конденсаторы и катушки индуктивности."
+      },
+      {
+        "label": "Термин",
+        "id": "smoothedVoltage",
+        "name": "Сглаженное напряжение",
+        "definition": "Напряжение, из которого уменьшены или устранены пульсации, получаемое с помощью сглаживающих фильтров."
+      },
+      {
+        "label": "Термин",
+        "id": "obratnoeNapryazhenie",
+        "name": "Обратное напряжение",
+        "definition": "Напряжение, приложенное к диоду в закрытый полупериод, которое он должен выдерживать без пробоя."
+      },
+      {
+        "label": "Термин",
+        "id": "vypryamitelnyyTok",
+        "name": "Выпрямительный ток",
+        "definition": "Ток, который должен давать выпрямитель, определяющий выбор диодов."
+      },
+      {
+        "label": "Компонент",
+        "id": "kondensator",
+        "name": "Конденсатор",
+        "type": "конденсатор"
+      },
+      {
+        "label": "Компонент",
+        "id": "diode",
+        "name": "Диод",
+        "type": "диод"
+      }
+    ],
+    "relationships": [
+      "vypryamiteliisourcipitaniya|ВКЛЮЧАЕТ_РАЗДЕЛ|sglazhivayuschieFiltry",
+      "vypryamiteliisourcipitaniya|ВКЛЮЧАЕТ_РАЗДЕЛ|vyborElementovDlyaVypryamitelya",
+      "sglazhivayuschieFiltry|РАССМАТРИВАЕТ_ТЕМУ|emkostnoyFiltr",
+      "sglazhivayuschieFiltry|РАССМАТРИВАЕТ_ТЕМУ|induktivnyyFiltr",
+      "sglazhivayuschieFiltry|РАССМАТРИВАЕТ_ТЕМУ|gObraznyyFiltr",
+      "sglazhivayuschieFiltry|РАССМАТРИВАЕТ_ТЕМУ|pObraznyyFiltr",
+      "vyborElementovDlyaVypryamitelya|РАССМАТРИВАЕТ_ТЕМУ|vyborDiodov",
+      "vyborElementovDlyaVypryamitelya|РАССМАТРИВАЕТ_ТЕМУ|vyborKondensatorov",
+      "emkostnoyFiltr|СОДЕРЖИТ_ТЕРМИН|reaktivnyeElementy",
+      "emkostnoyFiltr|СОДЕРЖИТ_ТЕРМИН|smoothedVoltage",
+      "vyborDiodov|СОДЕРЖИТ_ТЕРМИН|obratnoeNapryazhenie",
+      "vyborDiodov|СОДЕРЖИТ_ТЕРМИН|vypryamitelnyyTok",
+      "emkostnoyFiltr|ОСНОВАНА_НА_ПРИНЦИПЕ|inertnostReaktivnyhElementov",
+      "terminReaktivnyeElementy|ОПРЕДЕЛЯЕТ|kondensator",
+      "terminReaktivnyeElementy|ОПРЕДЕЛЯЕТ|diode",
+      "vyborKondensatorov|ТРЕБУЕТ_ЗНАНИЯ|smoothedVoltage"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "elektronikaimikroprotsessornayatehnika",
+        "name": "Электроника и микропроцессорная техника",
+        "description": "Курс посвящён изучению основ электроники и микропроцессорной техники, включая аналоговые устройства и полупроводниковые приборы."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "analogovyeUstroistva",
+        "name": "Аналоговые устройства",
+        "order": 1
+      },
+      {
+        "label": "Тема",
+        "id": "issledovanieUsilitelnogoKaskada",
+        "name": "Исследование усилительного каскада на биполярном транзисторе n-p-n",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "bipolarTransistor",
+        "name": "Биполярный транзистор",
+        "definition": "Полупроводниковый прибор, усиливающий или переключающий электрические сигналы."
+      },
+      {
+        "label": "Термин",
+        "id": "shemaSObraznymEmiterom",
+        "name": "Схема с общим эмиттером (ОЭ)",
+        "definition": "Одна из основных схем включения биполярного транзистора, обеспечивающая усиление по току и напряжению."
+      },
+      {
+        "label": "Компонент",
+        "id": "npnTransistor",
+        "name": "Биполярный транзистор n-p-n",
+        "type": "транзистор"
+      },
+      {
+        "label": "Метод",
+        "id": "ispolzovanieMultisim",
+        "name": "Использование Multisim для моделирования электронных схем",
+        "application": "Моделирование и анализ работы электронных схем"
+      },
+      {
+        "label": "Пример",
+        "id": "modelirovanieUsilitelnogoKaskada",
+        "name": "Моделирование усилительного каскада в Multisim",
+        "context": "Лабораторная работа по исследованию усилительного каскада на биполярном транзисторе n-p-n"
+      }
+    ],
+    "relationships": [
+      "elektronikaimikroprotsessornayatehnika|ВКЛЮЧАЕТ_РАЗДЕЛ|analogovyeUstroistva",
+      "analogovyeUstroistva|РАССМАТРИВАЕТ_ТЕМУ|issledovanieUsilitelnogoKaskada",
+      "issledovanieUsilitelnogoKaskada|СОДЕРЖИТ_ТЕРМИН|bipolarTransistor",
+      "issledovanieUsilitelnogoKaskada|СОДЕРЖИТ_ТЕРМИН|shemaSObraznymEmiterom",
+      "issledovanieUsilitelnogoKaskada|ОСНОВАНА_НА_ПРИНЦИПЕ|principRabotyBipolarTransistor",
+      "bipolarTransistor|ОПРЕДЕЛЯЕТ|npnTransistor",
+      "issledovanieUsilitelnogoKaskada|ПРИМЕНЯЕТ_МЕТОД|ispolzovanieMultisim",
+      "ispolzovanieMultisim|ПРОДЕМОНСТРИРОВАН_НА|modelirovanieUsilitelnogoKaskada",
+      "issledovanieUsilitelnogoKaskada|ПРОДЕМОНСТРИРОВАНА_НА|modelirovanieUsilitelnogoKaskada"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "usilitelnyikaskad",
+        "name": "Метод указания усилительный каскад Мультисим",
+        "description": "Лабораторная работа по исследованию усилительного каскада на биполярном транзисторе в среде Мультисим"
+      },
+      {
+        "label": "РазделКурса",
+        "id": "teoreticheskiePolozheniya",
+        "name": "Основные теоретические положения",
+        "order": 1
+      },
+      {
+        "label": "Тема",
+        "id": "usiliteli",
+        "name": "Усилители",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "harakteristikiUsilitelov",
+        "name": "Характеристики электронных усилителей",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "kachestvennyePokazateli",
+        "name": "Качественные показатели усилителей",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "usilitel",
+        "name": "Усилитель",
+        "definition": "Устройство, предназначенное для повышения (усиления) сигнала по мощности"
+      },
+      {
+        "label": "Термин",
+        "id": "elektronnyeUsiliteli",
+        "name": "Электронные усилители",
+        "definition": "Усилители, выполненные на лампах, биполярных и полевых транзисторах"
+      },
+      {
+        "label": "Термин",
+        "id": "chetyrekhpolusnik",
+        "name": "Четырехполюсник",
+        "definition": "Общее представление усилителя, включающее входные и выходные параметры"
+      },
+      {
+        "label": "Термин",
+        "id": "koeffitsientUsileniya",
+        "name": "Коэффициент усиления",
+        "definition": "Основная характеристика усилителя, определяющая степень усиления сигнала"
+      },
+      {
+        "label": "Формула",
+        "id": "koeffitsientUsileniyaPoMoshchnosti",
+        "name": "Коэффициент усиления по мощности",
+        "expression": "K_P = P_вых / P_вх"
+      },
+      {
+        "label": "Формула",
+        "id": "koeffitsientUsileniyaPoNapryazheniyu",
+        "name": "Коэффициент усиления по напряжению",
+        "expression": "K_U = U_вых / U_вх"
+      },
+      {
+        "label": "Формула",
+        "id": "koeffitsientUsileniyaPoToku",
+        "name": "Коэффициент усиления по току",
+        "expression": "K_I = I_вых / I_вх"
+      },
+      {
+        "label": "Компонент",
+        "id": "bipolarTransistor",
+        "name": "Биполярный транзистор",
+        "type": "транзистор"
+      }
+    ],
+    "relationships": [
+      "usilitelnyikaskad|ВКЛЮЧАЕТ_РАЗДЕЛ|teoreticheskiePolozheniya",
+      "teoreticheskiePolozheniya|РАССМАТРИВАЕТ_ТЕМУ|usiliteli",
+      "teoreticheskiePolozheniya|РАССМАТРИВАЕТ_ТЕМУ|harakteristikiUsilitelov",
+      "teoreticheskiePolozheniya|РАССМАТРИВАЕТ_ТЕМУ|kachestvennyePokazateli",
+      "usiliteli|СОДЕРЖИТ_ТЕРМИН|usilitel",
+      "usiliteli|СОДЕРЖИТ_ТЕРМИН|elektronnyeUsiliteli",
+      "harakteristikiUsilitelov|СОДЕРЖИТ_ТЕРМИН|chetyrekhpolusnik",
+      "harakteristikiUsilitelov|СОДЕРЖИТ_ТЕРМИН|koeffitsientUsileniya",
+      "harakteristikiUsilitelov|ИСПОЛЬЗУЕТ_ФОРМУЛУ|koeffitsientUsileniyaPoMoshchnosti",
+      "harakteristikiUsilitelov|ИСПОЛЬЗУЕТ_ФОРМУЛУ|koeffitsientUsileniyaPoNapryazheniyu",
+      "harakteristikiUsilitelov|ИСПОЛЬЗУЕТ_ФОРМУЛУ|koeffitsientUsileniyaPoToku",
+      "usilitel|СВЯЗАН_С|elektronnyeUsiliteli",
+      "koeffitsientUsileniya|СВЯЗАН_С|koeffitsientUsileniyaPoMoshchnosti",
+      "koeffitsientUsileniya|СВЯЗАН_С|koeffitsientUsileniyaPoNapryazheniyu",
+      "koeffitsientUsileniya|СВЯЗАН_С|koeffitsientUsileniyaPoToku",
+      "usiliteli|ОСНОВАНА_НА_ПРИНЦИПЕ|processUpravleniya",
+      "processUpravleniya|ОПИСЫВАЕТ_КОМПОНЕНТ|bipolarTransistor"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "usiliteli",
+        "name": "Усилители",
+        "description": "Курс посвящён изучению принципов работы усилителей, их характеристик и качественных показателей."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "kachestvennyePokazateliUsilitelei",
+        "name": "Качественные показатели усилителей",
+        "order": 1
+      },
+      {
+        "label": "Тема",
+        "id": "iskazheniyaSignala",
+        "name": "Искажения сигнала",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "amplitudnoChastotnayaHarakteristika",
+        "name": "Амплитудно-частотная характеристика (АЧХ)",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "iskazheniya",
+        "name": "Искажения",
+        "definition": "Отклонения форм выходного сигнала от входного."
+      },
+      {
+        "label": "Термин",
+        "id": "lineynyeIskazheniya",
+        "name": "Линейные искажения",
+        "definition": "Искажения, вызванные наличием реактивных элементов в схеме и зависимостью параметров транзистора от частоты."
+      },
+      {
+        "label": "Термин",
+        "id": "nelineynyeIskazheniya",
+        "name": "Нелинейные искажения",
+        "definition": "Искажения, вызванные нелинейностью вольт-амперных характеристик транзисторов."
+      },
+      {
+        "label": "Термин",
+        "id": "amplitudnoChastotnayaHarakteristika",
+        "name": "Амплитудно-частотная характеристика (АЧХ)",
+        "definition": "Зависимость амплитуды выходного сигнала (или модуля коэффициента усиления по напряжению) от частоты входного сигнала."
+      },
+      {
+        "label": "Термин",
+        "id": "amplitudnayaHarakteristika",
+        "name": "Амплитудная характеристика (АХ)",
+        "definition": "Зависимость амплитуды выходного сигнала от амплитуды входного."
+      },
+      {
+        "label": "Термин",
+        "id": "polosaPropuskaniya",
+        "name": "Полоса пропускания",
+        "definition": "Диапазон частот, в пределах которого неравномерность АЧХ составляет отклонения от К0 не более заданных 3 дБ."
+      },
+      {
+        "label": "Термин",
+        "id": "chastotnyeIskazheniya",
+        "name": "Частотные искажения",
+        "definition": "Уменьшение коэффициента усиления на нижних и верхних частотах по сравнению со средними."
+      }
+    ],
+    "relationships": [
+      "usiliteli|ВКЛЮЧАЕТ_РАЗДЕЛ|kachestvennyePokazateliUsilitelei",
+      "kachestvennyePokazateliUsilitelei|РАССМАТРИВАЕТ_ТЕМУ|iskazheniyaSignala",
+      "kachestvennyePokazateliUsilitelei|РАССМАТРИВАЕТ_ТЕМУ|amplitudnoChastotnayaHarakteristika",
+      "iskazheniyaSignala|СОДЕРЖИТ_ТЕРМИН|iskazheniya",
+      "iskazheniyaSignala|СОДЕРЖИТ_ТЕРМИН|lineynyeIskazheniya",
+      "iskazheniyaSignala|СОДЕРЖИТ_ТЕРМИН|nelineynyeIskazheniya",
+      "amplitudnoChastotnayaHarakteristika|СОДЕРЖИТ_ТЕРМИН|amplitudnoChastotnayaHarakteristika",
+      "amplitudnoChastotnayaHarakteristika|СОДЕРЖИТ_ТЕРМИН|amplitudnayaHarakteristika",
+      "amplitudnoChastotnayaHarakteristika|СОДЕРЖИТ_ТЕРМИН|polosaPropuskaniya",
+      "amplitudnoChastotnayaHarakteristika|СОДЕРЖИТ_ТЕРМИН|chastotnyeIskazheniya",
+      "lineynyeIskazheniya|СВЯЗАН_С|chastotnyeIskazheniya",
+      "amplitudnoChastotnayaHarakteristika|СВЯЗАН_С|polosaPropuskaniya"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "usilitelnykaskad",
+        "name": "Усилительный каскад",
+        "description": "Курс посвящён изучению работы усилителей, их характеристик и параметров."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "chastotnyDiapazon",
+        "name": "Частотный диапазон усилителя",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "nelineynyeIskazheniya",
+        "name": "Нелинейные искажения и динамический диапазон усиления",
+        "order": 2
+      },
+      {
+        "label": "Тема",
+        "id": "oblastiChastot",
+        "name": "Области частот",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "amplitudnayaHarakteristika",
+        "name": "Амплитудная характеристика усилителя",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "dinamicheskiyDiapazon",
+        "name": "Динамический диапазон усилителя",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "nelineynyeIskazheniya",
+        "name": "Нелинейные искажения",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "nizhnieChastoty",
+        "name": "Нижние частоты (НЧ)",
+        "definition": "Область частотного диапазона, в которой наблюдается уменьшение коэффициента усиления."
+      },
+      {
+        "label": "Термин",
+        "id": "srednieChastoty",
+        "name": "Средние частоты (СЧ)",
+        "definition": "Область частотного диапазона, где изменение коэффициента усиления незначительно."
+      },
+      {
+        "label": "Термин",
+        "id": "verhnieChastoty",
+        "name": "Верхние частоты (ВЧ)",
+        "definition": "Область частотного диапазона, в которой наблюдается уменьшение коэффициента усиления."
+      },
+      {
+        "label": "Термин",
+        "id": "koeffitsientUsileniya",
+        "name": "Коэффициент усиления",
+        "definition": "Параметр, характеризующий способность усилителя увеличивать амплитуду сигнала."
+      },
+      {
+        "label": "Термин",
+        "id": "koeffitsientChastotnykhIskazheniy",
+        "name": "Коэффициент частотных искажений",
+        "definition": "Показатель, демонстрирующий, во сколько раз коэффициент усиления на соответствующей частоте меньше (больше), чем на средней частоте."
+      },
+      {
+        "label": "Термин",
+        "id": "amplitudnayaHarakteristika",
+        "name": "Амплитудная характеристика",
+        "definition": "Зависимость выходного напряжения от входного, показывающая работу усилителя."
+      },
+      {
+        "label": "Термин",
+        "id": "dinamicheskiyDiapazonUsilitelya",
+        "name": "Динамический диапазон усилителя",
+        "definition": "Квазилинейная область амплитудной характеристики, где усилитель работает без нелинейных искажений."
+      },
+      {
+        "label": "Термин",
+        "id": "koeffitsientNelineynykhIskazheniy",
+        "name": "Коэффициент нелинейных искажений (коэффициент гармоник)",
+        "definition": "Показатель, характеризующий степень изменения формы выходного сигнала по отношению к входному."
+      },
+      {
+        "label": "Формула",
+        "id": "formulaKoeffitsientaNelineynykhIskazheniy",
+        "name": "Формула коэффициента нелинейных искажений",
+        "expression": "K_n = (A_1^2 + A_2^2 + ... + A_n^2)^0.5 / A_0"
+      }
+    ],
+    "relationships": [
+      "usilitelnykaskad|ВКЛЮЧАЕТ_РАЗДЕЛ|chastotnyDiapazon",
+      "usilitelnykaskad|ВКЛЮЧАЕТ_РАЗДЕЛ|nelineynyeIskazheniya",
+      "chastotnyDiapazon|РАССМАТРИВАЕТ_ТЕМУ|oblastiChastot",
+      "nelineynyeIskazheniya|РАССМАТРИВАЕТ_ТЕМУ|amplitudnayaHarakteristika",
+      "nelineynyeIskazheniya|РАССМАТРИВАЕТ_ТЕМУ|dinamicheskiyDiapazon",
+      "nelineynyeIskazheniya|РАССМАТРИВАЕТ_ТЕМУ|nelineynyeIskazheniya",
+      "oblastiChastot|СОДЕРЖИТ_ТЕРМИН|nizhnieChastoty",
+      "oblastiChastot|СОДЕРЖИТ_ТЕРМИН|srednieChastoty",
+      "oblastiChastot|СОДЕРЖИТ_ТЕРМИН|verhnieChastoty",
+      "amplitudnayaHarakteristika|СОДЕРЖИТ_ТЕРМИН|amplitudnayaHarakteristika",
+      "dinamicheskiyDiapazon|СОДЕРЖИТ_ТЕРМИН|dinamicheskiyDiapazonUsilitelya",
+      "nelineynyeIskazheniya|СОДЕРЖИТ_ТЕРМИН|koeffitsientNelineynykhIskazheniy",
+      "amplitudnayaHarakteristika|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formulaKoeffitsientaNelineynykhIskazheniy",
+      "oblastiChastot|СВЯЗАН_С|koeffitsientUsileniya",
+      "oblastiChastot|СВЯЗАН_С|koeffitsientChastotnykhIskazheniy",
+      "dinamicheskiyDiapazon|ТРЕБУЕТ_ЗНАНИЯ|amplitudnayaHarakteristika"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "usilitelnyikaskad",
+        "name": "Усилительный каскад",
+        "description": "Курс посвящён изучению принципов работы и построения усилительных каскадов."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "naznachenieElementov",
+        "name": "Назначение элементов и их влияние на свойства усилителя",
+        "order": 1
+      },
+      {
+        "label": "Тема",
+        "id": "klassicheskiiUsilitelnyiKaskad",
+        "name": "Классический усилительный каскад",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "usilitelnyiKaskad",
+        "name": "Усилительный каскад",
+        "definition": "Схема, предназначенная для усиления электрического сигнала."
+      },
+      {
+        "label": "Термин",
+        "id": "transistor",
+        "name": "Транзистор",
+        "definition": "Полупроводниковый прибор, используемый для усиления, генерации и преобразования электрических сигналов."
+      },
+      {
+        "label": "Термин",
+        "id": "obshchiiEmitter",
+        "name": "Общий эмиттер",
+        "definition": "Одна из схем включения транзистора, при которой эмиттер является общим электродом для входного и выходного сигналов."
+      },
+      {
+        "label": "Термин",
+        "id": "rabochayaTochka",
+        "name": "Рабочая точка",
+        "definition": "Точка на характеристиках транзистора, определяющая его режим работы в усилительном каскаде."
+      },
+      {
+        "label": "Термин",
+        "id": "OOS",
+        "name": "Отрицательная обратная связь (ООС)",
+        "definition": "Механизм, используемый для стабилизации работы усилителя и уменьшения искажений."
+      },
+      {
+        "label": "Компонент",
+        "id": "istochnikPostoyannogoNapryazheniya",
+        "name": "Источник постоянного напряжения",
+        "type": "источник питания"
+      },
+      {
+        "label": "Компонент",
+        "id": "peremennoeVhodnoeNapryazhenie",
+        "name": "Переменное входное напряжение",
+        "type": "электрический сигнал"
+      },
+      {
+        "label": "Компонент",
+        "id": "rezistor",
+        "name": "Резистор",
+        "type": "резистор"
+      },
+      {
+        "label": "Компонент",
+        "id": "nagruzka",
+        "name": "Нагрузка",
+        "type": "элемент схемы"
+      },
+      {
+        "label": "Компонент",
+        "id": "emitterResistor",
+        "name": "Резистор в цепи эмиттера",
+        "type": "резистор"
+      },
+      {
+        "label": "Компонент",
+        "id": "emitterCapacitance",
+        "name": "Ёмкость в цепи эмиттера",
+        "type": "конденсатор"
+      },
+      {
+        "label": "Компонент",
+        "id": "teplovayaStabilizaciya",
+        "name": "Цепочка температурной стабилизации",
+        "type": "схема стабилизации"
+      },
+      {
+        "label": "Компонент",
+        "id": "bazovyiDelitel",
+        "name": "Делитель в цепи базы",
+        "type": "резисторный делитель"
+      },
+      {
+        "label": "Компонент",
+        "id": "razdelitelnyeEmkosti",
+        "name": "Разделительные ёмкости",
+        "type": "конденсаторы"
+      }
+    ],
+    "relationships": [
+      "usilitelnyikaskad|ВКЛЮЧАЕТ_РАЗДЕЛ|naznachenieElementov",
+      "naznachenieElementov|РАССМАТРИВАЕТ_ТЕМУ|klassicheskiiUsilitelnyiKaskad",
+      "klassicheskiiUsilitelnyiKaskad|СОДЕРЖИТ_ТЕРМИН|usilitelnyiKaskad",
+      "klassicheskiiUsilitelnyiKaskad|СОДЕРЖИТ_ТЕРМИН|transistor",
+      "transistor|СВЯЗАН_С|obshchiiEmitter",
+      "klassicheskiiUsilitelnyiKaskad|СОДЕРЖИТ_ТЕРМИН|rabochayaTochka",
+      "rabochayaTochka|СВЯЗАН_С|OOS",
+      "klassicheskiiUsilitelnyiKaskad|ОСНОВАНА_НА_ПРИНЦИПЕ|OOS",
+      "klassicheskiiUsilitelnyiKaskad|ИСПОЛЬЗУЕТ_КОМПОНЕНТ|istochnikPostoyannogoNapryazheniya",
+      "klassicheskiiUsilitelnyiKaskad|ИСПОЛЬЗУЕТ_КОМПОНЕНТ|peremennoeVhodnoeNapryazhenie",
+      "klassicheskiiUsilitelnyiKaskad|ИСПОЛЬЗУЕТ_КОМПОНЕНТ|rezistor",
+      "klassicheskiiUsilitelnyiKaskad|ИСПОЛЬЗУЕТ_КОМПОНЕНТ|nagruzka",
+      "klassicheskiiUsilitelnyiKaskad|ИСПОЛЬЗУЕТ_КОМПОНЕНТ|emitterResistor",
+      "klassicheskiiUsilitelnyiKaskad|ИСПОЛЬЗУЕТ_КОМПОНЕНТ|emitterCapacitance",
+      "klassicheskiiUsilitelnyiKaskad|ИСПОЛЬЗУЕТ_КОМПОНЕНТ|teplovayaStabilizaciya",
+      "klassicheskiiUsilitelnyiKaskad|ИСПОЛЬЗУЕТ_КОМПОНЕНТ|bazovyiDelitel",
+      "klassicheskiiUsilitelnyiKaskad|ИСПОЛЬЗУЕТ_КОМПОНЕНТ|razdelitelnyeEmkosti"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "usilitelnyikaskad",
+        "name": "Усилительный каскад",
+        "description": "Курс посвящён изучению работы усилительного каскада, его характеристик и параметров."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "epyuryTokovINapryazheniy",
+        "name": "Эпюры токов и напряжений в усилительном каскаде",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "ekvivalentnayaShema",
+        "name": "Эквивалентная схема усилительного каскада",
+        "order": 2
+      },
+      {
+        "label": "Тема",
+        "id": "parazitnayaEmkost",
+        "name": "Паразитная ёмкость",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "tokINapryazhenieVKaskade",
+        "name": "Токи и напряжения в усилительном каскаде",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "samovoznikayushchayaParazitnayaEmkost",
+        "name": "Самовозникающая паразитная ёмкость",
+        "definition": "Ёмкость, которая не присутствует в схеме в явном виде, но возникает в процессе работы каскада."
+      },
+      {
+        "label": "Термин",
+        "id": "emkostMontazha",
+        "name": "Ёмкость монтажа",
+        "definition": "Ёмкость, возникающая из-за особенностей монтажа элементов схемы."
+      },
+      {
+        "label": "Термин",
+        "id": "barernayaEmkostKollektornogoPerkhoda",
+        "name": "Барьерная ёмкость коллекторного перехода",
+        "definition": "Ёмкость, связанная с барьерным слоем в коллекторном переходе транзистора."
+      },
+      {
+        "label": "Термин",
+        "id": "emkostNaladki",
+        "name": "Ёмкость нагрузки",
+        "definition": "Ёмкость, связанная с нагрузкой в схеме усилительного каскада."
+      },
+      {
+        "label": "Термин",
+        "id": "razdelitelnyyKondensator",
+        "name": "Разделительный конденсатор",
+        "definition": "Конденсатор, используемый для разделения постоянной и переменной составляющих сигнала."
+      },
+      {
+        "label": "Компонент",
+        "id": "transistor",
+        "name": "Транзистор",
+        "type": "полупроводниковый прибор"
+      },
+      {
+        "label": "Компонент",
+        "id": "kondensator",
+        "name": "Конденсатор",
+        "type": "накопительный элемент"
+      }
+    ],
+    "relationships": [
+      "usilitelnyikaskad|ВКЛЮЧАЕТ_РАЗДЕЛ|epyuryTokovINapryazheniy",
+      "usilitelnyikaskad|ВКЛЮЧАЕТ_РАЗДЕЛ|ekvivalentnayaShema",
+      "epyuryTokovINapryazheniy|РАССМАТРИВАЕТ_ТЕМУ|parazitnayaEmkost",
+      "epyuryTokovINapryazheniy|РАССМАТРИВАЕТ_ТЕМУ|tokINapryazhenieVKaskade",
+      "parazitnayaEmkost|СОДЕРЖИТ_ТЕРМИН|samovoznikayushchayaParazitnayaEmkost",
+      "parazitnayaEmkost|СОДЕРЖИТ_ТЕРМИН|emkostMontazha",
+      "parazitnayaEmkost|СОДЕРЖИТ_ТЕРМИН|barernayaEmkostKollektornogoPerkhoda",
+      "parazitnayaEmkost|СОДЕРЖИТ_ТЕРМИН|emkostNaladki",
+      "tokINapryazhenieVKaskade|СОДЕРЖИТ_ТЕРМИН|razdelitelnyyKondensator",
+      "tokINapryazhenieVKaskade|ОСНОВАНА_НА_ПРИНЦИПЕ|inversiyaSignala",
+      "samovoznikayushchayaParazitnayaEmkost|СВЯЗАН_С|emkostMontazha",
+      "barernayaEmkostKollektornogoPerkhoda|СВЯЗАН_С|emkostNaladki",
+      "transistor|ИСПОЛЬЗУЕТСЯ_В|tokINapryazhenieVKaskade",
+      "kondensator|ИСПОЛЬЗУЕТСЯ_В|razdelitelnyyKondensator"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "usilitelnyikaskad",
+        "name": "Усилительный каскад",
+        "description": "Курс посвящён анализу работы усилительного каскада, его эквивалентным схемам и особенностям работы в различных областях частот."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "srednieChastoty",
+        "name": "Область средних частот",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "nizhnieChastoty",
+        "name": "Область нижних частот",
+        "order": 2
+      },
+      {
+        "label": "Тема",
+        "id": "ekvivalentnayaShema",
+        "name": "Эквивалентная схема усилительного каскада",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "koeffitsientUsileniya",
+        "name": "Коэффициент усиления в области средних частот",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "zavalACH",
+        "name": "Завал АЧХ в области нижних частот",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "srednieChastoty",
+        "name": "Средние частоты (СЧ)",
+        "definition": "Область частот, где влиянием реактивных элементов можно пренебречь."
+      },
+      {
+        "label": "Термин",
+        "id": "nizhnieChastoty",
+        "name": "Нижние частоты",
+        "definition": "Область частот, в которой наблюдается завал АЧХ из-за наличия разделительных конденсаторов."
+      },
+      {
+        "label": "Термин",
+        "id": "razdelitelnyieKondensatory",
+        "name": "Разделительные конденсаторы",
+        "definition": "Конденсаторы, используемые для разделения цепей по частоте."
+      },
+      {
+        "label": "Формула",
+        "id": "formulaKoeffitsientaUsileniya",
+        "name": "Формула коэффициента усиления",
+        "expression": "K = f(RK, β, R_вых)"
+      },
+      {
+        "label": "Принцип",
+        "id": "vliyanieReaktivnyihElementov",
+        "name": "Влияние реактивных элементов",
+        "description": "В области средних частот влиянием реактивных элементов можно пренебречь, что упрощает анализ схемы."
+      },
+      {
+        "label": "Компонент",
+        "id": "rezistor",
+        "name": "Резистор",
+        "type": "резистор"
+      },
+      {
+        "label": "Компонент",
+        "id": "kondensator",
+        "name": "Конденсатор",
+        "type": "конденсатор"
+      },
+      {
+        "label": "Компонент",
+        "id": "tranzistor",
+        "name": "Транзистор",
+        "type": "транзистор"
+      }
+    ],
+    "relationships": [
+      "usilitelnyikaskad|ВКЛЮЧАЕТ_РАЗДЕЛ|srednieChastoty",
+      "usilitelnyikaskad|ВКЛЮЧАЕТ_РАЗДЕЛ|nizhnieChastoty",
+      "srednieChastoty|РАССМАТРИВАЕТ_ТЕМУ|ekvivalentnayaShema",
+      "srednieChastoty|РАССМАТРИВАЕТ_ТЕМУ|koeffitsientUsileniya",
+      "nizhnieChastoty|РАССМАТРИВАЕТ_ТЕМУ|zavalACH",
+      "ekvivalentnayaShema|СОДЕРЖИТ_ТЕРМИН|srednieChastoty",
+      "koeffitsientUsileniya|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formulaKoeffitsientaUsileniya",
+      "koeffitsientUsileniya|ОСНОВАНА_НА_ПРИНЦИПЕ|vliyanieReaktivnyihElementov",
+      "zavalACH|СОДЕРЖИТ_ТЕРМИН|nizhnieChastoty",
+      "zavalACH|СОДЕРЖИТ_ТЕРМИН|razdelitelnyieKondensatory",
+      "vliyanieReaktivnyihElementov|ОПИСЫВАЕТ_КОМПОНЕНТ|kondensator",
+      "ekvivalentnayaShema|ОСНОВАНА_НА_ПРИНЦИПЕ|vliyanieReaktivnyihElementov",
+      "koeffitsientUsileniya|ТРЕБУЕТ_ЗНАНИЯ|ekvivalentnayaShema",
+      "razdelitelnyieKondensatory|ОПРЕДЕЛЯЕТ|kondensator",
+      "srednieChastoty|СВЯЗАН_С|nizhnieChastoty"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "electroniccomponents",
+        "name": "Усилительные каскады и их характеристики",
+        "description": "Курс посвящён изучению работы усилительных каскадов, их характеристик и методов расчёта."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "lowerFrequenciesSection",
+        "name": "Область нижних частот",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "upperFrequenciesSection",
+        "name": "Область верхних частот",
+        "order": 2
+      },
+      {
+        "label": "Тема",
+        "id": "voltageDividerTopic",
+        "name": "Делитель напряжения",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "frequencyDistortionsTopic",
+        "name": "Коэффициент частотных искажений",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "transistorGainTopic",
+        "name": "Коэффициент усиления транзистора",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "capacitorTerm",
+        "name": "Конденсатор",
+        "definition": "Элемент электрической цепи, способный накапливать электрический заряд."
+      },
+      {
+        "label": "Термин",
+        "id": "voltageDividerTerm",
+        "name": "Делитель напряжения",
+        "definition": "Схема, используемая для получения нужного уровня напряжения из исходного."
+      },
+      {
+        "label": "Термин",
+        "id": "frequencyDistortionsTerm",
+        "name": "Коэффициент частотных искажений",
+        "definition": "Показатель, характеризующий степень изменения сигнала в зависимости от частоты."
+      },
+      {
+        "label": "Термин",
+        "id": "transistorGainTerm",
+        "name": "Коэффициент усиления транзистора",
+        "definition": "Параметр, определяющий способность транзистора усиливать сигнал."
+      },
+      {
+        "label": "Формула",
+        "id": "distortionsFormula",
+        "name": "Формула коэффициента частотных искажений",
+        "expression": "D = T1 / T2, где T1 — постоянная времени для входной цепи, T2 — постоянная времени для выходной цепи"
+      },
+      {
+        "label": "Компонент",
+        "id": "capacitorComponent",
+        "name": "Конденсатор",
+        "type": "конденсатор"
+      },
+      {
+        "label": "Компонент",
+        "id": "transistorComponent",
+        "name": "Транзистор",
+        "type": "транзистор"
+      }
+    ],
+    "relationships": [
+      "electroniccomponents|ВКЛЮЧАЕТ_РАЗДЕЛ|lowerFrequenciesSection",
+      "electroniccomponents|ВКЛЮЧАЕТ_РАЗДЕЛ|upperFrequenciesSection",
+      "lowerFrequenciesSection|РАССМАТРИВАЕТ_ТЕМУ|voltageDividerTopic",
+      "lowerFrequenciesSection|РАССМАТРИВАЕТ_ТЕМУ|frequencyDistortionsTopic",
+      "upperFrequenciesSection|РАССМАТРИВАЕТ_ТЕМУ|transistorGainTopic",
+      "voltageDividerTopic|СОДЕРЖИТ_ТЕРМИН|voltageDividerTerm",
+      "frequencyDistortionsTopic|СОДЕРЖИТ_ТЕРМИН|frequencyDistortionsTerm",
+      "transistorGainTopic|СОДЕРЖИТ_ТЕРМИН|transistorGainTerm",
+      "frequencyDistortionsTopic|ИСПОЛЬЗУЕТ_ФОРМУЛУ|distortionsFormula",
+      "voltageDividerTopic|ОСНОВАНА_НА_ПРИНЦИПЕ|voltageDivisionPrinciple",
+      "transistorComponent|ИСПОЛЬЗУЕТСЯ_В|voltageDividerTopic",
+      "capacitorComponent|ИСПОЛЬЗУЕТСЯ_В|voltageDividerTopic",
+      "capacitorTerm|ОПРЕДЕЛЯЕТ|capacitorComponent",
+      "transistorTerm|ОПРЕДЕЛЯЕТ|transistorComponent",
+      "frequencyDistortionsTerm|СВЯЗАН_С|capacitorTerm",
+      "transistorGainTerm|СВЯЗАН_С|transistorTerm"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "electronicamplification",
+        "name": "Усилительные каскады и их характеристики",
+        "description": "Курс посвящён изучению принципов работы усилительных каскадов, их характеристик и методов расчёта."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "frequencyDistortionsSection",
+        "name": "Частотные искажения и граничные частоты усиления",
+        "order": 1
+      },
+      {
+        "label": "Тема",
+        "id": "frequencyDistortionsTopic",
+        "name": "Частотные искажения в усилительных каскадах",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "amplificationAreaTopic",
+        "name": "Площадь усиления",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "mountingCapacitance",
+        "name": "Ёмкость монтажа",
+        "definition": "Ёмкость, которая подключена параллельно резистору и влияет на эквивалентное сопротивление нагрузки по переменному току."
+      },
+      {
+        "label": "Термин",
+        "id": "loadCapacitance",
+        "name": "Ёмкость нагрузки",
+        "definition": "Ёмкость, которая подключена параллельно резистору и влияет на эквивалентное сопротивление нагрузки по переменному току."
+      },
+      {
+        "label": "Термин",
+        "id": "equivalentResistance",
+        "name": "Эквивалентное сопротивление нагрузки",
+        "definition": "Сопротивление, которое учитывает влияние ёмкостей монтажа и нагрузки на работу усилительного каскада."
+      },
+      {
+        "label": "Термин",
+        "id": "amplificationFactor",
+        "name": "Коэффициент усиления",
+        "definition": "Параметр, характеризующий способность усилителя увеличивать амплитуду сигнала."
+      },
+      {
+        "label": "Термин",
+        "id": "upperCutoffFrequency",
+        "name": "Верхняя граничная частота усиления",
+        "definition": "Максимальная частота, на которой усилитель способен обеспечивать заданный уровень усиления."
+      },
+      {
+        "label": "Термин",
+        "id": "amplificationArea",
+        "name": "Площадь усиления",
+        "definition": "Характеристика свойств усилителя, учитывающая диапазон усиливаемых частот и коэффициент усиления."
+      },
+      {
+        "label": "Формула",
+        "id": "frequencyDistortionsFormula",
+        "name": "Формула частотных искажений",
+        "expression": "Формула зависимости частотных искажений от параметров транзистора и нагрузки."
+      },
+      {
+        "label": "Формула",
+        "id": "amplificationAreaFormula",
+        "name": "Формула площади усиления",
+        "expression": "П = КСР · [параметр] = const"
+      },
+      {
+        "label": "Компонент",
+        "id": "resistor",
+        "name": "Резистор",
+        "type": "резистор"
+      },
+      {
+        "label": "Компонент",
+        "id": "transistor",
+        "name": "Транзистор",
+        "type": "транзистор"
+      }
+    ],
+    "relationships": [
+      "electronicamplification|ВКЛЮЧАЕТ_РАЗДЕЛ|frequencyDistortionsSection",
+      "frequencyDistortionsSection|РАССМАТРИВАЕТ_ТЕМУ|frequencyDistortionsTopic",
+      "frequencyDistortionsTopic|СОДЕРЖИТ_ТЕРМИН|mountingCapacitance",
+      "frequencyDistortionsTopic|СОДЕРЖИТ_ТЕРМИН|loadCapacitance",
+      "frequencyDistortionsTopic|СОДЕРЖИТ_ТЕРМИН|equivalentResistance",
+      "frequencyDistortionsTopic|СОДЕРЖИТ_ТЕРМИН|amplificationFactor",
+      "frequencyDistortionsTopic|СОДЕРЖИТ_ТЕРМИН|upperCutoffFrequency",
+      "frequencyDistortionsTopic|ИСПОЛЬЗУЕТ_ФОРМУЛУ|frequencyDistortionsFormula",
+      "amplificationAreaTopic|СОДЕРЖИТ_ТЕРМИН|amplificationArea",
+      "amplificationAreaTopic|ИСПОЛЬЗУЕТ_ФОРМУЛУ|amplificationAreaFormula",
+      "mountingCapacitance|СВЯЗАН_С|loadCapacitance",
+      "equivalentResistance|СВЯЗАН_С|mountingCapacitance",
+      "equivalentResistance|СВЯЗАН_С|loadCapacitance",
+      "amplificationFactor|СВЯЗАН_С|upperCutoffFrequency",
+      "transistor|ИСПОЛЬЗУЕТСЯ_В|frequencyDistortionsTopic",
+      "resistor|ИСПОЛЬЗУЕТСЯ_В|frequencyDistortionsTopic"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "electroniccircuitlab",
+        "name": "Исследование усилительного каскада в среде Мультисим",
+        "description": "Курс посвящён исследованию усилительных каскадов на биполярных транзисторах с использованием программы Мультисим."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "section1",
+        "name": "Определение параметров усилительного каскада на средних частотах",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "section2",
+        "name": "Исследование амплитудно-частотной характеристики",
+        "order": 2
+      },
+      {
+        "label": "РазделКурса",
+        "id": "section3",
+        "name": "Исследование амплитудной характеристики",
+        "order": 3
+      },
+      {
+        "label": "Тема",
+        "id": "amplifierCascadeParameters",
+        "name": "Параметры усилительного каскада",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "frequencyResponse",
+        "name": "Амплитудно-частотная характеристика",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "amplitudeCharacteristic",
+        "name": "Амплитудная характеристика",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "gain",
+        "name": "Коэффициент усиления",
+        "definition": "Параметр, характеризующий способность усилителя увеличивать амплитуду сигнала."
+      },
+      {
+        "label": "Термин",
+        "id": "bandwidth",
+        "name": "Полоса пропускания",
+        "definition": "Диапазон частот, в котором усилитель обеспечивает заданный уровень усиления."
+      },
+      {
+        "label": "Термин",
+        "id": "operatingPoint",
+        "name": "Рабочая точка транзистора",
+        "definition": "Точка на характеристиках транзистора, определяющая его режим работы в усилительном каскаде."
+      },
+      {
+        "label": "Формула",
+        "id": "gainFormula",
+        "name": "Формула коэффициента усиления",
+        "expression": "П = КСР · [неизвестная переменная] = const"
+      },
+      {
+        "label": "Принцип",
+        "id": "tradeOffGainBandwidth",
+        "name": "Компромисс между коэффициентом усиления и полосой пропускания",
+        "description": "Невозможно одновременно обеспечить большой коэффициент усиления и широкую полосу пропускания, поэтому усилители часто делают многокаскадными."
+      },
+      {
+        "label": "Компонент",
+        "id": "bipolarTransistor",
+        "name": "Биполярный транзистор",
+        "type": "транзистор"
+      },
+      {
+        "label": "Метод",
+        "id": "simulationInMultisim",
+        "name": "Моделирование в Мультисим",
+        "application": "Исследование электронных схем и усилителей"
+      },
+      {
+        "label": "Пример",
+        "id": "exampleAmplifierCascade",
+        "name": "Исследование усилительного каскада",
+        "context": "Лабораторная работа в программе Мультисим"
+      }
+    ],
+    "relationships": [
+      "electroniccircuitlab|ВКЛЮЧАЕТ_РАЗДЕЛ|section1",
+      "electroniccircuitlab|ВКЛЮЧАЕТ_РАЗДЕЛ|section2",
+      "electroniccircuitlab|ВКЛЮЧАЕТ_РАЗДЕЛ|section3",
+      "section1|РАССМАТРИВАЕТ_ТЕМУ|amplifierCascadeParameters",
+      "section2|РАССМАТРИВАЕТ_ТЕМУ|frequencyResponse",
+      "section3|РАССМАТРИВАЕТ_ТЕМУ|amplitudeCharacteristic",
+      "amplifierCascadeParameters|СОДЕРЖИТ_ТЕРМИН|gain",
+      "amplifierCascadeParameters|СОДЕРЖИТ_ТЕРМИН|operatingPoint",
+      "frequencyResponse|СОДЕРЖИТ_ТЕРМИН|bandwidth",
+      "amplifierCascadeParameters|ИСПОЛЬЗУЕТ_ФОРМУЛУ|gainFormula",
+      "amplifierCascadeParameters|ОСНОВАНА_НА_ПРИНЦИПЕ|tradeOffGainBandwidth",
+      "tradeOffGainBandwidth|ОПИСЫВАЕТ_КОМПОНЕНТ|bipolarTransistor",
+      "amplifierCascadeParameters|ПРИМЕНЯЕТ_МЕТОД|simulationInMultisim",
+      "simulationInMultisim|ПРОДЕМОНСТРИРОВАН_НА|exampleAmplifierCascade",
+      "amplifierCascadeParameters|ПРОДЕМОНСТРИРОВАНА_НА|exampleAmplifierCascade",
+      "gain|СВЯЗАН_С|bandwidth",
+      "operatingPoint|ОПРЕДЕЛЯЕТ|bipolarTransistor"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "usilitelnyikaskad",
+        "name": "Усилительный каскад",
+        "description": "Курс посвящён изучению принципов работы и методов расчёта усилительных каскадов."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "opredelenieKoefficientaUsileniya",
+        "name": "Определение коэффициента усиления каскада по напряжению",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "opredelenieVhodnogoIVyhodnogoSoprotivleniya",
+        "name": "Определение входного и выходного сопротивления усилительного каскада",
+        "order": 2
+      },
+      {
+        "label": "РазделКурса",
+        "id": "snyatieIPostroenieACH",
+        "name": "Снятие и построение АЧХ усилительного каскада с определением полосы пропускания",
+        "order": 3
+      },
+      {
+        "label": "Тема",
+        "id": "koefficientUsileniyaKaskada",
+        "name": "Коэффициент усиления каскада по напряжению",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "vhodnoeSoprotivlenieKaskada",
+        "name": "Входное сопротивление усилительного каскада",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "vyhodnoeSoprotivlenieKaskada",
+        "name": "Выходное сопротивление усилительного каскада",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "achKaskada",
+        "name": "Амплитудно-частотная характеристика (АЧХ) усилительного каскада",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "srednieChastoty",
+        "name": "Средние частоты",
+        "definition": "Диапазон частот, в котором усилитель работает с минимальными искажениями сигнала."
+      },
+      {
+        "label": "Термин",
+        "id": "fazovyiSdvig",
+        "name": "Фазовый сдвиг",
+        "definition": "Разница в фазе между входным и выходным сигналами."
+      },
+      {
+        "label": "Термин",
+        "id": "amplitudnoChastotnayaHarakteristika",
+        "name": "Амплитудно-частотная характеристика (АЧХ)",
+        "definition": "График зависимости амплитуды выходного сигнала от частоты входного сигнала."
+      },
+      {
+        "label": "Термин",
+        "id": "polosaPropuskaniya",
+        "name": "Полоса пропускания",
+        "definition": "Диапазон частот, в котором усилитель обеспечивает достаточный уровень усиления без значительных искажений."
+      },
+      {
+        "label": "Формула",
+        "id": "formulaVhodnogoSoprotivleniya",
+        "name": "Формула входного сопротивления",
+        "expression": "R_вх = ∆U'ВЫХ / (UВЫХ – UВЫХ с R0)"
+      },
+      {
+        "label": "Формула",
+        "id": "formulaVyhodnogoSoprotivleniya",
+        "name": "Формула выходного сопротивления",
+        "expression": "R_вых = ∆U\"ВЫХ / (UВЫХ Х Х - UВЫХ)"
+      },
+      {
+        "label": "Компонент",
+        "id": "transistor",
+        "name": "Транзистор",
+        "type": "полупроводниковый прибор"
+      },
+      {
+        "label": "Компонент",
+        "id": "rezistor",
+        "name": "Резистор",
+        "type": "пассивный элемент"
+      },
+      {
+        "label": "Компонент",
+        "id": "kondensator",
+        "name": "Конденсатор",
+        "type": "пассивный элемент"
+      },
+      {
+        "label": "Метод",
+        "id": "metodOpredeleniyaSrednihChastot",
+        "name": "Метод определения средних частот",
+        "application": "Расчёт характеристик усилительного каскада"
+      }
+    ],
+    "relationships": [
+      "usilitelnyikaskad|ВКЛЮЧАЕТ_РАЗДЕЛ|opredelenieKoefficientaUsileniya",
+      "usilitelnyikaskad|ВКЛЮЧАЕТ_РАЗДЕЛ|opredelenieVhodnogoIVyhodnogoSoprotivleniya",
+      "usilitelnyikaskad|ВКЛЮЧАЕТ_РАЗДЕЛ|snyatieIPostroenieACH",
+      "opredelenieKoefficientaUsileniya|РАССМАТРИВАЕТ_ТЕМУ|koefficientUsileniyaKaskada",
+      "opredelenieVhodnogoIVyhodnogoSoprotivleniya|РАССМАТРИВАЕТ_ТЕМУ|vhodnoeSoprotivlenieKaskada",
+      "opredelenieVhodnogoIVyhodnogoSoprotivleniya|РАССМАТРИВАЕТ_ТЕМУ|vyhodnoeSoprotivlenieKaskada",
+      "snyatieIPostroenieACH|РАССМАТРИВАЕТ_ТЕМУ|achKaskada",
+      "koefficientUsileniyaKaskada|СОДЕРЖИТ_ТЕРМИН|srednieChastoty",
+      "koefficientUsileniyaKaskada|СОДЕРЖИТ_ТЕРМИН|fazovyiSdvig",
+      "achKaskada|СОДЕРЖИТ_ТЕРМИН|amplitudnoChastotnayaHarakteristika",
+      "achKaskada|СОДЕРЖИТ_ТЕРМИН|polosaPropuskaniya",
+      "vhodnoeSoprotivlenieKaskada|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formulaVhodnogoSoprotivleniya",
+      "vyhodnoeSoprotivlenieKaskada|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formulaVyhodnogoSoprotivleniya",
+      "koefficientUsileniyaKaskada|ОСНОВАНА_НА_ПРИНЦИПЕ|metodOpredeleniyaSrednihChastot",
+      "achKaskada|ПРИМЕНЯЕТ_МЕТОД|metodOpredeleniyaSrednihChastot",
+      "transistor|ИСПОЛЬЗУЕТСЯ_В|koefficientUsileniyaKaskada",
+      "rezistor|ИСПОЛЬЗУЕТСЯ_В|koefficientUsileniyaKaskada",
+      "kondensator|ИСПОЛЬЗУЕТСЯ_В|koefficientUsileniyaKaskada",
+      "srednieChastoty|СВЯЗАН_С|fazovyiSdvig",
+      "amplitudnoChastotnayaHarakteristika|СВЯЗАН_С|polosaPropuskaniya"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "usilitelnyikaskad",
+        "name": "Усилительный каскад",
+        "description": "Курс посвящён исследованию характеристик усилительных каскадов с использованием плоттера Боде и определению влияния элементов усилителя на его качественные показатели."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "issledovaniесhemy",
+        "name": "Исследование схемы с плоттером Боде",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "snyatiеax",
+        "name": "Снятие и построение АХ усилительного каскада",
+        "order": 2
+      },
+      {
+        "label": "Тема",
+        "id": "ispolzovanieplotteraBode",
+        "name": "Использование плоттера Боде",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "opredeleniegranichnykhchastot",
+        "name": "Определение граничных частот полосы пропускания",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "snyatieamplitudnoykharakteristiki",
+        "name": "Снятие амплитудной характеристики усилительного каскада",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "plotterBode",
+        "name": "плоттер Боде",
+        "definition": "Прибор для измерения и отображения частотных характеристик электронных схем."
+      },
+      {
+        "label": "Термин",
+        "id": "granichnyechastoty",
+        "name": "граничные частоты",
+        "definition": "Частоты, на которых неравномерность амплитудно-частотной характеристики составляет 3 дБ."
+      },
+      {
+        "label": "Термин",
+        "id": "amplitudnayakharakteristika",
+        "name": "амплитудная характеристика",
+        "definition": "Зависимость амплитуды выходного сигнала от амплитуды входного сигнала."
+      },
+      {
+        "label": "Термин",
+        "id": "dinamicheskiydiapazonusileniya",
+        "name": "динамический диапазон усиления",
+        "definition": "Диапазон уровней сигнала, в котором усилитель обеспечивает линейное усиление без искажений."
+      },
+      {
+        "label": "Компонент",
+        "id": "Rн",
+        "name": "Rн",
+        "type": "резистор"
+      }
+    ],
+    "relationships": [
+      "usilitelnyikaskad|ВКЛЮЧАЕТ_РАЗДЕЛ|issledovaniесhemy",
+      "usilitelnyikaskad|ВКЛЮЧАЕТ_РАЗДЕЛ|snyatiеax",
+      "issledovaniесhemy|РАССМАТРИВАЕТ_ТЕМУ|ispolzovanieplotteraBode",
+      "issledovaniесhemy|РАССМАТРИВАЕТ_ТЕМУ|opredeleniegranichnykhchastot",
+      "snyatiеax|РАССМАТРИВАЕТ_ТЕМУ|snyatieamplitudnoykharakteristiki",
+      "ispolzovanieplotteraBode|СОДЕРЖИТ_ТЕРМИН|plotterBode",
+      "opredeleniegranichnykhchastot|СОДЕРЖИТ_ТЕРМИН|granichnyechastoty",
+      "snyatieamplitudnoykharakteristiki|СОДЕРЖИТ_ТЕРМИН|amplitudnayakharakteristika",
+      "snyatieamplitudnoykharakteristiki|СОДЕРЖИТ_ТЕРМИН|dinamicheskiydiapazonusileniya",
+      "snyatieamplitudnoykharakteristiki|ОСНОВАНА_НА_ПРИНЦИПЕ|opredeleniegranichnykhchastot",
+      "snyatieamplitudnoykharakteristiki|ПРИМЕНЯЕТ_МЕТОД|ispolzovanieplotteraBode",
+      "granichnyechastoty|СВЯЗАН_С|amplitudnayakharakteristika",
+      "amplitudnayakharakteristika|СВЯЗАН_С|dinamicheskiydiapazonusileniya",
+      "snyatieamplitudnoykharakteristiki|ОСНОВАНА_НА_ПРИНЦИПЕ|dinamicheskiydiapazonusileniya",
+      "snyatieamplitudnoykharakteristiki|ИСПОЛЬЗУЕТ_КОМПОНЕНТ|Rн"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "elektronikaimikroprotsessornayatehnika",
+        "name": "Электроника и микропроцессорная техника",
+        "description": "Курс для технических специальностей, охватывающий основы электроники и микропроцессорной техники."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "usilitelnyikaskad",
+        "name": "Усилительный каскад",
+        "order": 1
+      },
+      {
+        "label": "Тема",
+        "id": "parametryusilitelnykakaskada",
+        "name": "Параметры усилительного каскада",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "uvh",
+        "name": "Uвх",
+        "definition": "Входное напряжение усилительного каскада."
+      },
+      {
+        "label": "Термин",
+        "id": "vt",
+        "name": "VT",
+        "definition": "Тип транзистора, используемого в усилительном каскаде."
+      },
+      {
+        "label": "Термин",
+        "id": "ek",
+        "name": "Ек",
+        "definition": "Напряжение питания усилительного каскада."
+      },
+      {
+        "label": "Компонент",
+        "id": "rezistor",
+        "name": "Резистор",
+        "type": "резистор"
+      },
+      {
+        "label": "Компонент",
+        "id": "kondensator",
+        "name": "Конденсатор",
+        "type": "конденсатор"
+      }
+    ],
+    "relationships": [
+      "elektronikaimikroprotsessornayatehnika|ВКЛЮЧАЕТ_РАЗДЕЛ|usilitelnyikaskad",
+      "usilitelnyikaskad|РАССМАТРИВАЕТ_ТЕМУ|parametryusilitelnykakaskada",
+      "parametryusilitelnykakaskada|СОДЕРЖИТ_ТЕРМИН|uvh",
+      "parametryusilitelnykakaskada|СОДЕРЖИТ_ТЕРМИН|vt",
+      "parametryusilitelnykakaskada|СОДЕРЖИТ_ТЕРМИН|ek",
+      "parametryusilitelnykakaskada|ОСНОВАНА_НА_ПРИНЦИПЕ|prinsiprabotyusilitelnogokaskada",
+      "prinsiprabotyusilitelnogokaskada|ОПИСЫВАЕТ_КОМПОНЕНТ|rezistor",
+      "prinsiprabotyusilitelnogokaskada|ОПИСЫВАЕТ_КОМПОНЕНТ|kondensator"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "usiliteliivobratnyesvyazi",
+        "name": "Усилители и обратные связи в усилителях",
+        "description": "Курс посвящён изучению усилителей и принципов работы обратных связей в них."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "usiliteli",
+        "name": "Усилители",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "harakteristikiUsiliteley",
+        "name": "Характеристики электронных усилителей",
+        "order": 2
+      },
+      {
+        "label": "РазделКурса",
+        "id": "kachestvennyePokazateliUsiliteley",
+        "name": "Качественные показатели усилителей",
+        "order": 3
+      },
+      {
+        "label": "Тема",
+        "id": "principRabotyUsilitelya",
+        "name": "Принцип работы усилителя",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "koefficientUsileniya",
+        "name": "Коэффициент усиления",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "iskazheniyaSignala",
+        "name": "Искажения сигнала",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "amplitudnoChastotnayaHarakteristika",
+        "name": "Амплитудно-частотная характеристика",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "usilitel",
+        "name": "Усилитель",
+        "definition": "Устройство, предназначенное для повышения (усиления) сигнала по мощности."
+      },
+      {
+        "label": "Термин",
+        "id": "koefficientUsileniyaPoMoshchnosti",
+        "name": "Коэффициент усиления по мощности",
+        "definition": "Отношение мощности, отдаваемой усилителем в нагрузку, к мощности, потребляемой от источника входного сигнала."
+      },
+      {
+        "label": "Термин",
+        "id": "iskazheniya",
+        "name": "Искажения",
+        "definition": "Отклонения форм выходного сигнала от входного."
+      },
+      {
+        "label": "Термин",
+        "id": "amplitudnoChastotnayaHarakteristika",
+        "name": "Амплитудно-частотная характеристика",
+        "definition": "Зависимость амплитуды выходного сигнала от частоты входного сигнала."
+      },
+      {
+        "label": "Формула",
+        "id": "formulaMoshchnosti",
+        "name": "Формула мощности",
+        "expression": "P = UI"
+      },
+      {
+        "label": "Формула",
+        "id": "formulaKoefficientaUsileniyaPoMoshchnosti",
+        "name": "Формула коэффициента усиления по мощности",
+        "expression": "K_p = P_вых / P_вх"
+      },
+      {
+        "label": "Формула",
+        "id": "formulaKoefficientaUsileniyaVDecibelah",
+        "name": "Формула коэффициента усиления в децибелах",
+        "expression": "K_дБ = 10 * lg(P_вых / P_вх)"
+      },
+      {
+        "label": "Компонент",
+        "id": "transistor",
+        "name": "Транзистор",
+        "type": "активный элемент"
+      }
+    ],
+    "relationships": [
+      "usiliteliivobratnyesvyazi|ВКЛЮЧАЕТ_РАЗДЕЛ|usiliteli",
+      "usiliteliivobratnyesvyazi|ВКЛЮЧАЕТ_РАЗДЕЛ|harakteristikiUsiliteley",
+      "usiliteliivobratnyesvyazi|ВКЛЮЧАЕТ_РАЗДЕЛ|kachestvennyePokazateliUsiliteley",
+      "usiliteli|РАССМАТРИВАЕТ_ТЕМУ|principRabotyUsilitelya",
+      "harakteristikiUsiliteley|РАССМАТРИВАЕТ_ТЕМУ|koefficientUsileniya",
+      "kachestvennyePokazateliUsiliteley|РАССМАТРИВАЕТ_ТЕМУ|iskazheniyaSignala",
+      "kachestvennyePokazateliUsiliteley|РАССМАТРИВАЕТ_ТЕМУ|amplitudnoChastotnayaHarakteristika",
+      "principRabotyUsilitelya|СОДЕРЖИТ_ТЕРМИН|usilitel",
+      "koefficientUsileniya|СОДЕРЖИТ_ТЕРМИН|koefficientUsileniyaPoMoshchnosti",
+      "iskazheniyaSignala|СОДЕРЖИТ_ТЕРМИН|iskazheniya",
+      "amplitudnoChastotnayaHarakteristika|СОДЕРЖИТ_ТЕРМИН|amplitudnoChastotnayaHarakteristika",
+      "koefficientUsileniya|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formulaKoefficientaUsileniyaPoMoshchnosti",
+      "koefficientUsileniya|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formulaKoefficientaUsileniyaVDecibelah",
+      "principRabotyUsilitelya|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formulaMoshchnosti",
+      "principRabotyUsilitelya|ОСНОВАНА_НА_ПРИНЦИПЕ|principUpravleniyaSignalom",
+      "principUpravleniyaSignalom|ОПИСЫВАЕТ_КОМПОНЕНТ|transistor",
+      "iskazheniyaSignala|СВЯЗАН_С|amplitudnoChastotnayaHarakteristika"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "usiliteliispolzovanie",
+        "name": "Усилители и обратные связи в усилителях",
+        "description": "Курс посвящён изучению усилителей и механизмов работы с обратными связями в них."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "razdelAmplitudnyeharakteristik",
+        "name": "Амплитудные и частотные характеристики усилителей",
+        "order": 1
+      },
+      {
+        "label": "Тема",
+        "id": "temaPolosaPropuskaniya",
+        "name": "Полоса пропускания усилителя",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "temaChastotnyeIskazheniya",
+        "name": "Частотные искажения в усилителях",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "temaNelineynyeIskazheniya",
+        "name": "Нелинейные искажения и динамический диапазон усиления",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "termAmplitudnoChastotnayaHarakteristika",
+        "name": "Амплитудно-частотная характеристика (АЧХ)",
+        "definition": "График зависимости коэффициента усиления от частоты."
+      },
+      {
+        "label": "Термин",
+        "id": "termPolosaPropuskaniya",
+        "name": "Полоса пропускания усилителя",
+        "definition": "Диапазон частот, в пределах которого неравномерность АЧХ составляет отклонения от К0 не более заданных 3 дБ."
+      },
+      {
+        "label": "Термин",
+        "id": "termKoeffitsientUsileniya",
+        "name": "Коэффициент усиления",
+        "definition": "Параметр, характеризующий способность усилителя увеличивать амплитуду сигнала."
+      },
+      {
+        "label": "Термин",
+        "id": "termChastotnyeIskazheniya",
+        "name": "Частотные искажения",
+        "definition": "Уменьшение коэффициента усиления на нижних и верхних частотах по сравнению со средними."
+      },
+      {
+        "label": "Формула",
+        "id": "formulaM_n",
+        "name": "Формула коэффициента частотных искажений для нижних частот",
+        "expression": "M_n = K_ср / K_н"
+      },
+      {
+        "label": "Формула",
+        "id": "formulaM_v",
+        "name": "Формула коэффициента частотных искажений для верхних частот",
+        "expression": "M_v = K_ср / K_в"
+      },
+      {
+        "label": "Принцип",
+        "id": "principZavisaemostIskazheniyOtChastoty",
+        "name": "Принцип зависимости искажений от частоты",
+        "description": "Коэффициент усиления уменьшается на нижних и верхних частотах, что приводит к искажению сигнала."
+      }
+    ],
+    "relationships": [
+      "usiliteliispolzovanie|ВКЛЮЧАЕТ_РАЗДЕЛ|razdelAmplitudnyeharakteristik",
+      "razdelAmplitudnyeharakteristik|РАССМАТРИВАЕТ_ТЕМУ|temaPolosaPropuskaniya",
+      "razdelAmplitudnyeharakteristik|РАССМАТРИВАЕТ_ТЕМУ|temaChastotnyeIskazheniya",
+      "temaPolosaPropuskaniya|СОДЕРЖИТ_ТЕРМИН|termPolosaPropuskaniya",
+      "temaChastotnyeIskazheniya|СОДЕРЖИТ_ТЕРМИН|termChastotnyeIskazheniya",
+      "temaChastotnyeIskazheniya|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formulaM_n",
+      "temaChastotnyeIskazheniya|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formulaM_v",
+      "temaChastotnyeIskazheniya|ОСНОВАНА_НА_ПРИНЦИПЕ|principZavisaemostIskazheniyOtChastoty",
+      "termAmplitudnoChastotnayaHarakteristika|СВЯЗАН_С|termPolosaPropuskaniya",
+      "termKoeffitsientUsileniya|СВЯЗАН_С|termChastotnyeIskazheniya"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "usiliteliivobratnyesvyazivusilitelyah",
+        "name": "Усилители и обратные связи в усилителях",
+        "description": "Курс посвящён изучению принципов работы усилителей и механизмов обратных связей в них."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "razdelDinamicheskiyDiapazonI NelineynyeIskazheniya",
+        "name": "Динамический диапазон и нелинейные искажения",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "razdelUsilitelnyyKaskad",
+        "name": "Усилительный каскад",
+        "order": 2
+      },
+      {
+        "label": "Тема",
+        "id": "temaDinamicheskiyDiapazon",
+        "name": "Динамический диапазон усилителя",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "temaNelineynyeIskazheniya",
+        "name": "Нелинейные искажения",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "temaUsilitelnyyKaskad",
+        "name": "Усилительный каскад",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "termDinamicheskiyDiapazon",
+        "name": "Динамический диапазон",
+        "definition": "Квазилинейная область АХ, где усилитель работает без нелинейных искажений."
+      },
+      {
+        "label": "Термин",
+        "id": "termNelineynyeIskazheniya",
+        "name": "Нелинейные искажения",
+        "definition": "Изменение формы выходного сигнала по отношению к входному из-за наличия высших гармоник в усиленном сигнале."
+      },
+      {
+        "label": "Термин",
+        "id": "termKoeficientNelineynyhIskazheniy",
+        "name": "Коэффициент нелинейных искажений",
+        "definition": "Параметр, характеризующий степень нелинейных искажений в усиленном сигнале."
+      },
+      {
+        "label": "Формула",
+        "id": "formulaDinamicheskiyDiapazon",
+        "name": "Формула динамического диапазона",
+        "expression": "D = 20 lg (U_вх_MAX / U_вх_MIN)"
+      },
+      {
+        "label": "Формула",
+        "id": "formulaKoeficientNelineynyhIskazheniy",
+        "name": "Формула коэффициента нелинейных искажений",
+        "expression": "K_f = sqrt((U_Г2^2 + U_Г3^2 + U_Г4^2 + ...) / U_Г1^2)"
+      },
+      {
+        "label": "Компонент",
+        "id": "komponentBipolyarnyyTranzistor",
+        "name": "Биполярный транзистор",
+        "type": "транзистор"
+      },
+      {
+        "label": "Компонент",
+        "id": "komponentRezistor",
+        "name": "Резистор",
+        "type": "резистор"
+      },
+      {
+        "label": "Компонент",
+        "id": "komponentNagruzka",
+        "name": "Нагрузка",
+        "type": "нагрузка"
+      },
+      {
+        "label": "Компонент",
+        "id": "komponentEmkost",
+        "name": "Ёмкость",
+        "type": "конденсатор"
+      }
+    ],
+    "relationships": [
+      "usiliteliivobratnyesvyazivusilitelyah|ВКЛЮЧАЕТ_РАЗДЕЛ|razdelDinamicheskiyDiapazonI NelineynyeIskazheniya",
+      "usiliteliivobratnyesvyazivusilitelyah|ВКЛЮЧАЕТ_РАЗДЕЛ|razdelUsilitelnyyKaskad",
+      "razdelDinamicheskiyDiapazonI NelineynyeIskazheniya|РАССМАТРИВАЕТ_ТЕМУ|temaDinamicheskiyDiapazon",
+      "razdelDinamicheskiyDiapazonI NelineynyeIskazheniya|РАССМАТРИВАЕТ_ТЕМУ|temaNelineynyeIskazheniya",
+      "razdelUsilitelnyyKaskad|РАССМАТРИВАЕТ_ТЕМУ|temaUsilitelnyyKaskad",
+      "temaDinamicheskiyDiapazon|СОДЕРЖИТ_ТЕРМИН|termDinamicheskiyDiapazon",
+      "temaDinamicheskiyDiapazon|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formulaDinamicheskiyDiapazon",
+      "temaNelineynyeIskazheniya|СОДЕРЖИТ_ТЕРМИН|termNelineynyeIskazheniya",
+      "temaNelineynyeIskazheniya|СОДЕРЖИТ_ТЕРМИН|termKoeficientNelineynyhIskazheniy",
+      "temaNelineynyeIskazheniya|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formulaKoeficientNelineynyhIskazheniy",
+      "temaUsilitelnyyKaskad|ОСНОВАНА_НА_ПРИНЦИПЕ|принципРаботыУсилительногоКаскада",
+      "temaUsilitelnyyKaskad|ИСПОЛЬЗУЕТ|komponentBipolyarnyyTranzistor",
+      "temaUsilitelnyyKaskad|ИСПОЛЬЗУЕТ|komponentRezistor",
+      "temaUsilitelnyyKaskad|ИСПОЛЬЗУЕТ|komponentNagruzka",
+      "temaUsilitelnyyKaskad|ИСПОЛЬЗУЕТ|komponentEmkost",
+      "termDinamicheskiyDiapazon|СВЯЗАН_С|termNelineynyeIskazheniya"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "усилителииобратныесвязи",
+        "name": "Усилители и обратные связи в усилителях",
+        "description": "Курс посвящён изучению усилителей и механизмов работы обратных связей в них."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "отрицательнаяОбратнаяСвязь",
+        "name": "Отрицательная обратная связь по переменному току",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "эквивалентнаяСхемаУсилителя",
+        "name": "Эквивалентная схема усилительного каскада",
+        "order": 2
+      },
+      {
+        "label": "Тема",
+        "id": "цепьТемпературнойСтабилизации",
+        "name": "Цепочка температурной стабилизации режима по постоянному току",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "разделительныеЕмкости",
+        "name": "Разделительные ёмкости",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "эпюрыТоковИНапряжений",
+        "name": "Эпюры токов и напряжений в усилительном каскаде",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "рабочаяТочкаТранзистора",
+        "name": "Рабочая точка транзистора",
+        "definition": "Точка на характеристике транзистора, определяющая его режим работы."
+      },
+      {
+        "label": "Термин",
+        "id": "паразитнаяЕмкость",
+        "name": "Паразитная ёмкость",
+        "definition": "Ёмкость, которая возникает в схеме непреднамеренно и может влиять на её работу."
+      },
+      {
+        "label": "Термин",
+        "id": "барьернаяЕмкость",
+        "name": "Барьерная ёмкость коллекторного перехода",
+        "definition": "Ёмкость, возникающая в коллекторном переходе транзистора."
+      },
+      {
+        "label": "Компонент",
+        "id": "резистор",
+        "name": "Резистор",
+        "type": "резистор"
+      },
+      {
+        "label": "Компонент",
+        "id": "разделительныйКонденсатор",
+        "name": "Разделительный конденсатор",
+        "type": "конденсатор"
+      },
+      {
+        "label": "Формула",
+        "id": "формулаПаразитнойЕмкости",
+        "name": "Формула паразитной ёмкости",
+        "expression": "C0 = CM + CN + CK"
+      },
+      {
+        "label": "Принцип",
+        "id": "инвертированиеСигнала",
+        "name": "Инвертирование сигнала усилительным каскадом",
+        "description": "Усилительный каскад поворачивает сигнал на 180 градусов, то есть инвертирует его."
+      }
+    ],
+    "relationships": [
+      "усилителииобратныесвязи|ВКЛЮЧАЕТ_РАЗДЕЛ|отрицательнаяОбратнаяСвязь",
+      "усилителииобратныесвязи|ВКЛЮЧАЕТ_РАЗДЕЛ|эквивалентнаяСхемаУсилителя",
+      "отрицательнаяОбратнаяСвязь|РАССМАТРИВАЕТ_ТЕМУ|цепьТемпературнойСтабилизации",
+      "отрицательнаяОбратнаяСвязь|РАССМАТРИВАЕТ_ТЕМУ|разделительныеЕмкости",
+      "эквивалентнаяСхемаУсилителя|РАССМАТРИВАЕТ_ТЕМУ|эпюрыТоковИНапряжений",
+      "цепьТемпературнойСтабилизации|СОДЕРЖИТ_ТЕРМИН|рабочаяТочкаТранзистора",
+      "разделительныеЕмкости|СОДЕРЖИТ_ТЕРМИН|паразитнаяЕмкость",
+      "эпюрыТоковИНапряжений|ОСНОВАНА_НА_ПРИНЦИПЕ|инвертированиеСигнала",
+      "паразитнаяЕмкость|СВЯЗАН_С|барьернаяЕмкость",
+      "цепьТемпературнойСтабилизации|ИСПОЛЬЗУЕТ_КОМПОНЕНТ|резистор",
+      "разделительныеЕмкости|ИСПОЛЬЗУЕТ_КОМПОНЕНТ|разделительныйКонденсатор",
+      "формулаПаразитнойЕмкости|ВЫРАЖАЕТ_ПРИНЦИП|паразитнаяЕмкость"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "усилителииобратныесвязи",
+        "name": "Усилители и обратные связи в усилителях",
+        "description": "Курс посвящён изучению работы усилителей и влияния обратных связей на их характеристики."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "областьСреднихЧастот",
+        "name": "Область средних частот",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "областьНижнихЧастот",
+        "name": "Область нижних частот",
+        "order": 2
+      },
+      {
+        "label": "Тема",
+        "id": "коэффициентУсиления",
+        "name": "Коэффициент усиления",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "частотныеИскажения",
+        "name": "Частотные искажения",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "реактивноеСопротивление",
+        "name": "Реактивное сопротивление",
+        "definition": "Сопротивление, возникающее в элементах цепи из-за их реактивных свойств при прохождении переменного тока."
+      },
+      {
+        "label": "Термин",
+        "id": "разделительныйКонденсатор",
+        "name": "Разделительный конденсатор",
+        "definition": "Конденсатор, используемый для разделения постоянной и переменной составляющих сигнала."
+      },
+      {
+        "label": "Формула",
+        "id": "формулаКоэффициентаУсиления",
+        "name": "Формула коэффициента усиления",
+        "expression": "K = f(RK, HR, β, R)"
+      },
+      {
+        "label": "Формула",
+        "id": "формулаЧастотныхИскажений",
+        "name": "Формула частотных искажений",
+        "expression": "НМ = 1 + 1 / (ННτω)^2"
+      },
+      {
+        "label": "Принцип",
+        "id": "принципЗависимостиУсиленияОтСопротивления",
+        "name": "Принцип зависимости коэффициента усиления от сопротивления",
+        "description": "Коэффициент усиления усилителя зависит от значений сопротивлений в цепи и параметров транзистора."
+      },
+      {
+        "label": "Компонент",
+        "id": "резистор",
+        "name": "Резистор",
+        "type": "резистор"
+      },
+      {
+        "label": "Компонент",
+        "id": "конденсатор",
+        "name": "Конденсатор",
+        "type": "конденсатор"
+      },
+      {
+        "label": "Компонент",
+        "id": "транзистор",
+        "name": "Транзистор",
+        "type": "транзистор"
+      }
+    ],
+    "relationships": [
+      "усилителииобратныесвязи|ВКЛЮЧАЕТ_РАЗДЕЛ|областьСреднихЧастот",
+      "усилителииобратныесвязи|ВКЛЮЧАЕТ_РАЗДЕЛ|областьНижнихЧастот",
+      "областьСреднихЧастот|РАССМАТРИВАЕТ_ТЕМУ|коэффициентУсиления",
+      "областьНижнихЧастот|РАССМАТРИВАЕТ_ТЕМУ|частотныеИскажения",
+      "коэффициентУсиления|СОДЕРЖИТ_ТЕРМИН|реактивноеСопротивление",
+      "частотныеИскажения|СОДЕРЖИТ_ТЕРМИН|разделительныйКонденсатор",
+      "коэффициентУсиления|ИСПОЛЬЗУЕТ_ФОРМУЛУ|формулаКоэффициентаУсиления",
+      "частотныеИскажения|ИСПОЛЬЗУЕТ_ФОРМУЛУ|формулаЧастотныхИскажений",
+      "коэффициентУсиления|ОСНОВАНА_НА_ПРИНЦИПЕ|принципЗависимостиУсиленияОтСопротивления",
+      "принципЗависимостиУсиленияОтСопротивления|ОПИСЫВАЕТ_КОМПОНЕНТ|резистор",
+      "принципЗависимостиУсиленияОтСопротивления|ОПИСЫВАЕТ_КОМПОНЕНТ|транзистор",
+      "частотныеИскажения|ОСНОВАНА_НА_ПРИНЦИПЕ|принципЗависимостиУсиленияОтСопротивления",
+      "разделительныйКонденсатор|ОПРЕДЕЛЯЕТ|конденсатор",
+      "формулаЧастотныхИскажений|ЯВЛЯЕТСЯ_ЧАСТЬЮ|формулаКоэффициентаУсиления",
+      "резистор|ИСПОЛЬЗУЕТСЯ_В|транзистор",
+      "конденсатор|ИСПОЛЬЗУЕТСЯ_В|транзистор"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "usiliteliivobratnyesvyaзи",
+        "name": "Усилители и обратные связи в усилителях",
+        "description": "Курс посвящён изучению усилителей и механизмов работы обратных связей в них."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "vliyanieNaACH",
+        "name": "Влияние на АЧХ усилителя",
+        "order": 1
+      },
+      {
+        "label": "Тема",
+        "id": "zavalACH",
+        "name": "Завал АЧХ в области верхних частот",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "ACH",
+        "name": "АЧХ",
+        "definition": "Амплитудно-частотная характеристика, показывающая зависимость амплитуды сигнала от частоты."
+      },
+      {
+        "label": "Термин",
+        "id": "koeffitsientUsileniya",
+        "name": "Коэффициент усиления",
+        "definition": "Параметр, характеризующий способность усилителя увеличивать амплитуду сигнала."
+      },
+      {
+        "label": "Термин",
+        "id": "barernayaEmkost",
+        "name": "Барьерная ёмкость",
+        "definition": "Ёмкость, возникающая в полупроводниковых структурах и влияющая на характеристики транзистора."
+      },
+      {
+        "label": "Формула",
+        "id": "chastotnyeIskazheniya",
+        "name": "Формула частотных искажений",
+        "expression": "ВМ = (1 + τβω + (В ⋅ В))"
+      },
+      {
+        "label": "Формула",
+        "id": "verhnyayaGranichnayaChastota",
+        "name": "Формула верхней граничной частоты усиления",
+        "expression": "ωВ = (М + τβ) / (2 + 1 - ВРС ⋅ R0К)"
+      },
+      {
+        "label": "Принцип",
+        "id": "zavisimostKoeffitsientaUsileniyaOtChastoty",
+        "name": "Зависимость коэффициента усиления от частоты",
+        "description": "С ростом частоты значение коэффициента усиления транзистора уменьшается из-за инерционности носителей."
+      },
+      {
+        "label": "Компонент",
+        "id": "tranzistor",
+        "name": "Транзистор",
+        "type": "полупроводниковый прибор"
+      },
+      {
+        "label": "Тема",
+        "id": "ploshadUsileniya",
+        "name": "Площадь усиления",
+        "complexity": "средний"
+      },
+      {
+        "label": "Формула",
+        "id": "ploshadUsileniyaFormula",
+        "name": "Формула площади усиления",
+        "expression": "П = КСР ⋅ ωВ = const"
+      }
+    ],
+    "relationships": [
+      "usiliteliivobratnyesvyaзи|ВКЛЮЧАЕТ_РАЗДЕЛ|vliyanieNaACH",
+      "vliyanieNaACH|РАССМАТРИВАЕТ_ТЕМУ|zavalACH",
+      "zavalACH|СОДЕРЖИТ_ТЕРМИН|ACH",
+      "zavalACH|СОДЕРЖИТ_ТЕРМИН|koeffitsientUsileniya",
+      "zavalACH|СОДЕРЖИТ_ТЕРМИН|barernayaEmkost",
+      "zavalACH|ИСПОЛЬЗУЕТ_ФОРМУЛУ|chastotnyeIskazheniya",
+      "zavalACH|ОСНОВАНА_НА_ПРИНЦИПЕ|zavisimostKoeffitsientaUsileniyaOtChastoty",
+      "zavisimostKoeffitsientaUsileniyaOtChastoty|ОПИСЫВАЕТ_КОМПОНЕНТ|tranzistor",
+      "chastotnyeIskazheniya|ЯВЛЯЕТСЯ_ЧАСТЬЮ|verhnyayaGranichnayaChastota",
+      "usiliteliivobratnyesvyaзи|РАССМАТРИВАЕТ_ТЕМУ|ploshadUsileniya",
+      "ploshadUsileniya|ИСПОЛЬЗУЕТ_ФОРМУЛУ|ploshadUsileniyaFormula",
+      "koeffitsientUsileniya|СВЯЗАН_С|barernayaEmkost"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "usiliteliivos",
+        "name": "Усилители и обратные связи в усилителях",
+        "description": "Курс посвящён изучению усилителей и принципов работы с обратными связями в усилителях."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "razdelOsUsilitelyah",
+        "name": "Применение и классификация ОС в усилителях",
+        "order": 1
+      },
+      {
+        "label": "Тема",
+        "id": "temaPloshadUsileniya",
+        "name": "Площадь усиления",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "temaOsVUsilitelyah",
+        "name": "Обратные связи в усилителях",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "termOs",
+        "name": "Обратная связь (ОС)",
+        "definition": "Часть энергии с выхода усилителя снова поступает на его вход."
+      },
+      {
+        "label": "Термин",
+        "id": "termPloshadUsileniya",
+        "name": "Площадь усиления",
+        "definition": "Произведение коэффициента усиления на полосу усиливаемых частот."
+      },
+      {
+        "label": "Термин",
+        "id": "termKaskad",
+        "name": "Каскад",
+        "definition": "Отдельный этап или блок в усилителе, который вносит свой вклад в общий коэффициент усиления."
+      },
+      {
+        "label": "Формула",
+        "id": "formulaPloshadUsileniya",
+        "name": "Формула площади усиления",
+        "expression": "П = КСР · В"
+      },
+      {
+        "label": "Принцип",
+        "id": "principMnozhestvennyhKaskadov",
+        "name": "Принцип многокаскадных усилителей",
+        "description": "Общий коэффициент усиления определяется как произведение коэффициентов усиления отдельных каскадов."
+      },
+      {
+        "label": "Компонент",
+        "id": "komponentSumматор",
+        "name": "Сумматор",
+        "type": "элемент схемы"
+      },
+      {
+        "label": "Компонент",
+        "id": "komponentTsepOs",
+        "name": "Цепь ОС",
+        "type": "элемент схемы"
+      }
+    ],
+    "relationships": [
+      "usiliteliivos|ВКЛЮЧАЕТ_РАЗДЕЛ|razdelOsUsilitelyah",
+      "razdelOsUsilitelyah|РАССМАТРИВАЕТ_ТЕМУ|temaPloshadUsileniya",
+      "razdelOsUsilitelyah|РАССМАТРИВАЕТ_ТЕМУ|temaOsVUsilitelyah",
+      "temaPloshadUsileniya|СОДЕРЖИТ_ТЕРМИН|termPloshadUsileniya",
+      "temaPloshadUsileniya|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formulaPloshadUsileniya",
+      "temaOsVUsilitelyah|СОДЕРЖИТ_ТЕРМИН|termOs",
+      "temaOsVUsilitelyah|ОСНОВАНА_НА_ПРИНЦИПЕ|principMnozhestvennyhKaskadov",
+      "principMnozhestvennyhKaskadov|ОПИСЫВАЕТ_КОМПОНЕНТ|komponentTsepOs",
+      "temaOsVUsilitelyah|СОДЕРЖИТ_ТЕРМИН|termKaskad",
+      "termOs|СВЯЗАН_С|termKaskad",
+      "termPloshadUsileniya|СВЯЗАН_С|termKaskad",
+      "temaOsVUsilitelyah|СОДЕРЖИТ_КОМПОНЕНТ|komponentSumматор",
+      "temaOsVUsilitelyah|СОДЕРЖИТ_КОМПОНЕНТ|komponentTsepOs"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "usiliteliios",
+        "name": "Усилители и обратные связи в усилителях",
+        "description": "Курс посвящён изучению усилителей и принципов работы обратных связей в них."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "klassifikatsiyaOs",
+        "name": "Классификация типов обратных связей",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "vliyanieOsNaKus",
+        "name": "Влияние ОС на коэффициент усиления усилителя",
+        "order": 2
+      },
+      {
+        "label": "Тема",
+        "id": "polozhitelnayaIotriczatelnayaOs",
+        "name": "Положительная и отрицательная ОС",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "sposobSnyatiyaNapryazheniyaOs",
+        "name": "Способы снятия напряжения ОС",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "sposobPodachiUos",
+        "name": "Способы подачи Uос",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "tipyCepiOs",
+        "name": "Типы цепей ОС",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "chisloOkhvatyvaemykhKaskadov",
+        "name": "Число охватываемых каскадов",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Термин",
+        "id": "obratnayaSvaz",
+        "name": "Обратная связь (ОС)",
+        "definition": "Процесс, при котором часть выходного сигнала возвращается на вход усилителя."
+      },
+      {
+        "label": "Термин",
+        "id": "koeffitsientUsileniya",
+        "name": "Коэффициент усиления",
+        "definition": "Параметр, характеризующий способность усилителя увеличивать амплитуду сигнала."
+      },
+      {
+        "label": "Термин",
+        "id": "posledovatelnayaOs",
+        "name": "Последовательная ОС",
+        "definition": "Тип ОС, при котором источник входного напряжения и ОС включены последовательно."
+      },
+      {
+        "label": "Термин",
+        "id": "parallelnayaOs",
+        "name": "Параллельная ОС",
+        "definition": "Тип ОС, при котором источник входного напряжения и ОС включены параллельно."
+      },
+      {
+        "label": "Формула",
+        "id": "formulaUosProporcionalnostiUvykh",
+        "name": "Формула пропорциональности Uос и Uвых",
+        "expression": "Uoc = β * Uvykh"
+      },
+      {
+        "label": "Принцип",
+        "id": "vliyanieOsNaParametryUsilitelya",
+        "name": "Влияние ОС на параметры усилителя",
+        "description": "Введение ОС в усилитель оказывает влияние на все параметры и характеристики усилителя."
+      },
+      {
+        "label": "Компонент",
+        "id": "usilitel",
+        "name": "Усилитель",
+        "type": "электронный компонент"
+      },
+      {
+        "label": "Компонент",
+        "id": "delitelNapryazheniya",
+        "name": "Делитель напряжения",
+        "type": "электрическая цепь"
+      }
+    ],
+    "relationships": [
+      "usiliteliios|ВКЛЮЧАЕТ_РАЗДЕЛ|klassifikatsiyaOs",
+      "usiliteliios|ВКЛЮЧАЕТ_РАЗДЕЛ|vliyanieOsNaKus",
+      "klassifikatsiyaOs|РАССМАТРИВАЕТ_ТЕМУ|polozhitelnayaIotriczatelnayaOs",
+      "klassifikatsiyaOs|РАССМАТРИВАЕТ_ТЕМУ|sposobSnyatiyaNapryazheniyaOs",
+      "klassifikatsiyaOs|РАССМАТРИВАЕТ_ТЕМУ|sposobPodachiUos",
+      "klassifikatsiyaOs|РАССМАТРИВАЕТ_ТЕМУ|tipyCepiOs",
+      "klassifikatsiyaOs|РАССМАТРИВАЕТ_ТЕМУ|chisloOkhvatyvaemykhKaskadov",
+      "polozhitelnayaIotriczatelnayaOs|СОДЕРЖИТ_ТЕРМИН|obratnayaSvaz",
+      "sposobSnyatiyaNapryazheniyaOs|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formulaUosProporcionalnostiUvykh",
+      "sposobPodachiUos|СОДЕРЖИТ_ТЕРМИН|posledovatelnayaOs",
+      "sposobPodachiUos|СОДЕРЖИТ_ТЕРМИН|parallelnayaOs",
+      "tipyCepiOs|ОСНОВАНА_НА_ПРИНЦИПЕ|vliyanieOsNaParametryUsilitelya",
+      "vliyanieOsNaKus|ОСНОВАНА_НА_ПРИНЦИПЕ|vliyanieOsNaParametryUsilitelya",
+      "obratnayaSvaz|ОПРЕДЕЛЯЕТ|usilitel",
+      "delitelNapryazheniya|ИСПОЛЬЗУЕТСЯ_В|sposobPodachiUos",
+      "koeffitsientUsileniya|СВЯЗАН_С|formulaUosProporcionalnostiUvykh"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "usiliteliios",
+        "name": "Усилители и обратные связи в усилителях",
+        "description": "Курс посвящён изучению усилителей и влияния обратных связей на их параметры и характеристики."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "vvedenieOs",
+        "name": "Введение в обратные связи",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "analizOs",
+        "name": "Анализ введения ОС",
+        "order": 2
+      },
+      {
+        "label": "РазделКурса",
+        "id": "vliyanieOsNaAch",
+        "name": "Влияние ОС на АЧХ и линейные искажения",
+        "order": 3
+      },
+      {
+        "label": "Тема",
+        "id": "blockShemaUsilitelya",
+        "name": "Блок-схема усилителя с обратной связью",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "analizVvedeniyaOs",
+        "name": "Анализ введения обратной связи",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "vliyanieOsNaAchIskazheniya",
+        "name": "Влияние ОС на АЧХ и искажения",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "obratnayaSvyaZ",
+        "name": "Обратная связь (ОС)",
+        "definition": "Механизм, при котором часть выходного сигнала возвращается на вход усилителя, влияя на его параметры и характеристики."
+      },
+      {
+        "label": "Термин",
+        "id": "kus",
+        "name": "Коэффициент усиления без ОС (КУС)",
+        "definition": "Коэффициент усиления усилителя в отсутствие обратной связи."
+      },
+      {
+        "label": "Термин",
+        "id": "kos",
+        "name": "Коэффициент усиления с ОС (КОС)",
+        "definition": "Коэффициент усиления усилителя с учётом обратной связи."
+      },
+      {
+        "label": "Термин",
+        "id": "glubinaOs",
+        "name": "Глубина ОС",
+        "definition": "Показатель, во сколько раз КОС меньше или больше КУС без обратной связи."
+      },
+      {
+        "label": "Формула",
+        "id": "formulaKosPos",
+        "name": "Формула КОС для ПОС",
+        "expression": "K_ОС = K / (1 - βK)"
+      },
+      {
+        "label": "Формула",
+        "id": "formulaKosOos",
+        "name": "Формула КОС для ООС",
+        "expression": "K_ОС = K / (1 + βK)"
+      },
+      {
+        "label": "Формула",
+        "id": "formulaM",
+        "name": "Формула коэффициента частотных искажений",
+        "expression": "M = 1 + ΔK / K"
+      },
+      {
+        "label": "Принцип",
+        "id": "vliyanieOsNaParametry",
+        "name": "Влияние ОС на параметры усилителя",
+        "description": "Обратная связь влияет на все параметры и характеристики усилителя, включая коэффициент усиления, полосу пропускания и уровень искажений."
+      },
+      {
+        "label": "Компонент",
+        "id": "rezistor",
+        "name": "Резистор",
+        "type": "резистор"
+      },
+      {
+        "label": "Пример",
+        "id": "primerAchSPosOos",
+        "name": "Пример АЧХ с ПОС, ООС и без ООС",
+        "context": "Анализ влияния положительной и отрицательной обратных связей на амплитудно-частотную характеристику (АЧХ) усилителя."
+      }
+    ],
+    "relationships": [
+      "usiliteliios|ВКЛЮЧАЕТ_РАЗДЕЛ|vvedenieOs",
+      "usiliteliios|ВКЛЮЧАЕТ_РАЗДЕЛ|analizOs",
+      "usiliteliios|ВКЛЮЧАЕТ_РАЗДЕЛ|vliyanieOsNaAch",
+      "vvedenieOs|РАССМАТРИВАЕТ_ТЕМУ|blockShemaUsilitelya",
+      "analizOs|РАССМАТРИВАЕТ_ТЕМУ|analizVvedeniyaOs",
+      "vliyanieOsNaAch|РАССМАТРИВАЕТ_ТЕМУ|vliyanieOsNaAchIskazheniya",
+      "blockShemaUsilitelya|СОДЕРЖИТ_ТЕРМИН|obratnayaSvyaZ",
+      "analizVvedeniyaOs|СОДЕРЖИТ_ТЕРМИН|kus",
+      "analizVvedeniyaOs|СОДЕРЖИТ_ТЕРМИН|kos",
+      "analizVvedeniyaOs|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formulaKosPos",
+      "analizVvedeniyaOs|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formulaKosOos",
+      "vliyanieOsNaAchIskazheniya|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formulaM",
+      "vliyanieOsNaAchIskazheniya|СОДЕРЖИТ_ТЕРМИН|glubinaOs",
+      "vliyanieOsNaAchIskazheniya|ОСНОВАНА_НА_ПРИНЦИПЕ|vliyanieOsNaParametry",
+      "vliyanieOsNaAchIskazheniya|ПРОДЕМОНСТРИРОВАНА_НА|primerAchSPosOos",
+      "obratnayaSvyaZ|СВЯЗАН_С|kus",
+      "obratnayaSvyaZ|СВЯЗАН_С|kos",
+      "formulaKosPos|ЯВЛЯЕТСЯ_ЧАСТЬЮ|vliyanieOsNaParametry",
+      "formulaKosOos|ЯВЛЯЕТСЯ_ЧАСТЬЮ|vliyanieOsNaParametry",
+      "formulaM|ЯВЛЯЕТСЯ_ЧАСТЬЮ|vliyanieOsNaAchIskazheniya",
+      "vliyanieOsNaAchIskazheniya|ТРЕБУЕТ_ЗНАНИЯ|analizVvedeniyaOs"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "усилителииобратныесвязи",
+        "name": "Усилители и обратные связи в усилителях",
+        "description": "Курс посвящён изучению усилителей и влияния на них различных видов обратных связей."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "влияниеОСнаАХ",
+        "name": "Влияние ОС на амплитудные характеристики и нелинейные искажения",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "влияниеОСнаRвх",
+        "name": "Влияние ОС на входное сопротивление усилителя",
+        "order": 2
+      },
+      {
+        "label": "Тема",
+        "id": "влияниеПОСиООСнаАХ",
+        "name": "Влияние положительной и отрицательной обратных связей на амплитудные характеристики",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "влияниеПОСнаRвх",
+        "name": "Влияние последовательной ОС на входное сопротивление",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "влияниеПОСнаRвхПараллельная",
+        "name": "Влияние параллельной ОС на входное сопротивление",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "положительнаяОбратнаяСвязь",
+        "name": "Положительная обратная связь (ПОС)",
+        "definition": "Тип обратной связи, при котором сигнал с выхода усилителя возвращается на вход в фазе с входным сигналом."
+      },
+      {
+        "label": "Термин",
+        "id": "отрицательнаяОбратнаяСвязь",
+        "name": "Отрицательная обратная связь (ООС)",
+        "definition": "Тип обратной связи, при котором сигнал с выхода усилителя возвращается на вход в противофазе с входным сигналом."
+      },
+      {
+        "label": "Термин",
+        "id": "амплитуднаяХарактеристика",
+        "name": "Амплитудная характеристика (АХ)",
+        "definition": "Графическое представление зависимости амплитуды выходного сигнала от амплитуды входного сигнала."
+      },
+      {
+        "label": "Термин",
+        "id": "входноеСопротивление",
+        "name": "Входное сопротивление",
+        "definition": "Сопротивление, которое усилитель представляет для источника сигнала на своём входе."
+      },
+      {
+        "label": "Формула",
+        "id": "формулаВлиянияПОСнаRвх",
+        "name": "Формула влияния последовательной ОС на входное сопротивление",
+        "expression": "R_ВХОС = R_ВХ * (1 ± K * β)"
+      },
+      {
+        "label": "Формула",
+        "id": "формулаВлиянияПОСнаUВЫХ",
+        "name": "Формула зависимости выходного напряжения от входного при ПОС",
+        "expression": "U_ВЫХ = K * U_ВХ * (1 + β)"
+      },
+      {
+        "label": "Принцип",
+        "id": "принципВлиянияОСнаАХ",
+        "name": "Принцип влияния ОС на амплитудные характеристики",
+        "description": "Обратная связь изменяет амплитудные характеристики усилителя, влияя на коэффициент усиления, полосу пропускания и уровень искажений."
+      },
+      {
+        "label": "Принцип",
+        "id": "принципВлиянияОСнаRвх",
+        "name": "Принцип влияния ОС на входное сопротивление",
+        "description": "Обратная связь изменяет входное сопротивление усилителя в зависимости от её типа (ПОС или ООС)."
+      }
+    ],
+    "relationships": [
+      "усилителииобратныесвязи|ВКЛЮЧАЕТ_РАЗДЕЛ|влияниеОСнаАХ",
+      "усилителииобратныесвязи|ВКЛЮЧАЕТ_РАЗДЕЛ|влияниеОСнаRвх",
+      "влияниеОСнаАХ|РАССМАТРИВАЕТ_ТЕМУ|влияниеПОСиООСнаАХ",
+      "влияниеОСнаRвх|РАССМАТРИВАЕТ_ТЕМУ|влияниеПОСнаRвх",
+      "влияниеОСнаRвх|РАССМАТРИВАЕТ_ТЕМУ|влияниеПОСнаRвхПараллельная",
+      "влияниеПОСиООСнаАХ|СОДЕРЖИТ_ТЕРМИН|положительнаяОбратнаяСвязь",
+      "влияниеПОСиООСнаАХ|СОДЕРЖИТ_ТЕРМИН|отрицательнаяОбратнаяСвязь",
+      "влияниеПОСиООСнаАХ|СОДЕРЖИТ_ТЕРМИН|амплитуднаяХарактеристика",
+      "влияниеПОСнаRвх|СОДЕРЖИТ_ТЕРМИН|входноеСопротивление",
+      "влияниеПОСнаRвх|ИСПОЛЬЗУЕТ_ФОРМУЛУ|формулаВлиянияПОСнаRвх",
+      "влияниеПОСнаRвх|ОСНОВАНА_НА_ПРИНЦИПЕ|принципВлиянияОСнаRвх",
+      "принципВлиянияОСнаАХ|ОПИСЫВАЕТ_КОМПОНЕНТ|усилитель",
+      "принципВлиянияОСнаRвх|ОПИСЫВАЕТ_КОМПОНЕНТ|усилитель",
+      "положительнаяОбратнаяСвязь|СВЯЗАН_С|отрицательнаяОбратнаяСвязь",
+      "амплитуднаяХарактеристика|СВЯЗАН_С|входноеСопротивление"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "усилителииобратныесвязи",
+        "name": "Усилители и обратные связи в усилителях",
+        "description": "Курс посвящён изучению усилителей и принципов работы с обратными связями."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "влияниеОСусилители",
+        "name": "Влияние обратных связей на характеристики усилителей",
+        "order": 1
+      },
+      {
+        "label": "Тема",
+        "id": "входноеСопротивлениеОС",
+        "name": "Влияние ОС на входное сопротивление",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "выходноеСопротивлениеОС",
+        "name": "Влияние ОС на выходное сопротивление",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "обратнаяСвязь",
+        "name": "Обратная связь (ОС)",
+        "definition": "Процесс, при котором часть выходного сигнала возвращается на вход усилителя."
+      },
+      {
+        "label": "Термин",
+        "id": "входноеСопротивление",
+        "name": "Входное сопротивление",
+        "definition": "Сопротивление, которое усилитель представляет для источника сигнала на своём входе."
+      },
+      {
+        "label": "Термин",
+        "id": "выходноеСопротивление",
+        "name": "Выходное сопротивление",
+        "definition": "Сопротивление, которое усилитель представляет для нагрузки на своём выходе."
+      },
+      {
+        "label": "Формула",
+        "id": "формулаВходногоСопротивленияОС",
+        "name": "Формула входного сопротивления с ОС",
+        "expression": "RВХОС = R1 * (1 + β / (1 + Kβ))"
+      },
+      {
+        "label": "Формула",
+        "id": "формулаВыходногоСопротивленияОС",
+        "name": "Формула выходного сопротивления с ОС",
+        "expression": "RВЫХОС = UХХОС / IКЗОС"
+      },
+      {
+        "label": "Метод",
+        "id": "методХолостогоХодаИКороткогоЗамыкания",
+        "name": "Метод холостого хода и короткого замыкания",
+        "application": "Определение выходного сопротивления усилителя с ОС"
+      },
+      {
+        "label": "Пример",
+        "id": "примерБлокСхемыОСПоНапряжению",
+        "name": "Блок-схема усилителя с ОС по напряжению",
+        "context": "Режим короткого замыкания"
+      }
+    ],
+    "relationships": [
+      "усилителииобратныесвязи|ВКЛЮЧАЕТ_РАЗДЕЛ|влияниеОСусилители",
+      "влияниеОСусилители|РАССМАТРИВАЕТ_ТЕМУ|входноеСопротивлениеОС",
+      "влияниеОСусилители|РАССМАТРИВАЕТ_ТЕМУ|выходноеСопротивлениеОС",
+      "входноеСопротивлениеОС|СОДЕРЖИТ_ТЕРМИН|входноеСопротивление",
+      "входноеСопротивлениеОС|ИСПОЛЬЗУЕТ_ФОРМУЛУ|формулаВходногоСопротивленияОС",
+      "выходноеСопротивлениеОС|СОДЕРЖИТ_ТЕРМИН|выходноеСопротивление",
+      "выходноеСопротивлениеОС|ИСПОЛЬЗУЕТ_ФОРМУЛУ|формулаВыходногоСопротивленияОС",
+      "выходноеСопротивлениеОС|ПРИМЕНЯЕТ_МЕТОД|методХолостогоХодаИКороткогоЗамыкания",
+      "методХолостогоХодаИКороткогоЗамыкания|ПРОДЕМОНСТРИРОВАН_НА|примерБлокСхемыОСПоНапряжению",
+      "выходноеСопротивлениеОС|ПРОДЕМОНСТРИРОВАНА_НА|примерБлокСхемыОСПоНапряжению",
+      "обратнаяСвязь|СВЯЗАН_С|входноеСопротивление",
+      "обратнаяСвязь|СВЯЗАН_С|выходноеСопротивление"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "usiliteliios",
+        "name": "Усилители и обратные связи в усилителях",
+        "description": "Курс посвящён изучению усилителей и принципов работы обратных связей в них."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "konkretnyeSхемыUsilitelей",
+        "name": "Конкретные схемы усилителей с ОС",
+        "order": 1
+      },
+      {
+        "label": "Тема",
+        "id": "posledovatelnaiaOOS",
+        "name": "Последовательная отрицательная обратная связь (ООС)",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "parallelnaiaOOS",
+        "name": "Параллельная отрицательная обратная связь (ООС)",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "obratnaiaSviaz",
+        "name": "Обратная связь",
+        "definition": "Процесс, при котором часть выходного сигнала возвращается на вход усилителя."
+      },
+      {
+        "label": "Термин",
+        "id": "koeffitsientUsileniia",
+        "name": "Коэффициент усиления",
+        "definition": "Параметр, характеризующий способность усилителя увеличивать амплитуду сигнала."
+      },
+      {
+        "label": "Термин",
+        "id": "vhodnoeSoprotivlenie",
+        "name": "Входное сопротивление",
+        "definition": "Сопротивление, которое видит источник сигнала на входе усилителя."
+      },
+      {
+        "label": "Термин",
+        "id": "rezistor",
+        "name": "Резистор",
+        "definition": "Элемент электрической цепи, создающий определённое сопротивление."
+      },
+      {
+        "label": "Формула",
+        "id": "formula36",
+        "name": "Формула 36",
+        "expression": "U_ВЫХ = U_OC + U_ВХ * K"
+      },
+      {
+        "label": "Формула",
+        "id": "formula37",
+        "name": "Формула 37",
+        "expression": "I = (U_ВЫХ' + U_ОС) / R_ВЫХ"
+      },
+      {
+        "label": "Принцип",
+        "id": "principStabilizatsii",
+        "name": "Принцип стабилизации рабочей точки",
+        "description": "Использование резистора для обеспечения стабильности работы усилителя."
+      },
+      {
+        "label": "Компонент",
+        "id": "rezistorRE",
+        "name": "Резистор RЭ",
+        "type": "резистор"
+      },
+      {
+        "label": "Компонент",
+        "id": "rezistorR1",
+        "name": "Резистор R1",
+        "type": "резистор"
+      },
+      {
+        "label": "Компонент",
+        "id": "rezistorR2",
+        "name": "Резистор R2",
+        "type": "резистор"
+      }
+    ],
+    "relationships": [
+      "usiliteliios|ВКЛЮЧАЕТ_РАЗДЕЛ|konkretnyeSхемыUsilitelей",
+      "konkretnyeSхемыUsilitelей|РАССМАТРИВАЕТ_ТЕМУ|posledovatelnaiaOOS",
+      "konkretnyeSхемыUsilitelей|РАССМАТРИВАЕТ_ТЕМУ|parallelnaiaOOS",
+      "posledovatelnaiaOOS|СОДЕРЖИТ_ТЕРМИН|obratnaiaSviaz",
+      "posledovatelnaiaOOS|СОДЕРЖИТ_ТЕРМИН|koeffitsientUsileniia",
+      "posledovatelnaiaOOS|СОДЕРЖИТ_ТЕРМИН|vhodnoeSoprotivlenie",
+      "posledovatelnaiaOOS|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formula36",
+      "posledovatelnaiaOOS|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formula37",
+      "posledovatelnaiaOOS|ОСНОВАНА_НА_ПРИНЦИПЕ|principStabilizatsii",
+      "principStabilizatsii|ОПИСЫВАЕТ_КОМПОНЕНТ|rezistorRE",
+      "parallelnaiaOOS|СОДЕРЖИТ_ТЕРМИН|obratnaiaSviaz",
+      "parallelnaiaOOS|СОДЕРЖИТ_ТЕРМИН|koeffitsientUsileniia",
+      "parallelnaiaOOS|ОСНОВАНА_НА_ПРИНЦИПЕ|principStabilizatsii",
+      "principStabilizatsii|ОПИСЫВАЕТ_КОМПОНЕНТ|rezistorR1",
+      "principStabilizatsii|ОПИСЫВАЕТ_КОМПОНЕНТ|rezistorR2",
+      "obratnaiaSviaz|СВЯЗАН_С|koeffitsientUsileniia",
+      "obratnaiaSviaz|СВЯЗАН_С|vhodnoeSoprotivlenie"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "usiliteliivobratnyesvyaзи",
+        "name": "Усилители и обратные связи в усилителях",
+        "description": "Курс посвящён изучению усилителей и механизмов работы обратных связей в них, включая автогенераторы и избирательные цепи."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "avtogeneratory",
+        "name": "Автогенераторы",
+        "order": 1
+      },
+      {
+        "label": "Тема",
+        "id": "principyRabotyAvtogeneratorov",
+        "name": "Принципы работы автогенераторов",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "izbiratelnyeCepi",
+        "name": "Избирательные и фазирующие цепи",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "avtogenerator",
+        "name": "Автогенератор",
+        "definition": "Устройство, преобразующее энергию источника постоянного тока в переменный ток или напряжение определённой частоты и формы."
+      },
+      {
+        "label": "Термин",
+        "id": "polozhitelnayaObratnayaSvyaзь",
+        "name": "Положительная обратная связь",
+        "definition": "Механизм, при котором сигнал с выхода системы частично возвращается на вход, способствуя нарастанию колебаний."
+      },
+      {
+        "label": "Термин",
+        "id": "otricatelnayaObratnayaSvyaзь",
+        "name": "Отрицательная обратная связь",
+        "definition": "Механизм, стабилизирующий работу системы и улучшающий её характеристики за счёт частичного возврата сигнала с выхода на вход."
+      },
+      {
+        "label": "Термин",
+        "id": "balansAmplitud",
+        "name": "Баланс амплитуд",
+        "definition": "Условие, при котором общий коэффициент передачи по замкнутой петле обратной связи больше единицы для нарастания амплитуды колебаний."
+      },
+      {
+        "label": "Термин",
+        "id": "balansFaz",
+        "name": "Баланс фаз",
+        "definition": "Условие, при котором суммарный фазовый сдвиг по замкнутой петле обратной связи равен нулю градусов или кратен 360 градусам."
+      },
+      {
+        "label": "Термин",
+        "id": "izbiratelnayaCep",
+        "name": "Избирательная цепь",
+        "definition": "Цепь, определяющая частоту, на которой будет работать автогенератор."
+      },
+      {
+        "label": "Компонент",
+        "id": "lcKontur",
+        "name": "LC-контур",
+        "type": "резонансная цепь"
+      },
+      {
+        "label": "Принцип",
+        "id": "principSamovzbudheniya",
+        "name": "Принцип самовозбуждения",
+        "description": "Механизм возникновения и поддержания колебаний в автогенераторе за счёт внутренних процессов без внешнего возбуждающего воздействия."
+      }
+    ],
+    "relationships": [
+      "usiliteliivobratnyesvyaзи|ВКЛЮЧАЕТ_РАЗДЕЛ|avtogeneratory",
+      "avtogeneratory|РАССМАТРИВАЕТ_ТЕМУ|principyRabotyAvtogeneratorov",
+      "avtogeneratory|РАССМАТРИВАЕТ_ТЕМУ|izbiratelnyeCepi",
+      "principyRabotyAvtogeneratorov|СОДЕРЖИТ_ТЕРМИН|avtogenerator",
+      "principyRabotyAvtogeneratorov|СОДЕРЖИТ_ТЕРМИН|polozhitelnayaObratnayaSvyaзь",
+      "principyRabotyAvtogeneratorov|СОДЕРЖИТ_ТЕРМИН|otricatelnayaObratnayaSvyaзь",
+      "principyRabotyAvtogeneratorov|ОСНОВАНА_НА_ПРИНЦИПЕ|principSamovzbudheniya",
+      "principSamovzbudheniya|ОПИСЫВАЕТ_КОМПОНЕНТ|lcKontur",
+      "principyRabotyAvtogeneratorov|СОДЕРЖИТ_ТЕРМИН|balansAmplitud",
+      "principyRabotyAvtogeneratorov|СОДЕРЖИТ_ТЕРМИН|balansFaz",
+      "izbiratelnyeCepi|СОДЕРЖИТ_ТЕРМИН|izbiratelnayaCep",
+      "balansAmplitud|СВЯЗАН_С|balansFaz",
+      "polozhitelnayaObratnayaSvyaзь|СВЯЗАН_С|otricatelnayaObratnayaSvyaзь"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "usiliteliivobratnyesvyaзи",
+        "name": "Усилители и обратные связи в усилителях",
+        "description": "Курс посвящён изучению усилителей и принципов работы обратных связей в них, включая анализ колебательных контуров и избирательных цепей."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "kolebatelnyekontury",
+        "name": "Колебательные контуры",
+        "order": 1
+      },
+      {
+        "label": "Тема",
+        "id": "posledovatelnykontur",
+        "name": "Последовательный колебательный контур",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "parallelnykontur",
+        "name": "Параллельный колебательный контур",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Термин",
+        "id": "rezonansnapryazheniy",
+        "name": "Резонанс напряжений",
+        "definition": "Явление, наблюдаемое в последовательном колебательном контуре, при котором сопротивление контура минимально на частоте резонанса."
+      },
+      {
+        "label": "Термин",
+        "id": "rezonanstokov",
+        "name": "Резонанс токов",
+        "definition": "Явление, наблюдаемое в параллельном колебательном контуре, при котором сопротивление контура максимально на частоте резонанса."
+      },
+      {
+        "label": "Формула",
+        "id": "formulaRezonansnoyChastoty",
+        "name": "Формула резонансной частоты",
+        "expression": "f = 1 / (2π√(LC))"
+      },
+      {
+        "label": "Принцип",
+        "id": "principRezonansa",
+        "name": "Принцип резонанса в колебательных контурах",
+        "description": "На частоте резонанса сопротивление контура достигает экстремальных значений, в зависимости от типа контура (минимальное в последовательном, максимальное в параллельном)."
+      },
+      {
+        "label": "Компонент",
+        "id": "katushkaInduktivnosti",
+        "name": "Катушка индуктивности",
+        "type": "индуктивный элемент"
+      },
+      {
+        "label": "Компонент",
+        "id": "kondensator",
+        "name": "Конденсатор",
+        "type": "емкостный элемент"
+      },
+      {
+        "label": "Тема",
+        "id": "izbiratelnyefaziruyuschiecepi",
+        "name": "Избирательные фазирующие цепи",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "tsepVina",
+        "name": "Цепь Вина",
+        "complexity": "средний"
+      },
+      {
+        "label": "Формула",
+        "id": "formulaKvazirezonansaTsepiVina",
+        "name": "Формула квазирезонанса цепи Вина",
+        "expression": "f_kv = 1 / (2πRC)"
+      }
+    ],
+    "relationships": [
+      "usiliteliivobratnyesvyaзи|ВКЛЮЧАЕТ_РАЗДЕЛ|kolebatelnyekontury",
+      "kolebatelnyekontury|РАССМАТРИВАЕТ_ТЕМУ|posledovatelnykontur",
+      "kolebatelnyekontury|РАССМАТРИВАЕТ_ТЕМУ|parallelnykontur",
+      "posledovatelnykontur|СОДЕРЖИТ_ТЕРМИН|rezonansnapryazheniy",
+      "parallelnykontur|СОДЕРЖИТ_ТЕРМИН|rezonanstokov",
+      "posledovatelnykontur|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formulaRezonansnoyChastoty",
+      "parallelnykontur|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formulaRezonansnoyChastoty",
+      "posledovatelnykontur|ОСНОВАНА_НА_ПРИНЦИПЕ|principRezonansa",
+      "parallelnykontur|ОСНОВАНА_НА_ПРИНЦИПЕ|principRezonansa",
+      "principRezonansa|ОПИСЫВАЕТ_КОМПОНЕНТ|katushkaInduktivnosti",
+      "principRezonansa|ОПИСЫВАЕТ_КОМПОНЕНТ|kondensator",
+      "usiliteliivobratnyesvyaзи|ВКЛЮЧАЕТ_РАЗДЕЛ|izbiratelnyefaziruyuschiecepi",
+      "izbiratelnyefaziruyuschiecepi|РАССМАТРИВАЕТ_ТЕМУ|tsepVina",
+      "tsepVina|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formulaKvazirezonansaTsepiVina"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "usiliteliivobratnyesvazi",
+        "name": "Усилители и обратные связи в усилителях",
+        "description": "Курс посвящён изучению усилителей и механизмов работы обратных связей в них."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "cepiVina",
+        "name": "Цепи Вина",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "RCautogeneratory",
+        "name": "RC-автогенераторы",
+        "order": 2
+      },
+      {
+        "label": "РазделКурса",
+        "id": "LCautogeneratory",
+        "name": "Автогенераторы LC-типа",
+        "order": 3
+      },
+      {
+        "label": "Тема",
+        "id": "koefficientPeredachi",
+        "name": "Коэффициент передачи",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "fazovyiSdvig",
+        "name": "Фазовый сдвиг",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "progressiveChain",
+        "name": "Прогрессивные цепочки",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "amplitudnoChastotnayaHarakteristika",
+        "name": "Амплитудно-частотная характеристика (АЧХ)",
+        "definition": "График зависимости амплитуды сигнала от частоты."
+      },
+      {
+        "label": "Термин",
+        "id": "fazochastotnayaHarakteristika",
+        "name": "Фазочастотная характеристика (ФЧХ)",
+        "definition": "График зависимости фазового сдвига сигнала от частоты."
+      },
+      {
+        "label": "Термин",
+        "id": "dobrotnost",
+        "name": "Добротность",
+        "definition": "Безразмерная величина, характеризующая резонансные свойства системы."
+      },
+      {
+        "label": "Термин",
+        "id": "negativnayaObratnayaSvaz",
+        "name": "Отрицательная обратная связь",
+        "definition": "Механизм, стабилизирующий работу усилителя и снижающий искажения."
+      },
+      {
+        "label": "Компонент",
+        "id": "kondensator",
+        "name": "Конденсатор",
+        "type": "электронный компонент"
+      },
+      {
+        "label": "Компонент",
+        "id": "rezistor",
+        "name": "Резистор",
+        "type": "электронный компонент"
+      },
+      {
+        "label": "Метод",
+        "id": "ispolzovanieProgressiveChain",
+        "name": "Использование прогрессивных цепочек",
+        "application": "Снижение затухания в цепях ПОС и улучшение параметров генератора"
+      }
+    ],
+    "relationships": [
+      "usiliteliivobratnyesvazi|ВКЛЮЧАЕТ_РАЗДЕЛ|cepiVina",
+      "usiliteliivobratnyesvazi|ВКЛЮЧАЕТ_РАЗДЕЛ|RCautogeneratory",
+      "usiliteliivobratnyesvazi|ВКЛЮЧАЕТ_РАЗДЕЛ|LCautogeneratory",
+      "cepiVina|РАССМАТРИВАЕТ_ТЕМУ|koefficientPeredachi",
+      "cepiVina|РАССМАТРИВАЕТ_ТЕМУ|fazovyiSdvig",
+      "RCautogeneratory|РАССМАТРИВАЕТ_ТЕМУ|progressiveChain",
+      "koefficientPeredachi|СОДЕРЖИТ_ТЕРМИН|dobrotnost",
+      "fazovyiSdvig|СОДЕРЖИТ_ТЕРМИН|fazochastotnayaHarakteristika",
+      "progressiveChain|ПРИМЕНЯЕТ_МЕТОД|ispolzovanieProgressiveChain",
+      "ispolzovanieProgressiveChain|ПРОДЕМОНСТРИРОВАН_НА|progressiveChain",
+      "koefficientPeredachi|СВЯЗАН_С|fazovyiSdvig",
+      "amplitudnoChastotnayaHarakteristika|СВЯЗАН_С|fazochastotnayaHarakteristika",
+      "negativnayaObratnayaSvaz|СВЯЗАН_С|koefficientPeredachi",
+      "progressiveChain|ОСНОВАНА_НА_ПРИНЦИПЕ|ispolzovanieProgressiveChain",
+      "RCautogeneratory|ИСПОЛЬЗУЕТ_КОМПОНЕНТ|kondensator",
+      "RCautogeneratory|ИСПОЛЬЗУЕТ_КОМПОНЕНТ|rezistor"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "усилителииобратныесвязи",
+        "name": "Усилители и обратные связи в усилителях",
+        "description": "Курс посвящён изучению принципов работы усилителей и механизмов использования обратных связей в них."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "автогенераторLCтипа",
+        "name": "Автогенератор LC-типа",
+        "order": 1
+      },
+      {
+        "label": "Тема",
+        "id": "резонансныйУсилитель",
+        "name": "Резонансный усилитель",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "условияБалансаФазИАмплитуд",
+        "name": "Условия баланса фаз и амплитуд",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "инвертированиеСигнала",
+        "name": "Инвертирование сигнала усилительным каскадом",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Термин",
+        "id": "ПОС",
+        "name": "Положительная обратная связь (ПОС)",
+        "definition": "Механизм, при котором сигнал с выхода усилителя частично возвращается на его вход, способствуя усилению колебаний."
+      },
+      {
+        "label": "Термин",
+        "id": "резонанснаяЧастота",
+        "name": "Резонансная частота",
+        "definition": "Частота, на которой сопротивление LC-контура минимально, а амплитуда колебаний максимальна."
+      },
+      {
+        "label": "Термин",
+        "id": "добротностьКонтура",
+        "name": "Добротность контура",
+        "definition": "Параметр, характеризующий качество резонансного контура и его способность выделять сигнал на резонансной частоте."
+      },
+      {
+        "label": "Компонент",
+        "id": "трансформаторLLос",
+        "name": "Трансформатор (L-Lос)",
+        "type": "трансформатор"
+      },
+      {
+        "label": "Компонент",
+        "id": "резисторR1",
+        "name": "Резистор R1",
+        "type": "резистор"
+      },
+      {
+        "label": "Компонент",
+        "id": "конденсаторC",
+        "name": "Конденсатор C",
+        "type": "конденсатор"
+      },
+      {
+        "label": "Принцип",
+        "id": "принципБалансаФаз",
+        "name": "Принцип баланса фаз",
+        "description": "Условие, при котором фазы входного и выходного сигналов совпадают или имеют необходимый фазовый сдвиг для стабильной работы усилителя."
+      },
+      {
+        "label": "Принцип",
+        "id": "принципБалансаАмплитуд",
+        "name": "Принцип баланса амплитуд",
+        "description": "Условие, при котором амплитуда сигнала на входе и выходе усилителя находится в определённом соотношении для поддержания стабильного режима работы."
+      }
+    ],
+    "relationships": [
+      "усилителииобратныесвязи|ВКЛЮЧАЕТ_РАЗДЕЛ|автогенераторLCтипа",
+      "автогенераторLCтипа|РАССМАТРИВАЕТ_ТЕМУ|резонансныйУсилитель",
+      "автогенераторLCтипа|РАССМАТРИВАЕТ_ТЕМУ|условияБалансаФазИАмплитуд",
+      "автогенераторLCтипа|РАССМАТРИВАЕТ_ТЕМУ|инвертированиеСигнала",
+      "резонансныйУсилитель|СОДЕРЖИТ_ТЕРМИН|ПОС",
+      "условияБалансаФазИАмплитуд|СОДЕРЖИТ_ТЕРМИН|резонанснаяЧастота",
+      "условияБалансаФазИАмплитуд|ОСНОВАНА_НА_ПРИНЦИПЕ|принципБалансаФаз",
+      "условияБалансаФазИАмплитуд|ОСНОВАНА_НА_ПРИНЦИПЕ|принципБалансаАмплитуд",
+      "принципБалансаФаз|ОПИСЫВАЕТ_КОМПОНЕНТ|трансформаторLLос",
+      "резонансныйУсилитель|ИСПОЛЬЗУЕТ_КОМПОНЕНТ|резисторR1",
+      "резонансныйУсилитель|ИСПОЛЬЗУЕТ_КОМПОНЕНТ|конденсаторC",
+      "ПОС|СВЯЗАН_С|резонанснаяЧастота",
+      "добротностьКонтура|СВЯЗАН_С|резонанснаяЧастота"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "усилителииобратныесвязи",
+        "name": "Усилители и обратные связи в усилителях",
+        "description": "Курс посвящён изучению работы усилителей и механизмов обратных связей в них."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "нарастаниеАмплитудыКолебаний",
+        "name": "Нарастание амплитуды колебаний",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "автогенераторыRCтипа",
+        "name": "Автогенераторы RC-типа",
+        "order": 2
+      },
+      {
+        "label": "Тема",
+        "id": "обратнаяСвязьВусилителях",
+        "name": "Обратная связь в усилителях",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "режимОграниченияТранзистора",
+        "name": "Режим ограничения транзистора",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "работаАвтогенератораRCтипа",
+        "name": "Работа автогенератора RC-типа",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "фазовыйСдвиг",
+        "name": "Фазовый сдвиг",
+        "definition": "Разница в фазе между двумя сигналами или волнами."
+      },
+      {
+        "label": "Термин",
+        "id": "амплитудаКолебаний",
+        "name": "Амплитуда колебаний",
+        "definition": "Максимальное отклонение величины от среднего значения при колебательном процессе."
+      },
+      {
+        "label": "Термин",
+        "id": "автогенератор",
+        "name": "Автогенератор",
+        "definition": "Устройство для генерации электрических колебаний без внешнего воздействия."
+      },
+      {
+        "label": "Термин",
+        "id": "высшиеГармоники",
+        "name": "Высшие гармоники",
+        "definition": "Дополнительные частотные составляющие, кратные основной частоте сигнала."
+      },
+      {
+        "label": "Компонент",
+        "id": "транзистор",
+        "name": "Транзистор",
+        "type": "полупроводниковый прибор"
+      },
+      {
+        "label": "Компонент",
+        "id": "конденсатор",
+        "name": "Конденсатор",
+        "type": "накопительный элемент"
+      },
+      {
+        "label": "Компонент",
+        "id": "резистор",
+        "name": "Резистор",
+        "type": "элемент для ограничения тока"
+      }
+    ],
+    "relationships": [
+      "усилителииобратныесвязи|ВКЛЮЧАЕТ_РАЗДЕЛ|нарастаниеАмплитудыКолебаний",
+      "усилителииобратныесвязи|ВКЛЮЧАЕТ_РАЗДЕЛ|автогенераторыRCтипа",
+      "нарастаниеАмплитудыКолебаний|РАССМАТРИВАЕТ_ТЕМУ|обратнаяСвязьВусилителях",
+      "нарастаниеАмплитудыКолебаний|РАССМАТРИВАЕТ_ТЕМУ|режимОграниченияТранзистора",
+      "автогенераторыRCтипа|РАССМАТРИВАЕТ_ТЕМУ|работаАвтогенератораRCтипа",
+      "обратнаяСвязьВусилителях|СОДЕРЖИТ_ТЕРМИН|фазовыйСдвиг",
+      "обратнаяСвязьВусилителях|СОДЕРЖИТ_ТЕРМИН|амплитудаКолебаний",
+      "режимОграниченияТранзистора|СОДЕРЖИТ_ТЕРМИН|высшиеГармоники",
+      "работаАвтогенератораRCтипа|СОДЕРЖИТ_ТЕРМИН|автогенератор",
+      "режимОграниченияТранзистора|ОСНОВАНА_НА_ПРИНЦИПЕ|ограничениеУсиленияТранзистора",
+      "работаАвтогенератораRCтипа|ИСПОЛЬЗУЕТ_КОМПОНЕНТ|конденсатор",
+      "работаАвтогенератораRCтипа|ИСПОЛЬЗУЕТ_КОМПОНЕНТ|резистор",
+      "режимОграниченияТранзистора|ИСПОЛЬЗУЕТ_КОМПОНЕНТ|транзистор",
+      "фазовыйСдвиг|СВЯЗАН_С|амплитудаКолебаний",
+      "автогенератор|СВЯЗАН_С|конденсатор",
+      "автогенератор|СВЯЗАН_С|резистор"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "usiliteliivobratnyesvazi",
+        "name": "Усилители и обратные связи в усилителях",
+        "description": "Курс посвящён изучению усилителей и принципов работы с обратными связями в электронных схемах."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "analizcepiVina",
+        "name": "Анализ цепи Вина",
+        "order": 1
+      },
+      {
+        "label": "Тема",
+        "id": "chastotakvazirezontsia",
+        "name": "Частота квазирезонанса",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "obratnayasvaz",
+        "name": "Обратная связь в усилителях",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "nelineynyeelementy",
+        "name": "Нелинейные инерционные элементы",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "kvazirezonts",
+        "name": "Квазирезонанс",
+        "definition": "Состояние цепи, при котором наблюдается близкое к резонансному поведение системы."
+      },
+      {
+        "label": "Термин",
+        "id": "obratnayasvaz",
+        "name": "Обратная связь",
+        "definition": "Процесс, при котором часть выходного сигнала возвращается на вход устройства для регулирования его работы."
+      },
+      {
+        "label": "Термин",
+        "id": "nelineynyeinertsionnyeelementy",
+        "name": "Нелинейные инерционные элементы",
+        "definition": "Элементы, сопротивление которых зависит от значения протекающего тока и обладающие инерционными свойствами."
+      },
+      {
+        "label": "Термин",
+        "id": "termistor",
+        "name": "Термистор",
+        "definition": "Полупроводниковый элемент, сопротивление которого уменьшается с увеличением протекающего через него тока."
+      },
+      {
+        "label": "Термин",
+        "id": "lamponakalivania",
+        "name": "Лампочка накаливания",
+        "definition": "Элемент, сопротивление которого возрастает с увеличением протекающего через него тока."
+      },
+      {
+        "label": "Компонент",
+        "id": "transistorVT1",
+        "name": "Транзистор VT1",
+        "type": "транзистор"
+      },
+      {
+        "label": "Компонент",
+        "id": "transistorVT2",
+        "name": "Транзистор VT2",
+        "type": "транзистор"
+      },
+      {
+        "label": "Компонент",
+        "id": "termistorElement",
+        "name": "Термистор",
+        "type": "термистор"
+      },
+      {
+        "label": "Компонент",
+        "id": "lampElement",
+        "name": "Лампочка накаливания",
+        "type": "лампочка накаливания"
+      },
+      {
+        "label": "Принцип",
+        "id": "balansamplitud",
+        "name": "Баланс амплитуд",
+        "description": "Условие, при котором коэффициент усиления усилителя должен быть равен или больше 3 для стабильной работы автогенератора."
+      }
+    ],
+    "relationships": [
+      "usiliteliivobratnyesvazi|ВКЛЮЧАЕТ_РАЗДЕЛ|analizcepiVina",
+      "analizcepiVina|РАССМАТРИВАЕТ_ТЕМУ|chastotakvazirezontsia",
+      "analizcepiVina|РАССМАТРИВАЕТ_ТЕМУ|obratnayasvaz",
+      "obratnayasvaz|РАССМАТРИВАЕТ_ТЕМУ|nelineynyeelementy",
+      "chastotakvazirezontsia|СОДЕРЖИТ_ТЕРМИН|kvazirezonts",
+      "obratnayasvaz|СОДЕРЖИТ_ТЕРМИН|obratnayasvaz",
+      "nelineynyeelementy|СОДЕРЖИТ_ТЕРМИН|nelineynyeinertsionnyeelementy",
+      "nelineynyeelementy|СОДЕРЖИТ_ТЕРМИН|termistor",
+      "nelineynyeelementy|СОДЕРЖИТ_ТЕРМИН|lamponakalivania",
+      "obratnayasvaz|ОСНОВАНА_НА_ПРИНЦИПЕ|balansamplitud",
+      "termistor|ОПРЕДЕЛЯЕТ|termistorElement",
+      "lamponakalivania|ОПРЕДЕЛЯЕТ|lampElement",
+      "nelineynyeinertsionnyeelementy|СВЯЗАН_С|termistor",
+      "nelineynyeinertsionnyeelementy|СВЯЗАН_С|lamponakalivania"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "усилителииобратныесвязи",
+        "name": "Усилители и обратные связи в усилителях",
+        "description": "Курс посвящён изучению усилителей и различных типов обратных связей, используемых в электронных схемах."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "разделОбратныеСвязи",
+        "name": "Обратные связи в усилителях",
+        "order": 1
+      },
+      {
+        "label": "Тема",
+        "id": "темаЦепьВина",
+        "name": "Цепь Вина и её роль в обратных связях",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "темаТипыОбратныхСвязей",
+        "name": "Типы обратных связей в электронных схемах",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "терминООС",
+        "name": "Общая отрицательная обратная связь (ООС)",
+        "definition": "Механизм, позволяющий стабилизировать работу усилителя и уменьшить нелинейные искажения."
+      },
+      {
+        "label": "Термин",
+        "id": "терминЦепьВина",
+        "name": "Цепь Вина",
+        "definition": "Частотозависимая цепь, используемая в электронных схемах для формирования обратной связи."
+      },
+      {
+        "label": "Термин",
+        "id": "терминАвтогенераторСМостомВина",
+        "name": "Автогенератор с мостом Вина",
+        "definition": "Устройство, в котором цепь положительной и отрицательной обратной связи образуют мостовую схему с цепью Вина."
+      },
+      {
+        "label": "Компонент",
+        "id": "компонентТранзисторVT2",
+        "name": "Транзистор VT2",
+        "type": "транзистор"
+      },
+      {
+        "label": "Компонент",
+        "id": "компонентРезисторRэ1",
+        "name": "Резистор Rэ1",
+        "type": "резистор"
+      },
+      {
+        "label": "Компонент",
+        "id": "компонентРезисторRэ2",
+        "name": "Резистор Rэ2",
+        "type": "резистор"
+      }
+    ],
+    "relationships": [
+      "усилителииобратныесвязи|ВКЛЮЧАЕТ_РАЗДЕЛ|разделОбратныеСвязи",
+      "разделОбратныеСвязи|РАССМАТРИВАЕТ_ТЕМУ|темаЦепьВина",
+      "разделОбратныеСвязи|РАССМАТРИВАЕТ_ТЕМУ|темаТипыОбратныхСвязей",
+      "темаЦепьВина|СОДЕРЖИТ_ТЕРМИН|терминЦепьВина",
+      "темаТипыОбратныхСвязей|СОДЕРЖИТ_ТЕРМИН|терминООС",
+      "темаТипыОбратныхСвязей|СОДЕРЖИТ_ТЕРМИН|терминАвтогенераторСМостомВина",
+      "терминЦепьВина|СВЯЗАН_С|терминАвтогенераторСМостомВина",
+      "темаЦепьВина|ОСНОВАНА_НА_ПРИНЦИПЕ|принципСтабилизацииАмплитуды",
+      "темаТипыОбратныхСвязей|ПРИМЕНЯЕТ_МЕТОД|методСтабилизацииРабочейТочки",
+      "методСтабилизацииРабочейТочки|ПРОДЕМОНСТРИРОВАН_НА|компонентРезисторRэ1",
+      "методСтабилизацииРабочейТочки|ПРОДЕМОНСТРИРОВАН_НА|компонентРезисторRэ2",
+      "терминООС|ОПРЕДЕЛЯЕТ|компонентТранзисторVT2"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "elektronikaimikroprotsessornayatehnika",
+        "name": "Электроника и микропроцессорная техника",
+        "description": "Курс направлен на получение теоретических и практических знаний в области электроники и микропроцессорной техники."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "analogovyeUstroistva",
+        "name": "Аналоговые устройства",
+        "order": 1
+      },
+      {
+        "label": "Тема",
+        "id": "issledovanieObratnyhSvyazei",
+        "name": "Исследование отрицательных обратных связей в усилителе",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "otricatelnyeObratnyeSvyazi",
+        "name": "Отрицательные обратные связи",
+        "definition": "Механизм стабилизации работы усилителя за счёт частичного возврата выходного сигнала на вход с противоположным знаком."
+      },
+      {
+        "label": "Термин",
+        "id": "usilitel",
+        "name": "Усилитель",
+        "definition": "Устройство, предназначенное для увеличения мощности, амплитуды или других параметров сигнала."
+      },
+      {
+        "label": "Метод",
+        "id": "ispolzovanieMultisim",
+        "name": "Использование Multisim",
+        "application": "Моделирование и анализ электронных схем и устройств."
+      },
+      {
+        "label": "Пример",
+        "id": "laboratornayaRabotaMultisim",
+        "name": "Лабораторная работа в среде Multisim",
+        "context": "Исследование отрицательных обратных связей в усилителе."
+      },
+      {
+        "label": "Компонент",
+        "id": "poluprovodnikovyePribory",
+        "name": "Полупроводниковые приборы",
+        "type": "электронный компонент"
+      }
+    ],
+    "relationships": [
+      "elektronikaimikroprotsessornayatehnika|ВКЛЮЧАЕТ_РАЗДЕЛ|analogovyeUstroistva",
+      "analogovyeUstroistva|РАССМАТРИВАЕТ_ТЕМУ|issledovanieObratnyhSvyazei",
+      "issledovanieObratnyhSvyazei|СОДЕРЖИТ_ТЕРМИН|otricatelnyeObratnyeSvyazi",
+      "issledovanieObratnyhSvyazei|СОДЕРЖИТ_ТЕРМИН|usilitel",
+      "issledovanieObratnyhSvyazei|ПРИМЕНЯЕТ_МЕТОД|ispolzovanieMultisim",
+      "ispolzovanieMultisim|ПРОДЕМОНСТРИРОВАН_НА|laboratornayaRabotaMultisim",
+      "issledovanieObratnyhSvyazei|ПРОДЕМОНСТРИРОВАНА_НА|laboratornayaRabotaMultisim",
+      "otricatelnyeObratnyeSvyazi|СВЯЗАН_С|usilitel",
+      "issledovanieObratnyhSvyazei|ТРЕБУЕТ_ЗНАНИЯ|poluprovodnikovyePribory"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "electronicfeedback",
+        "name": "Метод указания. Обратные связи. Мультисим",
+        "description": "Курс посвящён исследованию отрицательных обратных связей в усилительном каскаде на биполярном транзисторе и анализу работы электронных схем в нормальном режиме."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "taskFormulation",
+        "name": "Постановка задачи",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "theoreticalProvisions",
+        "name": "Основные теоретические положения",
+        "order": 2
+      },
+      {
+        "label": "Тема",
+        "id": "negativeFeedback",
+        "name": "Отрицательные обратные связи в усилительном каскаде",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "classificationOfFB",
+        "name": "Применение и классификация ОС в усилителях",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Термин",
+        "id": "feedback",
+        "name": "Обратная связь (ОС)",
+        "definition": "Поступление части энергии с выхода усилителя на его вход."
+      },
+      {
+        "label": "Термин",
+        "id": "parasiticFeedback",
+        "name": "Паразитная ОС",
+        "definition": "Самопроизвольно возникающая обратная связь за счёт электромагнитных связей между входной и выходной цепями усилителя."
+      },
+      {
+        "label": "Термин",
+        "id": "amplifierWithoutFB",
+        "name": "Усилитель без ОС",
+        "definition": "Усилитель без поступления сигнала с выхода на вход."
+      },
+      {
+        "label": "Термин",
+        "id": "feedbackChain",
+        "name": "Цепь ОС",
+        "definition": "Цепь, через которую сигнал с выхода усилителя поступает на его вход."
+      },
+      {
+        "label": "Термин",
+        "id": "summator",
+        "name": "Сумматор",
+        "definition": "Устройство, в котором сигнал ОС алгебраически суммируется с входным сигналом."
+      },
+      {
+        "label": "Формула",
+        "id": "feedbackCoefficientFormula",
+        "name": "Формула коэффициента ОС",
+        "expression": "K_FB = f(параметры цепи ОС)"
+      },
+      {
+        "label": "Компонент",
+        "id": "bipolarTransistorNPN",
+        "name": "Биполярный транзистор NPN",
+        "type": "транзистор"
+      },
+      {
+        "label": "Метод",
+        "id": "engineeringCalculations",
+        "name": "Методы инженерных расчётов",
+        "application": "Расчёты для различных электронных узлов и устройств"
+      }
+    ],
+    "relationships": [
+      "electronicFeedback|ВКЛЮЧАЕТ_РАЗДЕЛ|taskFormulation",
+      "electronicFeedback|ВКЛЮЧАЕТ_РАЗДЕЛ|theoreticalProvisions",
+      "taskFormulation|РАССМАТРИВАЕТ_ТЕМУ|negativeFeedback",
+      "theoreticalProvisions|РАССМАТРИВАЕТ_ТЕМУ|classificationOfFB",
+      "negativeFeedback|СОДЕРЖИТ_ТЕРМИН|feedback",
+      "negativeFeedback|СОДЕРЖИТ_ТЕРМИН|bipolarTransistorNPN",
+      "classificationOfFB|СОДЕРЖИТ_ТЕРМИН|parasiticFeedback",
+      "classificationOfFB|СОДЕРЖИТ_ТЕРМИН|amplifierWithoutFB",
+      "classificationOfFB|СОДЕРЖИТ_ТЕРМИН|feedbackChain",
+      "classificationOfFB|СОДЕРЖИТ_ТЕРМИН|summator",
+      "classificationOfFB|ИСПОЛЬЗУЕТ_ФОРМУЛУ|feedbackCoefficientFormula",
+      "feedback|СВЯЗАН_С|parasiticFeedback",
+      "feedback|СВЯЗАН_С|feedbackChain",
+      "negativeFeedback|ПРИМЕНЯЕТ_МЕТОД|engineeringCalculations",
+      "amplifierWithoutFB|ОПРЕДЕЛЯЕТ|bipolarTransistorNPN"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "obratnayasvaz",
+        "name": "Обратные связи в усилителях",
+        "description": "Курс посвящён изучению принципов работы и классификации обратных связей в электронных усилителях."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "klassifikaciyaOs",
+        "name": "Классификация обратных связей",
+        "order": 1
+      },
+      {
+        "label": "Тема",
+        "id": "tipyOsPoZnaku",
+        "name": "Типы ОС по знаку",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "tipyOsPoSposobuSnyatiya",
+        "name": "Типы ОС по способу снятия напряжения",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "tipyOsPoSposobuPodachi",
+        "name": "Типы ОС по способу подачи напряжения",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "tipyOsPoTipuCepi",
+        "name": "Типы ОС по типу цепи",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "tipyOsPoChisluKaskadov",
+        "name": "Типы ОС по числу охватываемых каскадов",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Термин",
+        "id": "koefficientOs",
+        "name": "Коэффициент ОС",
+        "definition": "Показывает, какая часть выходного напряжения снова поступает на вход."
+      },
+      {
+        "label": "Термин",
+        "id": "polozhitelnayaOs",
+        "name": "Положительная ОС",
+        "definition": "ОС, при которой входное и выходное напряжения находятся в фазе и складываются."
+      },
+      {
+        "label": "Термин",
+        "id": "otricatelnayaOs",
+        "name": "Отрицательная ОС",
+        "definition": "ОС, при которой входное и выходное напряжения находятся в противофазе и вычитаются."
+      },
+      {
+        "label": "Термин",
+        "id": "osPoU",
+        "name": "ОС по U",
+        "definition": "ОС, при которой напряжение ОС пропорционально выходному напряжению усилителя."
+      },
+      {
+        "label": "Термин",
+        "id": "osPoI",
+        "name": "ОС по I",
+        "definition": "ОС, при которой напряжение ОС пропорционально выходному току усилителя."
+      },
+      {
+        "label": "Термин",
+        "id": "smeshannayaOs",
+        "name": "Смешанная ОС",
+        "definition": "ОС, при которой напряжение ОС частично пропорционально выходному напряжению и выходному току."
+      },
+      {
+        "label": "Термин",
+        "id": "posledovatelnayaOs",
+        "name": "Последовательная ОС",
+        "definition": "ОС, при которой источник входного напряжения и источник, образующий ОС, включены последовательно относительно входных зажимов усилителя без ОС."
+      },
+      {
+        "label": "Термин",
+        "id": "parallelnayaOs",
+        "name": "Параллельная ОС",
+        "definition": "ОС, при которой источник входного напряжения и источник, образующий ОС, включены параллельно относительно входных зажимов усилителя без ОС."
+      }
+    ],
+    "relationships": [
+      "obratnayasvaz|ВКЛЮЧАЕТ_РАЗДЕЛ|klassifikaciyaOs",
+      "klassifikaciyaOs|РАССМАТРИВАЕТ_ТЕМУ|tipyOsPoZnaku",
+      "klassifikaciyaOs|РАССМАТРИВАЕТ_ТЕМУ|tipyOsPoSposobuSnyatiya",
+      "klassifikaciyaOs|РАССМАТРИВАЕТ_ТЕМУ|tipyOsPoSposobuPodachi",
+      "klassifikaciyaOs|РАССМАТРИВАЕТ_ТЕМУ|tipyOsPoTipuCepi",
+      "klassifikaciyaOs|РАССМАТРИВАЕТ_ТЕМУ|tipyOsPoChisluKaskadov",
+      "tipyOsPoZnaku|СОДЕРЖИТ_ТЕРМИН|polozhitelnayaOs",
+      "tipyOsPoZnaku|СОДЕРЖИТ_ТЕРМИН|otricatelnayaOs",
+      "tipyOsPoSposobuSnyatiya|СОДЕРЖИТ_ТЕРМИН|osPoU",
+      "tipyOsPoSposobuSnyatiya|СОДЕРЖИТ_ТЕРМИН|osPoI",
+      "tipyOsPoSposobuSnyatiya|СОДЕРЖИТ_ТЕРМИН|smeshannayaOs",
+      "tipyOsPoSposobuPodachi|СОДЕРЖИТ_ТЕРМИН|posledovatelnayaOs",
+      "tipyOsPoSposobuPodachi|СОДЕРЖИТ_ТЕРМИН|parallelnayaOs",
+      "polozhitelnayaOs|СВЯЗАН_С|otricatelnayaOs",
+      "osPoU|СВЯЗАН_С|osPoI",
+      "osPoU|СВЯЗАН_С|smeshannayaOs",
+      "osPoI|СВЯЗАН_С|smeshannayaOs"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "electronicfeedback",
+        "name": "Метод указания. Обратные связи. Мультисим",
+        "description": "Курс посвящён изучению обратных связей в усилителях и их влиянию на характеристики устройств."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "typesOfFeedback",
+        "name": "Типы обратных связей",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "influenceOfFeedback",
+        "name": "Влияние обратной связи на усилитель",
+        "order": 2
+      },
+      {
+        "label": "Тема",
+        "id": "serialFeedback",
+        "name": "Последовательная обратная связь",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "parallelFeedback",
+        "name": "Параллельная обратная связь",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "impactOnGain",
+        "name": "Влияние ОС на коэффициент усиления",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "impactOnFrequencyResponse",
+        "name": "Влияние ОС на АЧХ и линейные искажения",
+        "complexity": "продвинутый"
+      },
+      {
+        "label": "Термин",
+        "id": "feedback",
+        "name": "Обратная связь (ОС)",
+        "definition": "Возвращение части выходного сигнала на вход усилителя для изменения его характеристик."
+      },
+      {
+        "label": "Термин",
+        "id": "gain",
+        "name": "Коэффициент усиления (КУС)",
+        "definition": "Отношение выходного сигнала к входному в усилителе."
+      },
+      {
+        "label": "Термин",
+        "id": "depthOfFeedback",
+        "name": "Глубина обратной связи (F)",
+        "definition": "Показатель, характеризующий влияние ОС на коэффициент усиления усилителя."
+      },
+      {
+        "label": "Формула",
+        "id": "formulaForSerialFeedback",
+        "name": "Формула для последовательной ОС",
+        "expression": "UБЕ = UВХ + UОС"
+      },
+      {
+        "label": "Формула",
+        "id": "formulaForParallelFeedback",
+        "name": "Формула для параллельной ОС",
+        "expression": "UБЕ = UВХ - UОС"
+      },
+      {
+        "label": "Принцип",
+        "id": "principleOfFeedbackInfluence",
+        "name": "Принцип влияния ОС на усилитель",
+        "description": "ОС изменяет коэффициент усиления и другие параметры усилителя, влияя на его стабильность и характеристики."
+      },
+      {
+        "label": "Компонент",
+        "id": "resistor",
+        "name": "Резистор",
+        "type": "резистор"
+      },
+      {
+        "label": "Пример",
+        "id": "exampleOfFeedbackCircuit",
+        "name": "Пример цепи с ОС",
+        "context": "Цепь ОС, выполненная из 2-3 резисторов, для обеспечения точного коэффициента усиления."
+      }
+    ],
+    "relationships": [
+      "electronicfeedback|ВКЛЮЧАЕТ_РАЗДЕЛ|typesOfFeedback",
+      "electronicfeedback|ВКЛЮЧАЕТ_РАЗДЕЛ|influenceOfFeedback",
+      "typesOfFeedback|РАССМАТРИВАЕТ_ТЕМУ|serialFeedback",
+      "typesOfFeedback|РАССМАТРИВАЕТ_ТЕМУ|parallelFeedback",
+      "influenceOfFeedback|РАССМАТРИВАЕТ_ТЕМУ|impactOnGain",
+      "influenceOfFeedback|РАССМАТРИВАЕТ_ТЕМУ|impactOnFrequencyResponse",
+      "serialFeedback|СОДЕРЖИТ_ТЕРМИН|feedback",
+      "parallelFeedback|СОДЕРЖИТ_ТЕРМИН|feedback",
+      "impactOnGain|СОДЕРЖИТ_ТЕРМИН|gain",
+      "impactOnGain|СОДЕРЖИТ_ТЕРМИН|depthOfFeedback",
+      "serialFeedback|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formulaForSerialFeedback",
+      "parallelFeedback|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formulaForParallelFeedback",
+      "impactOnGain|ОСНОВАНА_НА_ПРИНЦИПЕ|principleOfFeedbackInfluence",
+      "principleOfFeedbackInfluence|ОПИСЫВАЕТ_КОМПОНЕНТ|resistor",
+      "impactOnGain|ПРИМЕНЯЕТ_МЕТОД|exampleOfFeedbackCircuit",
+      "feedback|СВЯЗАН_С|gain",
+      "depthOfFeedback|СВЯЗАН_С|gain"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "electronics",
+        "name": "Электроника",
+        "description": "Курс, посвящённый изучению электронных устройств и схем, включая усилители и обратные связи."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "feedbackSection",
+        "name": "Обратные связи в усилителях",
+        "order": 1
+      },
+      {
+        "label": "Тема",
+        "id": "frequencyDistortions",
+        "name": "Коэффициент частотных искажений",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "amplitudeCharacteristics",
+        "name": "Амплитудные характеристики усилителя",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "concreteAmplifierSchemes",
+        "name": "Конкретные схемы усилителей с ОС",
+        "complexity": "продвинутый"
+      },
+      {
+        "label": "Термин",
+        "id": "positiveFeedback",
+        "name": "Положительная обратная связь (ПОС)",
+        "definition": "Тип обратной связи, при котором сигнал с выхода усилителя возвращается на вход в фазе с входным сигналом."
+      },
+      {
+        "label": "Термин",
+        "id": "negativeFeedback",
+        "name": "Отрицательная обратная связь (ООС)",
+        "definition": "Тип обратной связи, при котором сигнал с выхода усилителя возвращается на вход в противофазе с входным сигналом."
+      },
+      {
+        "label": "Термин",
+        "id": "frequencyDistortionCoefficient",
+        "name": "Коэффициент частотных искажений",
+        "definition": "Параметр, характеризующий степень искажения сигнала из-за частотных характеристик усилителя."
+      },
+      {
+        "label": "Термин",
+        "id": "bandwidth",
+        "name": "Полоса пропускания",
+        "definition": "Диапазон частот, в котором усилитель обеспечивает приемлемый уровень усиления без значительных искажений."
+      },
+      {
+        "label": "Формула",
+        "id": "distortionFormula",
+        "name": "Формула коэффициента частотных искажений",
+        "expression": "M = f(β, K, другие параметры)"
+      },
+      {
+        "label": "Принцип",
+        "id": "feedbackPrinciple",
+        "name": "Принцип работы обратных связей",
+        "description": "Обратная связь влияет на характеристики усилителя, изменяя его коэффициент усиления, полосу пропускания и уровень искажений."
+      },
+      {
+        "label": "Компонент",
+        "id": "resistor",
+        "name": "Резистор RЭ",
+        "type": "резистор"
+      },
+      {
+        "label": "Метод",
+        "id": "analysisMethod",
+        "name": "Метод анализа влияния ОС на усилитель",
+        "application": "Анализ характеристик усилителей с различными типами ОС"
+      },
+      {
+        "label": "Пример",
+        "id": "amplifierWithFeedbackExample",
+        "name": "Усилительный каскад с последовательной ООС",
+        "context": "Схема усилительного каскада, охваченного последовательной отрицательной ОС по постоянному и переменному току."
+      }
+    ],
+    "relationships": [
+      "electronics|ВКЛЮЧАЕТ_РАЗДЕЛ|feedbackSection",
+      "feedbackSection|РАССМАТРИВАЕТ_ТЕМУ|frequencyDistortions",
+      "feedbackSection|РАССМАТРИВАЕТ_ТЕМУ|amplitudeCharacteristics",
+      "feedbackSection|РАССМАТРИВАЕТ_ТЕМУ|concreteAmplifierSchemes",
+      "frequencyDistortions|СОДЕРЖИТ_ТЕРМИН|frequencyDistortionCoefficient",
+      "frequencyDistortions|ИСПОЛЬЗУЕТ_ФОРМУЛУ|distortionFormula",
+      "frequencyDistortions|ОСНОВАНА_НА_ПРИНЦИПЕ|feedbackPrinciple",
+      "amplitudeCharacteristics|СОДЕРЖИТ_ТЕРМИН|positiveFeedback",
+      "amplitudeCharacteristics|СОДЕРЖИТ_ТЕРМИН|negativeFeedback",
+      "amplitudeCharacteristics|СОДЕРЖИТ_ТЕРМИН|bandwidth",
+      "concreteAmplifierSchemes|ПРИМЕНЯЕТ_МЕТОД|analysisMethod",
+      "concreteAmplifierSchemes|ПРОДЕМОНСТРИРОВАНА_НА|amplifierWithFeedbackExample",
+      "analysisMethod|ПРОДЕМОНСТРИРОВАН_НА|amplifierWithFeedbackExample",
+      "feedbackPrinciple|ОПИСЫВАЕТ_КОМПОНЕНТ|resistor",
+      "positiveFeedback|СВЯЗАН_С|negativeFeedback",
+      "frequencyDistortionCoefficient|СВЯЗАН_С|bandwidth",
+      "frequencyDistortions|ТРЕБУЕТ_ЗНАНИЯ|amplitudeCharacteristics"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "electroniccircuitanalysis",
+        "name": "Анализ электронных схем",
+        "description": "Курс посвящён анализу электронных схем, исследованию усилительных каскадов и работе с программой Мультисим."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "sectionNegativeFeedback",
+        "name": "Исследование отрицательных обратных связей в усилительном каскаде",
+        "order": 1
+      },
+      {
+        "label": "Тема",
+        "id": "topicNegativeFeedback",
+        "name": "Отрицательные обратные связи",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "topicAmplitudeFrequencyCharacteristic",
+        "name": "Амплитудно-частотная характеристика усилительного каскада",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "topicAmplitudeCharacteristic",
+        "name": "Амплитудная характеристика усилителя",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "termNegativeFeedback",
+        "name": "Отрицательная обратная связь",
+        "definition": "Механизм стабилизации работы усилителя за счёт подачи части выходного сигнала на вход с противоположным знаком."
+      },
+      {
+        "label": "Термин",
+        "id": "termAmplitudeFrequencyCharacteristic",
+        "name": "Амплитудно-частотная характеристика",
+        "definition": "Зависимость амплитуды выходного сигнала от частоты входного сигнала."
+      },
+      {
+        "label": "Термин",
+        "id": "termAmplitudeCharacteristic",
+        "name": "Амплитудная характеристика",
+        "definition": "Зависимость амплитуды выходного сигнала от амплитуды входного сигнала."
+      },
+      {
+        "label": "Термин",
+        "id": "termBipolarTransistor",
+        "name": "Биполярный транзистор",
+        "definition": "Трёхэлектродный полупроводниковый прибор, используемый для усиления электрических сигналов."
+      },
+      {
+        "label": "Компонент",
+        "id": "componentResistor",
+        "name": "Резистор",
+        "type": "резистор"
+      },
+      {
+        "label": "Компонент",
+        "id": "componentBipolarTransistor",
+        "name": "Биполярный транзистор",
+        "type": "биполярный транзистор"
+      },
+      {
+        "label": "Метод",
+        "id": "methodSimulationInMultisim",
+        "name": "Моделирование в Мультисим",
+        "application": "Исследование электронных схем и усилителей"
+      },
+      {
+        "label": "Пример",
+        "id": "exampleAmplitudeFrequencyCharacteristic",
+        "name": "Построение амплитудно-частотной характеристики",
+        "context": "Лабораторная работа по исследованию усилительного каскада"
+      }
+    ],
+    "relationships": [
+      "electroniccircuitanalysis|ВКЛЮЧАЕТ_РАЗДЕЛ|sectionNegativeFeedback",
+      "sectionNegativeFeedback|РАССМАТРИВАЕТ_ТЕМУ|topicNegativeFeedback",
+      "sectionNegativeFeedback|РАССМАТРИВАЕТ_ТЕМУ|topicAmplitudeFrequencyCharacteristic",
+      "sectionNegativeFeedback|РАССМАТРИВАЕТ_ТЕМУ|topicAmplitudeCharacteristic",
+      "topicNegativeFeedback|СОДЕРЖИТ_ТЕРМИН|termNegativeFeedback",
+      "topicAmplitudeFrequencyCharacteristic|СОДЕРЖИТ_ТЕРМИН|termAmplitudeFrequencyCharacteristic",
+      "topicAmplitudeCharacteristic|СОДЕРЖИТ_ТЕРМИН|termAmplitudeCharacteristic",
+      "topicNegativeFeedback|ОСНОВАНА_НА_ПРИНЦИПЕ|principleFeedbackStabilization",
+      "termNegativeFeedback|ОПРЕДЕЛЯЕТ|componentResistor",
+      "topicAmplitudeFrequencyCharacteristic|ПРИМЕНЯЕТ_МЕТОД|methodSimulationInMultisim",
+      "methodSimulationInMultisim|ПРОДЕМОНСТРИРОВАН_НА|exampleAmplitudeFrequencyCharacteristic",
+      "topicAmplitudeFrequencyCharacteristic|ПРОДЕМОНСТРИРОВАНА_НА|exampleAmplitudeFrequencyCharacteristic",
+      "termBipolarTransistor|ОПРЕДЕЛЯЕТ|componentBipolarTransistor",
+      "termNegativeFeedback|СВЯЗАН_С|termAmplitudeFrequencyCharacteristic",
+      "topicAmplitudeFrequencyCharacteristic|ТРЕБУЕТ_ЗНАНИЯ|topicNegativeFeedback"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "electronicfeedback",
+        "name": "Метод указания. Обратные связи. Мультисим",
+        "description": "Курс посвящён изучению обратных связей в усилительных каскадах и методам их исследования с помощью программы Мультисим."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "sectionMeasurementOfGain",
+        "name": "Определение коэффициента усиления и сопротивлений",
+        "order": 1
+      },
+      {
+        "label": "РазделКурса",
+        "id": "sectionFrequencyResponse",
+        "name": "Снятие и построение АЧХ усилительного каскада",
+        "order": 2
+      },
+      {
+        "label": "Тема",
+        "id": "topicFeedbackTypes",
+        "name": "Типы обратных связей",
+        "complexity": "базовый"
+      },
+      {
+        "label": "Тема",
+        "id": "topicInputResistance",
+        "name": "Определение входного сопротивления",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "topicOutputResistance",
+        "name": "Определение выходного сопротивления",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "topicDepthOfFeedback",
+        "name": "Определение глубины обратной связи",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "topicFrequencyResponse",
+        "name": "Снятие и построение АЧХ",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "termFeedback",
+        "name": "Обратная связь",
+        "definition": "Возвращение части выходного сигнала на вход устройства для изменения его работы."
+      },
+      {
+        "label": "Термин",
+        "id": "termInputResistance",
+        "name": "Входное сопротивление",
+        "definition": "Сопротивление, которое «видит» источник сигнала на входе усилителя."
+      },
+      {
+        "label": "Термин",
+        "id": "termOutputResistance",
+        "name": "Выходное сопротивление",
+        "definition": "Сопротивление, которое «видит» нагрузка на выходе усилителя."
+      },
+      {
+        "label": "Термин",
+        "id": "termFrequencyResponse",
+        "name": "Амплитудно-частотная характеристика (АЧХ)",
+        "definition": "Зависимость амплитуды выходного сигнала от частоты входного сигнала."
+      },
+      {
+        "label": "Формула",
+        "id": "formulaInputResistance",
+        "name": "Формула входного сопротивления",
+        "expression": "ΔU'ВЫХ = UВЫХ – UВЫХ с R0"
+      },
+      {
+        "label": "Формула",
+        "id": "formulaOutputResistance",
+        "name": "Формула выходного сопротивления",
+        "expression": "ΔU\"ВЫХ = UВЫХ Х Х - UВЫХ"
+      },
+      {
+        "label": "Формула",
+        "id": "formulaFeedbackDepth",
+        "name": "Формула глубины обратной связи",
+        "expression": "F = ..."
+      },
+      {
+        "label": "Компонент",
+        "id": "componentResistor",
+        "name": "Резистор",
+        "type": "резистор"
+      },
+      {
+        "label": "Метод",
+        "id": "methodBodePlotter",
+        "name": "Использование плоттера Боде",
+        "application": "Исследование частотных характеристик схем"
+      },
+      {
+        "label": "Пример",
+        "id": "exampleInputResistanceMeasurement",
+        "name": "Измерение входного сопротивления",
+        "context": "Определение входного сопротивления по изменению выходного напряжения при подключении резистора"
+      }
+    ],
+    "relationships": [
+      "electronicfeedback|ВКЛЮЧАЕТ_РАЗДЕЛ|sectionMeasurementOfGain",
+      "electronicfeedback|ВКЛЮЧАЕТ_РАЗДЕЛ|sectionFrequencyResponse",
+      "sectionMeasurementOfGain|РАССМАТРИВАЕТ_ТЕМУ|topicFeedbackTypes",
+      "sectionMeasurementOfGain|РАССМАТРИВАЕТ_ТЕМУ|topicInputResistance",
+      "sectionMeasurementOfGain|РАССМАТРИВАЕТ_ТЕМУ|topicOutputResistance",
+      "sectionMeasurementOfGain|РАССМАТРИВАЕТ_ТЕМУ|topicDepthOfFeedback",
+      "sectionFrequencyResponse|РАССМАТРИВАЕТ_ТЕМУ|topicFrequencyResponse",
+      "topicInputResistance|СОДЕРЖИТ_ТЕРМИН|termInputResistance",
+      "topicOutputResistance|СОДЕРЖИТ_ТЕРМИН|termOutputResistance",
+      "topicFrequencyResponse|СОДЕРЖИТ_ТЕРМИН|termFrequencyResponse",
+      "topicInputResistance|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formulaInputResistance",
+      "topicOutputResistance|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formulaOutputResistance",
+      "topicDepthOfFeedback|ИСПОЛЬЗУЕТ_ФОРМУЛУ|formulaFeedbackDepth",
+      "topicFrequencyResponse|ПРИМЕНЯЕТ_МЕТОД|methodBodePlotter",
+      "methodBodePlotter|ПРОДЕМОНСТРИРОВАН_НА|exampleInputResistanceMeasurement",
+      "topicInputResistance|ПРОДЕМОНСТРИРОВАНА_НА|exampleInputResistanceMeasurement",
+      "termFeedback|СВЯЗАН_С|termInputResistance",
+      "termFeedback|СВЯЗАН_С|termOutputResistance"
+    ]
+  },
+  {
+    "entities": [
+      {
+        "label": "УчебныйКурс",
+        "id": "electroniccircuitanalysis",
+        "name": "Анализ электронных схем",
+        "description": "Курс посвящён анализу работы электронных схем, в том числе усилителей и их характеристик."
+      },
+      {
+        "label": "РазделКурса",
+        "id": "amplifierAnalysis",
+        "name": "Анализ усилителей",
+        "order": 1
+      },
+      {
+        "label": "Тема",
+        "id": "amplitudeCharacteristic",
+        "name": "Амплитудная характеристика усилительного каскада",
+        "complexity": "средний"
+      },
+      {
+        "label": "Тема",
+        "id": "feedbackAnalysis",
+        "name": "Анализ работы с обратными связями",
+        "complexity": "средний"
+      },
+      {
+        "label": "Термин",
+        "id": "amplitudeCharacteristicTerm",
+        "name": "Амплитудная характеристика",
+        "definition": "Зависимость амплитуды выходного сигнала от амплитуды входного сигнала."
+      },
+      {
+        "label": "Термин",
+        "id": "dynamicRange",
+        "name": "Динамический диапазон усиления",
+        "definition": "Диапазон уровней сигнала, в котором усилитель работает без значительных искажений."
+      },
+      {
+        "label": "Термин",
+        "id": "negativeFeedback",
+        "name": "Обратная связь",
+        "definition": "Возвращение части выходного сигнала на вход усилителя для изменения его характеристик."
+      },
+      {
+        "label": "Термин",
+        "id": "bodePlotter",
+        "name": "Плоттер Боде",
+        "definition": "Инструмент для визуализации частотных характеристик усилителя."
+      },
+      {
+        "label": "Компонент",
+        "id": "resistor",
+        "name": "Резистор",
+        "type": "резистор"
+      },
+      {
+        "label": "Метод",
+        "id": "bodePlotterMethod",
+        "name": "Использование плоттера Боде",
+        "application": "Определение граничных частот полосы пропускания"
+      },
+      {
+        "label": "Пример",
+        "id": "amplitudeCharacteristicExample",
+        "name": "Снятие АХ усилительного каскада",
+        "context": "Исследование АХ для трёх случаев: без ООС, с ООС по току и с ООС по напряжению"
+      }
+    ],
+    "relationships": [
+      "electroniccircuitanalysis|ВКЛЮЧАЕТ_РАЗДЕЛ|amplifierAnalysis",
+      "amplifierAnalysis|РАССМАТРИВАЕТ_ТЕМУ|amplitudeCharacteristic",
+      "amplifierAnalysis|РАССМАТРИВАЕТ_ТЕМУ|feedbackAnalysis",
+      "amplitudeCharacteristic|СОДЕРЖИТ_ТЕРМИН|amplitudeCharacteristicTerm",
+      "feedbackAnalysis|СОДЕРЖИТ_ТЕРМИН|negativeFeedback",
+      "amplitudeCharacteristic|ПРИМЕНЯЕТ_МЕТОД|bodePlotterMethod",
+      "bodePlotterMethod|ПРОДЕМОНСТРИРОВАН_НА|amplitudeCharacteristicExample",
+      "amplitudeCharacteristic|ПРОДЕМОНСТРИРОВАНА_НА|amplitudeCharacteristicExample",
+      "negativeFeedback|СВЯЗАН_С|amplitudeCharacteristicTerm",
+      "amplitudeCharacteristic|ТРЕБУЕТ_ЗНАНИЯ|dynamicRange",
+      "amplitudeCharacteristic|СОДЕРЖИТ_ТЕРМИН|dynamicRange",
+      "amplitudeCharacteristic|СОДЕРЖИТ_ТЕРМИН|bodePlotter",
+      "feedbackAnalysis|СОДЕРЖИТ_ТЕРМИН|bodePlotter"
+    ]
+  }
+]
