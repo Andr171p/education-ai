@@ -9,7 +9,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from .base import Base
 
 
-class AttachmentModel(Base):
+class Attachment(Base):
     __tablename__ = "attachments"
 
     original_filename: Mapped[str]
@@ -19,7 +19,7 @@ class AttachmentModel(Base):
     uploaded_at: Mapped[datetime] = mapped_column(DateTime(timezone=True))
 
 
-class CourseModel(Base):
+class Course(Base):
     __tablename__ = "courses"
 
     title: Mapped[str]
@@ -27,10 +27,10 @@ class CourseModel(Base):
     discipline: Mapped[str]
     creator_id: Mapped[int] = mapped_column(BigInteger)
 
-    modules: Mapped[list["ModuleModel"]] = relationship(back_populates="course")
+    modules: Mapped[list["Module"]] = relationship(back_populates="course")
 
 
-class ModuleModel(Base):
+class Module(Base):
     __tablename__ = "modules"
 
     course_id: Mapped[UUID] = mapped_column(ForeignKey("courses.id"), unique=False)
@@ -40,11 +40,11 @@ class ModuleModel(Base):
     content_blocks: Mapped[dict[str, Any]] = mapped_column(JSON)
     dependencies: Mapped[list[UUID]] = mapped_column(JSON)
 
-    course: Mapped["CourseModel"] = relationship(back_populates="modules")
-    assessments: Mapped[list["AssessmentModel"]] = relationship(back_populates="module")
+    course: Mapped["Course"] = relationship(back_populates="modules")
+    assessments: Mapped[list["Assessment"]] = relationship(back_populates="module")
 
 
-class AssessmentModel(Base):
+class Assessment(Base):
     __tablename__ = "assessments"
 
     module_id: Mapped[UUID] = mapped_column(ForeignKey("modules.id"), unique=False)
@@ -53,4 +53,4 @@ class AssessmentModel(Base):
     description: Mapped[str] = mapped_column(Text)
     verification_rules: Mapped[dict[str, Any]] = mapped_column(JSON)
 
-    module: Mapped["ModuleModel"] = relationship(back_populates="assessments")
+    module: Mapped["Module"] = relationship(back_populates="assessments")

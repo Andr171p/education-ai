@@ -8,8 +8,11 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 TIMEZONE = pytz.timezone("Europe/Moscow")
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROMPTS_DIR = PROJECT_ROOT / "prompts"
 MEDIA_DIR = PROJECT_ROOT / ".media"
 MEDIA_DIR.mkdir(exist_ok=True)
+QDRANT_PATH = PROJECT_ROOT / ".tmp" / "langchain_qdrant"
+QDRANT_PATH.mkdir(parents=True, exist_ok=True)
 BASE_DIR = PROJECT_ROOT.parent
 ENV_PATH = BASE_DIR / ".env"
 
@@ -57,8 +60,17 @@ class YandexCloudSettings(BaseSettings):
         return f"gpt://{self.folder_id}/gemma-3-27b-it/latest"
 
     @property
-    def yandexgpt_rc(self) -> str:
-        return f"gpt://{self.folder_id}/yandexgpt/rc"
+    def aliceai_llm(self) -> str:
+        return f"gpt://{self.folder_id}/aliceai-llm"
+
+    @property
+    def qwen3_235b(self) -> str:
+        return f"gpt://{self.folder_id}/qwen3-235b-a22b-fp8/latest"
+
+
+class RAGSettings(BaseSettings):
+    chunk_size: int = 1000
+    chunk_overlap: int = 50
 
 
 class Settings(BaseSettings):
@@ -67,6 +79,7 @@ class Settings(BaseSettings):
     sqlite: SQLiteSettings = SQLiteSettings()
     openai: OpenAISettings = OpenAISettings()
     yandexcloud: YandexCloudSettings = YandexCloudSettings()
+    rag: RAGSettings = RAGSettings()
 
 
 settings: Final[Settings] = Settings()

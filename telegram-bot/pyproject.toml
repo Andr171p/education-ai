@@ -9,8 +9,12 @@ dependencies = [
     "aiosqlite>=0.22.1",
     "alembic>=1.17.2",
     "fastapi[all]>=0.127.1",
+    "fastmcp>=2.14.2",
     "langchain>=1.2.0",
+    "langchain-huggingface>=1.2.0",
     "langchain-openai>=1.1.6",
+    "langchain-qdrant>=1.1.0",
+    "langchain-text-splitters>=1.1.0",
     "langgraph>=1.0.5",
     "markitdown[all]>=0.1.4",
     "mypy>=1.19.1",
@@ -18,7 +22,9 @@ dependencies = [
     "python-magic-bin>=0.4.14",
     "pytz>=2025.2",
     "ruff>=0.14.10",
+    "sentence-transformers>=5.2.0",
     "sqlalchemy>=2.0.45",
+    "tavily-python>=0.7.17",
 ]
 
 [tool.ruff]

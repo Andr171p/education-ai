@@ -1,14 +1,20 @@
 from __future__ import annotations
 
-from typing import Any
+from typing import Any, Literal
 
 from datetime import datetime
 from uuid import UUID, uuid4
 
-from pydantic import BaseModel, Field, NonNegativeInt, PositiveInt
+from pydantic import BaseModel, ConfigDict, Field, HttpUrl, NonNegativeInt, PositiveInt
 
 from ..utils import current_datetime
 from .enums import AssessmentType, BlockType
+
+
+class User(BaseModel):
+    id: PositiveInt
+    username: str
+    role: Literal["teacher", "student"]
 
 
 class File(BaseModel):
@@ -20,6 +26,8 @@ class File(BaseModel):
 
 
 class Attachment(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     id: UUID = Field(default_factory=uuid4)
     original_filename: str
     filepath: str
@@ -92,3 +100,49 @@ class Assessment(BaseModel):
             {"min_words": 500, "max_words": 1000},  # Для эссе
         ],
     )
+
+
+class TeacherInputs(BaseModel):
+    """Входные данные от преподавателя для создания курса"""
+
+    user_id: PositiveInt
+    discipline: str
+    comment: str
+    attachments: list[UUID]
+    external_links: list[HttpUrl] = Field(default_factory=list)
+
+    def to_prompt(self) -> str:
+        return f"""**User-ID:** {self.user_id}
+
+        На основе предоставленных материалов создай образовательный курс
+        по дисциплине {self.discipline}.
+
+        **Комментарий преподавателя:**
+        {self.comment}
+
+        **ID прикреплённых файлов:**
+        {'; '.join([str(attachment) for attachment in self.attachments])}
+
+        **Прикреплённые ссылки:**
+        {'; '.join([str(external_link) for external_link in self.external_links])}
+
+        Основные требования:
+         1. Учитывай прикреплённые материалы:
+            - Используй контент из загруженных файлов как основу
+            - Интегрируй примеры и задания из материалов преподавателя
+            - Сохраняй терминологию и подходы преподавателя
+        2. Структура курса:
+            - Определи логичную последовательность модулей
+            - Сбалансируй теорию и практику
+            - Включи проверочные задания после каждой темы
+        3. Формат материалов:
+            - Используй разнообразные форматы (текст, видео, интерактив)
+            - Добавь реальные примеры и кейсы
+            - Включи ссылки на дополнительные ресурсы при необходимости
+        4. Адаптация:
+            - Учитывайте комментарии преподавателя
+            - Подберите соответствующий уровень сложности
+            - Предложите дифференцированные задания для разного уровня подготовки
+
+        ВАЖНО: Максимально используй материалы преподавателя, если их достаточно.
+        """

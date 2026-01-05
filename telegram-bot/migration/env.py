@@ -9,7 +9,7 @@ from alembic import context
 
 from src.settings import settings
 from src.database.base import Base
-from src.database.models import CourseModel, ModuleModel, AttachmentModel, AssessmentModel
+from src.database.models import Course, Module, Attachment, Assessment
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
