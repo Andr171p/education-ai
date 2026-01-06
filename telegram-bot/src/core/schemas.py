@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Literal
+from typing import Any
 
 from datetime import datetime
 from uuid import UUID, uuid4
@@ -8,13 +8,13 @@ from uuid import UUID, uuid4
 from pydantic import BaseModel, ConfigDict, Field, HttpUrl, NonNegativeInt, PositiveInt
 
 from ..utils import current_datetime
-from .enums import AssessmentType, BlockType
+from .enums import AssessmentType, BlockType, UserRole
 
 
 class User(BaseModel):
     id: PositiveInt
     username: str
-    role: Literal["teacher", "student"]
+    role: UserRole
 
 
 class File(BaseModel):
