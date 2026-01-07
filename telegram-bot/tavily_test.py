@@ -1,13 +1,10 @@
-# To install: pip install tavily-python
-from tavily import TavilyClient
+import asyncio
+
+from src.intergrations import yandex_search_api
 
 
-client = TavilyClient("...")
-'''response = client.search(
-    query="Что такое таксономия блума?"
-)'''
-response = client.crawl(
-    url="https://skillbox.ru/media/education/taksonomiya-bluma-chto-eto-takoe-i-zachem-ona-pedagogam-i-metodistam/",
-    extract_depth="advanced"
-)
-print(response)
+async def main() -> None:
+  print(await yandex_search_api.search_async("Что такое таксономия блума?"))
+
+
+asyncio.run(main())
