@@ -5,7 +5,7 @@ import logging
 import aiohttp
 from langchain.agents import create_agent
 from langchain.agents.middleware import ModelRequest, dynamic_prompt
-from langchain_core.output_parsers import PydanticOutputParser
+from langchain_core.output_parsers import PydanticOutputParser, StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnableSerializable
 from langchain_core.tools import tool
@@ -16,7 +16,6 @@ from ..intergrations import yandex_search_api
 from ..services import crawler
 from ..settings import PROMPTS_DIR, settings
 from .course_structure_planner import ModulePlan
-from .mermaid_artist import agent as mermaid_artist_agent
 
 logger = logging.getLogger(__name__)
 
@@ -77,7 +76,41 @@ async def draw_mermaid_diagram(prompt: str) -> str:
         Код Mermaid диаграммы.
     """
 
-    return await mermaid_artist_agent.ainvoke({"messages": [("human", prompt)]})
+    model = ChatOpenAI(
+        api_key=settings.yandexcloud.apikey,
+        model=settings.yandexcloud.aliceai_llm,
+        base_url=settings.yandexcloud.base_url,
+        temperature=0.3,
+        max_retries=3
+    )
+    system_prompt = (PROMPTS_DIR / "mermaid_artist.md").read_text(encoding="utf-8")
+    chain = (
+            ChatPromptTemplate.from_messages([("system", system_prompt)])
+            | model
+            | StrOutputParser()
+    )
+    return await chain.ainvoke({"messages": [("human", prompt)]})
+
+
+@tool
+async def write_program_code(programming_language: str, prompt: str) -> str:
+    """Инструмент для написания программного кода.
+
+    Attributes:
+        programming_language: Язык программирования, на котором нужно написать код.
+        prompt: Запрос для написания кода.
+    """
+
+    model = ChatOpenAI(
+        api_key=settings.yandexcloud.apikey,
+        model=settings.yandexcloud.qwen3_235b,
+        base_url=settings.yandexcloud.base_url,
+        temperature=0.2,
+        max_retries=3,
+    )
+    system_prompt = (PROMPTS_DIR / "program_code_writer.md").read_text(encoding="utf-8")
+    chain = ChatPromptTemplate.from_template(system_prompt) | model | StrOutputParser()
+    return await chain.ainvoke({"language": programming_language, "prompt": prompt})
 
 
 class ModuleContext(TypedDict):
