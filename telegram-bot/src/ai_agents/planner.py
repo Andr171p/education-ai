@@ -47,16 +47,18 @@ def finalize() -> ...: ...
 
 
 @dynamic_prompt
-def system_prompt_with_teacher_inputs(request: ModelRequest) -> str:
+def inject_teacher_inputs_in_system_prompt(request: ModelRequest) -> str:
     prompt = (PROMPTS_DIR / "planner.md").read_text(encoding="utf-8")
     teacher_inputs = request.runtime.context.get("teacher_inputs")
+    if teacher_inputs is None:
+        raise ValueError("Teacher inputs missing in context!")
     return prompt.format(teacher_prompt=teacher_inputs.to_prompt())
 
 
 agent = create_agent(
     model=model,
     tools=[attached_materials_search],
-    middleware=[system_prompt_with_teacher_inputs],
+    middleware=[inject_teacher_inputs_in_system_prompt],
     state_schema=PlannerState,
     context_schema=PlannerContext,
     checkpointer=InMemorySaver(),
