@@ -20,9 +20,9 @@ logger = logging.getLogger(__name__)
 
 llm = ChatOpenAI(
     api_key=settings.yandexcloud.apikey,
-    model=settings.yandexcloud.aliceai_llm,
+    model=settings.yandexcloud.qwen3_235b,
     base_url=settings.yandexcloud.base_url,
-    temperature=0,
+    temperature=0.3,
     max_retries=3
 )
 
@@ -87,16 +87,18 @@ class ModulePlan(BaseModel):
     )
     content_blocks_strategy: dict[enums.BlockType, str] = Field(
         ...,
-        description="""Список-план по каждому из контент блоков внутри модуля,
-        подробно опиши содержание каждого из блоков
+        description=f"""Список-план по каждому из контент блоков внутри модуля,
+        подробно опиши содержание каждого из блоков, возможные типы контента:
+        {", ".join(list(enums.BlockType))}
         (минимум 2 в каждом модуле, оптимальное количество 3-4)
         """
     )
     assessments_strategy: dict[enums.AssessmentType, str] = Field(
         ...,
         min_length=1, max_length=5,
-        description="""Список-план по каждому из ассессментов внутри модуля,
-        подробно опиши что должен включать себя каждый из ассессментов
+        description=f"""Список-план по каждому из ассессментов внутри модуля,
+        подробно опиши что должен включать себя каждый из ассессментов,
+        возможные типы ассессмента: {", ".join(list(enums.AssessmentType))}
         (обязательно включи минимум 1 ассессмент в каждый модуле)
         """
     )
@@ -116,9 +118,7 @@ async def plan_course_structure(teacher_inputs: schemas.TeacherInputs) -> Course
     parser = PydanticOutputParser(pydantic_object=CourseStructurePlan)
     prompt = ChatPromptTemplate.from_messages([
         ("system", SYSTEM_PROMPT),
-        ("human", "{teacher_prompt}"),
         *attachments_messages,
-        ("human", "Выведи только следующую информацию в формате JSON: {format_instructions}")
     ]).partial(format_instructions=parser.get_format_instructions())
     logger.info("Planning course structure for discipline %s", teacher_inputs.discipline)
     chain: RunnableSerializable[dict[str, str], CourseStructurePlan] = prompt | llm | parser

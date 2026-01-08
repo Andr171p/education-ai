@@ -8,7 +8,7 @@ from uuid import UUID, uuid4
 from pydantic import BaseModel, ConfigDict, Field, HttpUrl, NonNegativeInt, PositiveInt
 
 from ..utils import current_datetime
-from .enums import AssessmentType, BlockType, UserRole
+from .enums import AssessmentType, BlockType, DifficultyLevel, TaskStatus, UserRole
 
 
 class User(BaseModel):
@@ -34,6 +34,17 @@ class Attachment(BaseModel):
     mime_type: str
     size: PositiveInt
     uploaded_at: datetime = Field(default_factory=current_datetime)
+
+
+class Task(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: UUID = Field(default_factory=uuid4)
+    created_at: datetime = Field(default_factory=current_datetime)
+    updated_at: datetime = Field(default_factory=current_datetime)
+    finished_at: datetime | None = None
+    status: TaskStatus
+    resource_id: UUID
 
 
 class Course(BaseModel):
@@ -118,43 +129,37 @@ class TeacherInputs(BaseModel):
     """Входные данные от преподавателя для создания курса"""
 
     user_id: PositiveInt
-    discipline: str
-    comment: str
+    discipline: str = Field(
+        ...,
+        description="Название дисциплины курса",
+        examples=["Базы данных", "Информационная безопасность", "История России"],
+    )
+    target_audience: str = Field(
+        ...,
+        description="Для кого предназначен курс (образование, опыт, навыки)",
+        examples=[
+            "Студенты 2-3 курсов технических специальностей с базовым знанием Python",
+            "Начинающие дизайнеры, знакомые с основами композиции",
+            "Менеджеры проектов с опытом работы от 1 года",
+        ]
+    )
+    difficulty_level: DifficultyLevel
+    estimated_duration_hours: PositiveInt | None = Field(
+        default=None, ge=1, le=200, description="Ориентировочное количество академических-часов"
+    )
     attachments: list[UUID]
     external_links: list[HttpUrl] = Field(default_factory=list)
+    comment: str | None = Field(
+        default=None, description="Дополнительный комментарий от преподавателя"
+    )
 
     def to_prompt(self) -> str:
-        return f"""**User-ID:** {self.user_id}
-
-        На основе предоставленных материалов создай образовательный курс
-        по дисциплине {self.discipline}.
-
-        **Комментарий преподавателя:**
-        {self.comment}
-
-        **ID прикреплённых файлов:**
-        {'; '.join([str(attachment) for attachment in self.attachments])}
-
-        **Прикреплённые ссылки:**
-        {'; '.join([str(external_link) for external_link in self.external_links])}
-
-        Основные требования:
-         1. Учитывай прикреплённые материалы:
-            - Используй контент из загруженных файлов как основу
-            - Интегрируй примеры и задания из материалов преподавателя
-            - Сохраняй терминологию и подходы преподавателя
-        2. Структура курса:
-            - Определи логичную последовательность модулей
-            - Сбалансируй теорию и практику
-            - Включи проверочные задания после каждой темы
-        3. Формат материалов:
-            - Используй разнообразные форматы (текст, видео, интерактив)
-            - Добавь реальные примеры и кейсы
-            - Включи ссылки на дополнительные ресурсы при необходимости
-        4. Адаптация:
-            - Учитывайте комментарии преподавателя
-            - Подберите соответствующий уровень сложности
-            - Предложите дифференцированные задания для разного уровня подготовки
-
-        ВАЖНО: Максимально используй материалы преподавателя, если их достаточно.
+        return f"""**Дисциплина курса:** `{self.discipline}`.
+        **Целевая аудитория:** {self.target_audience}.
+        **Уровень сложности:** {self.difficulty_level.value}.
+        **Ориентировочная продолжительность курса:** {self.estimated_duration_hours} часов.
+        **Внешние ссылки и ресурсы:** {
+            "; ".join(str(external_link) for external_link in self.external_links)
+        }.
+        **Комментарий преподавателя:** {self.comment}
         """

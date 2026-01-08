@@ -7,6 +7,13 @@ class UserRole(StrEnum):
     STUDENT = "student"
 
 
+class TaskStatus(StrEnum):
+    PENDING = "pending"
+    RUNNING = "running"
+    COMPLETED = "completed"
+    FAILED = "failed"
+
+
 class BlockType(StrEnum):
     TEXT = "text"
     VIDEO = "video"
@@ -22,3 +29,10 @@ class AssessmentType(StrEnum):
     PROJECT = "project"
     CODE = "code"
     ESSAY = "essay"
+
+
+class DifficultyLevel(StrEnum):
+    BEGINNER = "beginner"
+    INTERMEDIATE = "intermediate"
+    ADVANCED = "advanced"
+    EXPERT = "expert"
