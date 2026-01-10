@@ -110,7 +110,7 @@ async def write_code(language: str, prompt: str) -> str:
         max_tokens=3000,
         max_retries=3,
     )
-    system_prompt = (PROMPTS_DIR / "program_code_writer.md").read_text(encoding="utf-8")
+    system_prompt = (PROMPTS_DIR / "code_writer.md").read_text(encoding="utf-8")
     chain = ChatPromptTemplate.from_template(system_prompt) | model | StrOutputParser()
     return await chain.ainvoke({"language": language, "prompt": prompt})
 

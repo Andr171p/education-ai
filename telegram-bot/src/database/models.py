@@ -9,6 +9,14 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from .base import Base
 
 
+class Task(Base):
+    __tablename__ = "tasks"
+
+    finished_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    status: Mapped[str]
+    resource_id: Mapped[UUID]
+
+
 class Attachment(Base):
     __tablename__ = "attachments"
 

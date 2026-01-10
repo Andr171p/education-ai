@@ -42,6 +42,23 @@ class SQLiteSettings(BaseSettings):
         return f"sqlite+{self.driver}:///{self.path}"
 
 
+class ElasticsearchSettings(BaseSettings):
+    model_config = SettingsConfigDict(env_prefix="ELASTICSEARCH_")
+
+    username: str = ""
+    password: str = ""
+    host: str = "localhost"
+    port: int = 9200
+
+    @property
+    def auth(self) -> tuple[str, str]:
+        return self.username, self.password
+
+    @property
+    def url(self) -> str:
+        return f"http://{self.host}:{self.port}"
+
+
 class OpenAISettings(BaseSettings):
     model_config = SettingsConfigDict(env_prefix="OPENAI_")
 
@@ -77,6 +94,7 @@ class Settings(BaseSettings):
     bot: BotSettings = BotSettings()
     ngrok: NgrokSettings = NgrokSettings()
     sqlite: SQLiteSettings = SQLiteSettings()
+    elasticsearch: ElasticsearchSettings = ElasticsearchSettings()
     openai: OpenAISettings = OpenAISettings()
     yandexcloud: YandexCloudSettings = YandexCloudSettings()
     rag: RAGSettings = RAGSettings()
