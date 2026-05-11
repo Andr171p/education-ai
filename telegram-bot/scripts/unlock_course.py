@@ -23,10 +23,14 @@ async def main() -> None:
         group = await student_repo.get_student_group(student_id)
         course = await course_repo.read(group.course_id)
         progress = await student_repo.get_learning_progress(student_id)
+        last_module_id = course.modules[-1].id
         for module in course.modules:
             progress.switch_to_next_module(module.id)
-            progress.increment_test_score(80)
-            progress.increment_assignment_score(1)
+            if module.id == last_module_id:
+                progress.increment_test_score(30)
+            else:
+                progress.increment_test_score(80)
+                progress.increment_assignment_score(1)
         await student_repo.refresh_learning_progress(progress)
     logger.info("Course open successfully for teacher")
 
