@@ -258,7 +258,7 @@ class DetailedAnswerQuestion(BaseModel):
 class MultipleChoiceQuestion(BaseModel):
     """Вопрос с выбором вариантов ответа"""
 
-    text: str = Field(description="Сформулированный вопрос")
+    text: str = Field(max_length=600, description="Сформулированный вопрос")
     options: list[str] = Field(..., min_length=2, description="Варианты ответа")
     correct_answer: NonNegativeInt = Field(description="Индекс правильного ответа")
     points: PositiveInt = Field(
