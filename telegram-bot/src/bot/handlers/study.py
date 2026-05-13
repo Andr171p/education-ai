@@ -147,10 +147,22 @@ async def generate_knowledge_test(
 ) -> None:
     """Фоновая задача для генерации тестирования"""
 
+    from ...core.entities.course import MultipleChoiceQuestion, MultipleChoiceTest
+
     storage_key = StorageKey(bot_id=bot.id, chat_id=user_id, user_id=user_id)
     state = FSMContext(storage=storage, key=storage_key)
     async with ChatActionSender.typing(chat_id=user_id, bot=bot):
-        knowledge_test = await call_knowledge_tester(test_type, module)
+        # knowledge_test = await call_knowledge_tester(test_type, module)
+        knowledge_test = MultipleChoiceTest(
+            title="Пропуск теста",
+            estimated_time_minutes=1,
+            questions=[MultipleChoiceQuestion(
+                text="Для пропуска теста выберите 1",
+                options=["Пропустить", "..."],
+                correct_answer=0,
+                points=1,
+            )],
+        )
         await state.update_data(knowledge_test=knowledge_test)
         await bot.send_message(
             chat_id=user_id,
