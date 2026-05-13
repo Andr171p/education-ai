@@ -127,12 +127,19 @@ class StartTestCbData(CallbackData, prefix="start_test"):
     action: Literal["start", "cancel"] = "start"
 
 
+class SkipTestCbData(CallbackData, prefix="skip_test"):
+    action: str
+
+
 def get_start_test_kb() -> InlineKeyboardMarkup:
     """Клавиатура для начала тестирования"""
 
     builder = InlineKeyboardBuilder()
     builder.button(text="🏁 Начать тестирование", callback_data=StartTestCbData().pack())
     builder.button(text="❌ Отмена", callback_data=StartTestCbData(action="cancel").pack())
+    builder.button(
+        text="⏩ Пропустить тест", callback_data=SkipTestCbData(action="skip").pack()
+    )
     return builder.as_markup()
 
 

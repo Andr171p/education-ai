@@ -283,7 +283,7 @@ class MultipleChoiceTest(KnowledgeTest):
     test_type: TestType = TestType.MULTIPLE_CHOICE
     questions: list[MultipleChoiceQuestion] = Field(
         ...,
-        min_length=1,  # Поставить потом 10 (min 1 для пропуска теста из за баша ТГ)
+        min_length=10,
         max_length=30,
         description="Вопросы с выбором варианта ответа"
     )

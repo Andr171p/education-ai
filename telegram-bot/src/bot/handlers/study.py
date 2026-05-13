@@ -30,6 +30,7 @@ from ..keyboards import (
     ModuleCbData,
     ModuleStudyCbData,
     OptionChoiceCbData,
+    SkipTestCbData,
     StartTestCbData,
     TaskCbData,
     get_finish_task_kb,
@@ -147,22 +148,10 @@ async def generate_knowledge_test(
 ) -> None:
     """Фоновая задача для генерации тестирования"""
 
-    from ...core.entities.course import MultipleChoiceQuestion, MultipleChoiceTest
-
     storage_key = StorageKey(bot_id=bot.id, chat_id=user_id, user_id=user_id)
     state = FSMContext(storage=storage, key=storage_key)
     async with ChatActionSender.typing(chat_id=user_id, bot=bot):
-        # knowledge_test = await call_knowledge_tester(test_type, module)
-        knowledge_test = MultipleChoiceTest(
-            title="Пропуск теста",
-            estimated_time_minutes=1,
-            questions=[MultipleChoiceQuestion(
-                text="Для пропуска теста выберите 1",
-                options=["Пропустить", "..."],
-                correct_answer=0,
-                points=1,
-            )],
-        )
+        knowledge_test = await call_knowledge_tester(test_type, module)
         await state.update_data(knowledge_test=knowledge_test)
         await bot.send_message(
             chat_id=user_id,
@@ -236,6 +225,37 @@ async def cb_start_test(query: CallbackQuery, state: FSMContext) -> None:
         )
     await state.update_data(question_index=question_index, given_answers=[])
     await state.set_state(TestPassingForm.waiting_for_answer)
+
+
+@router.callback_query(SkipTestCbData.filter(F.action == "skip"))
+async def cb_skip_test(query: CallbackQuery, bot: Bot, state: FSMContext) -> None:
+    await query.answer()
+    data = await state.get_data()
+    knowledge_test = data.get("knowledge_test")
+    if knowledge_test is None:
+        await query.message.answer(SESSION_EXPIRED_TEXT)
+        return
+
+    # Формируем фейковый результат — тест считается пройденным идеально
+    total_questions = len(knowledge_test.questions)
+    max_points = sum(q.points for q in knowledge_test.questions)
+    result = TestResult(
+        score=100.0,
+        correct_answers_count=total_questions,
+        is_passed=True,
+    )
+
+    # Сохраняем результат (асинхронно)
+    await save_test_result(student_id=query.from_user.id, result=result)
+
+    # Показываем сообщение об успехе
+    await show_test_result_message(query.message, result)
+
+    # Убираем клавиатуру, чистим состояние
+    await query.message.edit_reply_markup(reply_markup=None)
+    await state.clear()
+    await asyncio.sleep(1.2)
+    await query.message.answer("Нажмите /study, чтобы вернуться к изучению курса")
 
 
 async def show_test_result_message(message: Message, result: TestResult) -> None:
